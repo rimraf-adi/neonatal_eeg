@@ -1,0 +1,8 @@
+numpy
+pandas
+mne
+scipy
+PyWavelets
+antropy
+psutil
+openpyxl
