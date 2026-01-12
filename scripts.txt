@@ -1,0 +1,2 @@
+rsync -avP --progress -e "ssh -p 34223" /Users/adityakinjawadekar/Documents/eeg/rcnn/ root@ssh4.vast.ai:/workspace/ 
+ssh -p 34223 root@ssh4.vast.ai -L 8080:localhost:8080
