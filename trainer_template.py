@@ -72,9 +72,9 @@ test_df[features] = imputer.transform(test_df[features])
 X_train = train_df[features].astype('float32').values
 X_test = test_df[features].astype('float32').values
 
-label_encoder = LabelEncoder()
-y_train = label_encoder.fit_transform(train_df['label'])
-y_test = label_encoder.transform(test_df['label'])
+# label_encoder = LabelEncoder()
+# y_train = label_encoder.fit_transform(train_df['label'])
+# y_test = label_encoder.transform(test_df['label'])
 
 
 scaler = StandardScaler()

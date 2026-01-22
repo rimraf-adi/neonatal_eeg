@@ -12,3 +12,4 @@ wheels/
 /data
 /freq_features
 /stft_features
+/emd

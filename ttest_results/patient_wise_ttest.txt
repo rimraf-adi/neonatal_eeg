@@ -1,0 +1,828 @@
+=== patient_001 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	10.729345	7.61e-27	26.12
+delta_intercept	-10.498283	9.02e-26	25.05
+delta_midband	-9.418264	4.66e-21	20.33
+theta_slope	6.878793	6.06e-12	11.22
+theta_intercept	-9.041847	1.56e-19	18.81
+theta_midband	-9.940624	2.83e-23	22.55
+alpha_slope	4.720418	2.36e-06	5.63
+alpha_intercept	-6.754520	1.44e-11	10.84
+alpha_midband	-7.675563	1.66e-14	13.78
+beta_slope	6.349345	2.17e-10	9.66
+beta_intercept	-5.551478	2.84e-08	7.55
+beta_midband	-4.065537	4.80e-05	4.32
+gamma_slope	7.708154	1.29e-14	13.89
+gamma_intercept	-7.759425	8.60e-15	14.07
+gamma_midband	-7.688430	1.50e-14	13.82
+
+=== patient_004 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-22.081098	1.26e-107	106.90
+delta_intercept	27.026595	6.20e-160	159.21
+delta_midband	29.790974	1.22e-193	192.91
+theta_slope	-21.215135	1.57e-99	98.80
+theta_intercept	27.652519	2.75e-167	166.56
+theta_midband	31.445649	2.45e-215	214.61
+alpha_slope	-18.724833	5.12e-78	77.29
+alpha_intercept	21.678346	8.04e-104	103.09
+alpha_midband	18.400841	2.06e-75	74.69
+beta_slope	-4.899202	9.65e-07	6.02
+beta_intercept	-0.574965	5.65e-01	0.25
+beta_midband	-6.711239	1.95e-11	10.71
+gamma_slope	6.915187	4.72e-12	11.33
+gamma_intercept	-11.462997	2.17e-30	29.66
+gamma_midband	-17.099092	2.13e-65	64.67
+
+=== patient_005 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-1.174383	2.40e-01	0.62
+delta_intercept	5.509718	3.61e-08	7.44
+delta_midband	10.047155	9.82e-24	23.01
+theta_slope	-6.984696	2.88e-12	11.54
+theta_intercept	11.805679	3.92e-32	31.41
+theta_midband	17.305125	5.96e-67	66.22
+alpha_slope	-10.916093	1.02e-27	26.99
+alpha_intercept	10.877666	1.55e-27	26.81
+alpha_midband	4.108986	3.98e-05	4.40
+beta_slope	-5.138782	2.77e-07	6.56
+beta_intercept	-19.881923	1.03e-87	86.99
+beta_midband	-40.753797	0.00e+00	inf
+gamma_slope	43.915187	0.00e+00	inf
+gamma_intercept	-48.372924	0.00e+00	inf
+gamma_midband	-50.017606	0.00e+00	inf
+
+=== patient_007 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-20.193950	2.08e-90	89.68
+delta_intercept	19.898675	7.59e-88	87.12
+delta_midband	17.359553	2.36e-67	66.63
+theta_slope	1.258487	2.08e-01	0.68
+theta_intercept	-0.510204	6.10e-01	0.21
+theta_midband	0.745473	4.56e-01	0.34
+alpha_slope	-2.089054	3.67e-02	1.44
+alpha_intercept	2.094229	3.62e-02	1.44
+alpha_midband	1.349102	1.77e-01	0.75
+beta_slope	-5.401314	6.64e-08	7.18
+beta_intercept	5.739693	9.53e-09	8.02
+beta_midband	6.611594	3.83e-11	10.42
+gamma_slope	-4.276727	1.90e-05	4.72
+gamma_intercept	4.021273	5.79e-05	4.24
+gamma_midband	3.280198	1.04e-03	2.98
+
+=== patient_009 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-56.161156	0.00e+00	inf
+delta_intercept	60.793674	0.00e+00	inf
+delta_midband	59.171891	0.00e+00	inf
+theta_slope	-20.720807	4.63e-95	94.33
+theta_intercept	27.052343	2.88e-160	159.54
+theta_midband	32.352438	8.97e-228	227.05
+alpha_slope	-13.274124	3.70e-40	39.43
+alpha_intercept	23.733107	5.67e-124	123.25
+alpha_midband	35.331096	8.12e-271	270.09
+beta_slope	-33.820951	1.54e-248	247.81
+beta_intercept	30.254894	1.17e-199	198.93
+beta_midband	21.286545	3.38e-100	99.47
+gamma_slope	-4.945324	7.62e-07	6.12
+gamma_intercept	5.546423	2.93e-08	7.53
+gamma_midband	7.238834	4.58e-13	12.34
+
+=== patient_011 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	19.145170	1.36e-81	80.87
+delta_intercept	-18.103628	3.64e-73	72.44
+delta_midband	-15.828516	2.22e-56	55.65
+theta_slope	1.821672	6.85e-02	1.16
+theta_intercept	-2.888616	3.87e-03	2.41
+theta_midband	-3.589398	3.32e-04	3.48
+alpha_slope	-1.169430	2.42e-01	0.62
+alpha_intercept	-1.384328	1.66e-01	0.78
+alpha_midband	-3.857416	1.15e-04	3.94
+beta_slope	7.568748	3.79e-14	13.42
+beta_intercept	-12.423748	2.03e-35	34.69
+beta_midband	-13.649459	2.17e-42	41.66
+gamma_slope	10.331005	5.21e-25	24.28
+gamma_intercept	-14.568183	4.87e-48	47.31
+gamma_midband	-15.046435	4.01e-51	50.40
+
+=== patient_013 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-319.778293	0.00e+00	inf
+delta_intercept	331.344597	0.00e+00	inf
+delta_midband	315.334463	0.00e+00	inf
+theta_slope	-110.486231	0.00e+00	inf
+theta_intercept	125.548367	0.00e+00	inf
+theta_midband	120.961142	0.00e+00	inf
+alpha_slope	-56.012302	0.00e+00	inf
+alpha_intercept	63.711451	0.00e+00	inf
+alpha_midband	46.892939	0.00e+00	inf
+beta_slope	-14.590128	3.38e-48	47.47
+beta_intercept	17.377143	1.34e-67	66.87
+beta_midband	18.960648	4.05e-80	79.39
+gamma_slope	-11.695358	1.37e-31	30.86
+gamma_intercept	11.720311	1.02e-31	30.99
+gamma_midband	11.208402	3.76e-29	28.42
+
+=== patient_014 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-94.359072	0.00e+00	inf
+delta_intercept	103.665295	0.00e+00	inf
+delta_midband	104.258141	0.00e+00	inf
+theta_slope	-21.060282	3.83e-98	97.42
+theta_intercept	51.166157	0.00e+00	inf
+theta_midband	75.801760	0.00e+00	inf
+alpha_slope	-28.839775	8.84e-182	181.05
+alpha_intercept	41.525882	0.00e+00	inf
+alpha_midband	62.200193	0.00e+00	inf
+beta_slope	-46.416675	0.00e+00	inf
+beta_intercept	45.297553	0.00e+00	inf
+beta_midband	39.021732	0.00e+00	inf
+gamma_slope	-5.784621	7.30e-09	8.14
+gamma_intercept	2.690174	7.14e-03	2.15
+gamma_midband	-0.662007	5.08e-01	0.29
+
+=== patient_015 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-2.164593	3.04e-02	1.52
+delta_intercept	3.954584	7.67e-05	4.12
+delta_midband	5.710157	1.13e-08	7.95
+theta_slope	-3.633263	2.80e-04	3.55
+theta_intercept	6.373404	1.86e-10	9.73
+theta_midband	11.527093	9.99e-31	30.00
+alpha_slope	-2.416719	1.57e-02	1.81
+alpha_intercept	3.297273	9.77e-04	3.01
+alpha_midband	4.669739	3.02e-06	5.52
+beta_slope	0.456015	6.48e-01	0.19
+beta_intercept	-1.465648	1.43e-01	0.85
+beta_midband	-2.105331	3.53e-02	1.45
+gamma_slope	1.756724	7.90e-02	1.10
+gamma_intercept	-3.938327	8.21e-05	4.09
+gamma_midband	-4.959269	7.09e-07	6.15
+
+=== patient_016 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-9.972388	2.06e-23	22.69
+delta_intercept	8.707986	3.14e-18	17.50
+delta_midband	6.824539	8.87e-12	11.05
+theta_slope	0.772173	4.40e-01	0.36
+theta_intercept	0.121363	9.03e-01	0.04
+theta_midband	1.141677	2.54e-01	0.60
+alpha_slope	-0.941379	3.47e-01	0.46
+alpha_intercept	1.766643	7.73e-02	1.11
+alpha_midband	2.345643	1.90e-02	1.72
+beta_slope	-1.859538	6.30e-02	1.20
+beta_intercept	0.903968	3.66e-01	0.44
+beta_midband	-0.429679	6.67e-01	0.18
+gamma_slope	-0.700041	4.84e-01	0.32
+gamma_intercept	0.273717	7.84e-01	0.11
+gamma_midband	-0.416582	6.77e-01	0.17
+
+=== patient_017 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-10.240451	1.34e-24	23.87
+delta_intercept	12.901411	4.74e-38	37.32
+delta_midband	16.090902	3.50e-58	57.46
+theta_slope	-5.618679	1.93e-08	7.71
+theta_intercept	15.177959	5.67e-52	51.25
+theta_midband	27.309506	1.33e-163	162.88
+alpha_slope	-12.669565	9.31e-37	36.03
+alpha_intercept	18.425183	1.11e-75	74.96
+alpha_midband	19.878306	9.32e-88	87.03
+beta_slope	-10.843431	2.22e-27	26.65
+beta_intercept	2.304903	2.12e-02	1.67
+beta_midband	-6.786065	1.16e-11	10.94
+gamma_slope	10.356523	4.03e-25	24.40
+gamma_intercept	-10.471089	1.21e-25	24.92
+gamma_midband	-10.579191	3.84e-26	25.42
+
+=== patient_019 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-40.149131	0.00e+00	inf
+delta_intercept	46.895206	0.00e+00	inf
+delta_midband	53.123513	0.00e+00	inf
+theta_slope	-36.084841	5.31e-284	283.28
+theta_intercept	50.090336	0.00e+00	inf
+theta_midband	67.055837	0.00e+00	inf
+alpha_slope	-31.484025	6.52e-217	216.19
+alpha_intercept	52.030896	0.00e+00	inf
+alpha_midband	83.121831	0.00e+00	inf
+beta_slope	-14.633360	1.85e-48	47.73
+beta_intercept	58.716461	0.00e+00	inf
+beta_midband	45.181129	0.00e+00	inf
+gamma_slope	-26.791655	8.95e-158	157.05
+gamma_intercept	32.049290	1.14e-224	223.94
+gamma_midband	36.529999	5.71e-291	290.24
+
+=== patient_020 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-20.812667	6.39e-96	95.19
+delta_intercept	17.755010	2.23e-70	69.65
+delta_midband	13.018648	1.06e-38	37.97
+theta_slope	5.244835	1.57e-07	6.80
+theta_intercept	-6.415492	1.41e-10	9.85
+theta_midband	-7.571076	3.75e-14	13.43
+alpha_slope	2.650840	8.03e-03	2.10
+alpha_intercept	-4.888105	1.02e-06	5.99
+alpha_midband	-7.948976	1.91e-15	14.72
+beta_slope	7.742179	9.90e-15	14.00
+beta_intercept	-7.620746	2.55e-14	13.59
+beta_midband	-7.045428	1.87e-12	11.73
+gamma_slope	-6.567168	5.16e-11	10.29
+gamma_intercept	8.757726	2.03e-18	17.69
+gamma_midband	9.820666	9.48e-23	22.02
+
+=== patient_021 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-2.469364	1.35e-02	1.87
+delta_intercept	3.989190	6.63e-05	4.18
+delta_midband	5.926931	3.10e-09	8.51
+theta_slope	0.528630	5.97e-01	0.22
+theta_intercept	3.955563	7.64e-05	4.12
+theta_midband	11.322085	1.06e-29	28.97
+alpha_slope	-1.784065	7.44e-02	1.13
+alpha_intercept	4.242515	2.21e-05	4.66
+alpha_midband	8.790090	1.52e-18	17.82
+beta_slope	-5.963134	2.48e-09	8.61
+beta_intercept	2.330659	1.98e-02	1.70
+beta_midband	-3.426797	6.11e-04	3.21
+gamma_slope	3.531612	4.13e-04	3.38
+gamma_intercept	-4.341174	1.42e-05	4.85
+gamma_midband	-4.997776	5.81e-07	6.24
+
+=== patient_022 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	19.100718	4.03e-81	80.39
+delta_intercept	-20.116382	9.59e-90	89.02
+delta_midband	-20.391143	3.74e-92	91.43
+theta_slope	11.563286	6.75e-31	30.17
+theta_intercept	-12.153245	5.97e-34	33.22
+theta_midband	-10.710834	9.50e-27	26.02
+alpha_slope	4.944583	7.65e-07	6.12
+alpha_intercept	-5.215689	1.84e-07	6.74
+alpha_midband	-2.166726	3.03e-02	1.52
+beta_slope	-2.651902	8.01e-03	2.10
+beta_intercept	-0.106977	9.15e-01	0.04
+beta_midband	-2.958054	3.10e-03	2.51
+gamma_slope	3.383842	7.15e-04	3.15
+gamma_intercept	-3.497009	4.71e-04	3.33
+gamma_midband	-2.961350	3.06e-03	2.51
+
+=== patient_023 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	9.826649	8.91e-23	22.05
+delta_intercept	-10.581210	3.79e-26	25.42
+delta_midband	-10.405590	2.43e-25	24.61
+theta_slope	0.627631	5.30e-01	0.28
+theta_intercept	-1.921899	5.46e-02	1.26
+theta_midband	-3.902593	9.52e-05	4.02
+alpha_slope	1.481755	1.38e-01	0.86
+alpha_intercept	-2.931396	3.38e-03	2.47
+alpha_midband	-5.602004	2.13e-08	7.67
+beta_slope	5.443657	5.24e-08	7.28
+beta_intercept	-5.824461	5.75e-09	8.24
+beta_midband	-5.866453	4.47e-09	8.35
+gamma_slope	2.184461	2.89e-02	1.54
+gamma_intercept	-2.262637	2.37e-02	1.63
+gamma_midband	-2.393605	1.67e-02	1.78
+
+=== patient_025 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	9.966276	2.19e-23	22.66
+delta_intercept	-9.083889	1.06e-19	18.97
+delta_midband	-7.566351	3.87e-14	13.41
+theta_slope	1.791169	7.33e-02	1.14
+theta_intercept	-1.590067	1.12e-01	0.95
+theta_midband	-1.040216	2.98e-01	0.53
+alpha_slope	-0.591220	5.54e-01	0.26
+alpha_intercept	0.192881	8.47e-01	0.07
+alpha_midband	-0.361202	7.18e-01	0.14
+beta_slope	-0.117151	9.07e-01	0.04
+beta_intercept	-1.979307	4.78e-02	1.32
+beta_midband	-3.813470	1.37e-04	3.86
+gamma_slope	-4.009964	6.08e-05	4.22
+gamma_intercept	2.657987	7.86e-03	2.10
+gamma_midband	-0.574092	5.66e-01	0.25
+
+=== patient_031 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-9.300498	1.44e-20	19.84
+delta_intercept	16.135328	1.88e-58	57.73
+delta_midband	23.805643	1.03e-124	123.99
+theta_slope	-4.459894	8.21e-06	5.09
+theta_intercept	14.128340	2.98e-45	44.53
+theta_midband	26.914358	1.16e-158	157.93
+alpha_slope	-28.599270	9.40e-179	178.03
+alpha_intercept	36.132431	5.31e-283	282.27
+alpha_midband	33.040485	2.22e-237	236.65
+beta_slope	-15.175450	6.34e-52	51.20
+beta_intercept	11.194590	4.61e-29	28.34
+beta_midband	4.730339	2.25e-06	5.65
+gamma_slope	3.373728	7.42e-04	3.13
+gamma_intercept	-3.554593	3.79e-04	3.42
+gamma_midband	-3.914303	9.08e-05	4.04
+
+=== patient_033 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	11.479974	1.78e-30	29.75
+delta_intercept	-11.132063	9.28e-29	28.03
+delta_midband	-10.147342	3.54e-24	23.45
+theta_slope	4.286981	1.81e-05	4.74
+theta_intercept	-4.883482	1.04e-06	5.98
+theta_midband	-4.452447	8.50e-06	5.07
+alpha_slope	1.518441	1.29e-01	0.89
+alpha_intercept	-2.590437	9.59e-03	2.02
+alpha_midband	-3.741978	1.83e-04	3.74
+beta_slope	3.017657	2.55e-03	2.59
+beta_intercept	-3.149187	1.64e-03	2.79
+beta_midband	-2.547871	1.08e-02	1.96
+gamma_slope	2.638922	8.32e-03	2.08
+gamma_intercept	-3.000533	2.70e-03	2.57
+gamma_midband	-3.320795	8.98e-04	3.05
+
+=== patient_034 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-317.529109	0.00e+00	inf
+delta_intercept	332.836138	0.00e+00	inf
+delta_midband	315.960529	0.00e+00	inf
+theta_slope	-118.256118	0.00e+00	inf
+theta_intercept	129.541577	0.00e+00	inf
+theta_midband	118.286919	0.00e+00	inf
+alpha_slope	-38.000912	0.00e+00	inf
+alpha_intercept	53.251916	0.00e+00	inf
+alpha_midband	48.690630	0.00e+00	inf
+beta_slope	-26.662902	3.73e-156	155.43
+beta_intercept	24.703849	2.16e-134	133.67
+beta_midband	19.803111	3.89e-87	86.41
+gamma_slope	-7.295455	3.00e-13	12.52
+gamma_intercept	14.015249	1.37e-44	43.86
+gamma_midband	24.873039	3.30e-136	135.48
+
+=== patient_036 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-249.667050	0.00e+00	inf
+delta_intercept	271.497688	0.00e+00	inf
+delta_midband	268.198896	0.00e+00	inf
+theta_slope	-117.327455	0.00e+00	inf
+theta_intercept	138.245150	0.00e+00	inf
+theta_midband	140.726092	0.00e+00	inf
+alpha_slope	-56.507757	0.00e+00	inf
+alpha_intercept	75.367683	0.00e+00	inf
+alpha_midband	73.685182	0.00e+00	inf
+beta_slope	-22.606864	7.58e-113	112.12
+beta_intercept	26.939280	3.20e-159	158.49
+beta_midband	27.680861	5.88e-168	167.23
+gamma_slope	-11.141313	8.24e-29	28.08
+gamma_intercept	10.046447	9.80e-24	23.01
+gamma_midband	7.812484	5.67e-15	14.25
+
+=== patient_038 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-47.507264	0.00e+00	inf
+delta_intercept	53.026901	0.00e+00	inf
+delta_midband	56.224898	0.00e+00	inf
+theta_slope	-34.927365	8.32e-266	265.08
+theta_intercept	42.532348	0.00e+00	inf
+theta_midband	47.878760	0.00e+00	inf
+alpha_slope	-21.486886	3.36e-102	101.47
+alpha_intercept	32.187591	3.01e-226	225.52
+alpha_midband	37.116613	1.11e-299	298.95
+beta_slope	-35.114248	1.28e-268	267.89
+beta_intercept	29.001419	3.15e-184	183.50
+beta_midband	16.159795	1.13e-58	57.95
+gamma_slope	-2.197113	2.80e-02	1.55
+gamma_intercept	-0.659925	5.09e-01	0.29
+gamma_midband	-8.243101	1.70e-16	15.77
+
+=== patient_039 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-110.865269	0.00e+00	inf
+delta_intercept	116.041033	0.00e+00	inf
+delta_midband	111.569537	0.00e+00	inf
+theta_slope	-28.855243	3.46e-182	181.46
+theta_intercept	43.932882	0.00e+00	inf
+theta_midband	53.302824	0.00e+00	inf
+alpha_slope	-28.317054	1.46e-175	174.84
+alpha_intercept	36.734071	4.69e-293	292.33
+alpha_midband	40.585513	0.00e+00	inf
+beta_slope	-23.310742	8.36e-120	119.08
+beta_intercept	19.077906	5.74e-81	80.24
+beta_midband	12.480150	1.03e-35	34.99
+gamma_slope	0.088061	9.30e-01	0.03
+gamma_intercept	7.892862	2.99e-15	14.52
+gamma_midband	12.473347	1.12e-35	34.95
+
+=== patient_040 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-31.020001	2.60e-210	209.59
+delta_intercept	28.545297	1.55e-178	177.81
+delta_midband	24.206578	4.29e-129	128.37
+theta_slope	-8.739345	2.38e-18	17.62
+theta_intercept	5.483960	4.17e-08	7.38
+theta_midband	3.515468	4.39e-04	3.36
+alpha_slope	-2.046973	4.07e-02	1.39
+alpha_intercept	1.688655	9.13e-02	1.04
+alpha_midband	1.105983	2.69e-01	0.57
+beta_slope	-0.369195	7.12e-01	0.15
+beta_intercept	-0.059640	9.52e-01	0.02
+beta_midband	-0.482071	6.30e-01	0.20
+gamma_slope	0.016181	9.87e-01	0.01
+gamma_intercept	-0.377881	7.06e-01	0.15
+gamma_midband	-0.744299	4.57e-01	0.34
+
+=== patient_041 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-8.192772	2.57e-16	15.59
+delta_intercept	10.201652	1.98e-24	23.70
+delta_midband	12.107153	9.99e-34	33.00
+theta_slope	-10.038588	1.05e-23	22.98
+theta_intercept	14.412407	4.60e-47	46.34
+theta_midband	19.110101	2.52e-81	80.60
+alpha_slope	-5.427658	5.72e-08	7.24
+alpha_intercept	12.487011	9.11e-36	35.04
+alpha_midband	25.199954	7.15e-140	139.15
+beta_slope	-30.718191	1.16e-206	205.93
+beta_intercept	28.828504	2.54e-182	181.60
+beta_midband	20.958491	2.07e-97	96.68
+gamma_slope	24.259369	8.66e-130	129.06
+gamma_intercept	-24.763689	3.79e-135	134.42
+gamma_midband	-24.868662	2.81e-136	135.55
+
+=== patient_044 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-158.280713	0.00e+00	inf
+delta_intercept	156.071409	0.00e+00	inf
+delta_midband	150.306349	0.00e+00	inf
+theta_slope	-18.215930	6.09e-74	73.22
+theta_intercept	20.992596	1.71e-97	96.77
+theta_midband	24.026175	5.85e-127	126.23
+alpha_slope	-1.229279	2.19e-01	0.66
+alpha_intercept	12.151123	6.20e-34	33.21
+alpha_midband	27.298972	4.28e-163	162.37
+beta_slope	-26.248143	5.29e-151	150.28
+beta_intercept	24.883818	5.40e-136	135.27
+beta_midband	17.743357	2.93e-70	69.53
+gamma_slope	8.209490	2.26e-16	15.65
+gamma_intercept	10.093664	6.16e-24	23.21
+gamma_midband	14.595545	3.62e-48	47.44
+
+=== patient_047 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-119.904288	0.00e+00	inf
+delta_intercept	135.031069	0.00e+00	inf
+delta_midband	140.306827	0.00e+00	inf
+theta_slope	-86.369725	0.00e+00	inf
+theta_intercept	92.714368	0.00e+00	inf
+theta_midband	95.456668	0.00e+00	inf
+alpha_slope	-37.952712	0.00e+00	inf
+alpha_intercept	53.352813	0.00e+00	inf
+alpha_midband	74.591564	0.00e+00	inf
+beta_slope	-57.615967	0.00e+00	inf
+beta_intercept	70.943549	0.00e+00	inf
+beta_midband	60.506487	0.00e+00	inf
+gamma_slope	-35.993681	6.26e-281	280.20
+gamma_intercept	36.362173	1.31e-286	285.88
+gamma_midband	27.961781	4.93e-171	170.31
+
+=== patient_050 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-16.468923	6.81e-61	60.17
+delta_intercept	18.505865	2.19e-76	75.66
+delta_midband	18.208203	5.19e-74	73.28
+theta_slope	12.553446	3.94e-36	35.40
+theta_intercept	1.494129	1.35e-01	0.87
+theta_midband	12.475671	1.05e-35	34.98
+alpha_slope	-24.104718	3.59e-128	127.44
+alpha_intercept	22.208083	4.05e-109	108.39
+alpha_midband	11.872234	1.70e-32	31.77
+beta_slope	-13.859562	1.17e-43	42.93
+beta_intercept	5.611454	2.01e-08	7.70
+beta_midband	-1.880789	6.00e-02	1.22
+gamma_slope	6.477908	9.32e-11	10.03
+gamma_intercept	-6.666711	2.62e-11	10.58
+gamma_midband	-6.781598	1.19e-11	10.92
+
+=== patient_051 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-36.983655	5.01e-297	296.30
+delta_intercept	33.081152	1.86e-238	237.73
+delta_midband	26.876908	1.90e-158	157.72
+theta_slope	-17.836363	4.98e-71	70.30
+theta_intercept	14.574844	4.64e-48	47.33
+theta_midband	7.901095	2.80e-15	14.55
+alpha_slope	-4.508461	6.54e-06	5.18
+alpha_intercept	4.779763	1.76e-06	5.75
+alpha_midband	4.927992	8.32e-07	6.08
+beta_slope	-1.571426	1.16e-01	0.94
+beta_intercept	1.747823	8.05e-02	1.09
+beta_midband	1.903773	5.69e-02	1.24
+gamma_slope	0.247390	8.05e-01	0.09
+gamma_intercept	1.920734	5.48e-02	1.26
+gamma_midband	4.702174	2.58e-06	5.59
+
+=== patient_052 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-15.260603	1.70e-52	51.77
+delta_intercept	13.077761	4.90e-39	38.31
+delta_midband	9.737005	2.17e-22	21.66
+theta_slope	3.896577	9.77e-05	4.01
+theta_intercept	-4.409181	1.04e-05	4.98
+theta_midband	-4.766878	1.87e-06	5.73
+alpha_slope	1.380164	1.68e-01	0.78
+alpha_intercept	-2.797260	5.16e-03	2.29
+alpha_midband	-1.766974	7.72e-02	1.11
+beta_slope	-2.317722	2.05e-02	1.69
+beta_intercept	2.495857	1.26e-02	1.90
+beta_midband	2.713969	6.65e-03	2.18
+gamma_slope	-35.114458	8.40e-268	267.08
+gamma_intercept	34.787802	6.34e-263	262.20
+gamma_midband	33.735421	1.65e-247	246.78
+
+=== patient_054 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-17.617195	2.48e-69	68.61
+delta_intercept	18.665983	1.38e-77	76.86
+delta_midband	18.536593	1.53e-76	75.82
+theta_slope	-0.160778	8.72e-01	0.06
+theta_intercept	-1.035245	3.01e-01	0.52
+theta_midband	-2.648770	8.08e-03	2.09
+alpha_slope	-1.064705	2.87e-01	0.54
+alpha_intercept	1.362775	1.73e-01	0.76
+alpha_midband	0.518124	6.04e-01	0.22
+beta_slope	-4.575742	4.75e-06	5.32
+beta_intercept	5.760901	8.40e-09	8.08
+beta_midband	8.239029	1.76e-16	15.75
+gamma_slope	2.960614	3.07e-03	2.51
+gamma_intercept	-3.033310	2.42e-03	2.62
+gamma_midband	-3.260134	1.11e-03	2.95
+
+=== patient_062 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-266.710032	0.00e+00	inf
+delta_intercept	242.039393	0.00e+00	inf
+delta_midband	197.349713	0.00e+00	inf
+theta_slope	-66.822807	0.00e+00	inf
+theta_intercept	55.925259	0.00e+00	inf
+theta_midband	38.847760	0.00e+00	inf
+alpha_slope	-63.251883	0.00e+00	inf
+alpha_intercept	34.984315	1.33e-266	265.87
+alpha_midband	11.411435	3.82e-30	29.42
+beta_slope	-3.984294	6.77e-05	4.17
+beta_intercept	0.267337	7.89e-01	0.10
+beta_midband	-2.101246	3.56e-02	1.45
+gamma_slope	-0.255780	7.98e-01	0.10
+gamma_intercept	-2.753260	5.90e-03	2.23
+gamma_midband	-3.978242	6.95e-05	4.16
+
+=== patient_063 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-1.798967	7.20e-02	1.14
+delta_intercept	0.334626	7.38e-01	0.13
+delta_midband	-1.457011	1.45e-01	0.84
+theta_slope	3.641058	2.72e-04	3.57
+theta_intercept	-5.249230	1.53e-07	6.81
+theta_midband	-6.310514	2.80e-10	9.55
+alpha_slope	-4.454638	8.42e-06	5.07
+alpha_intercept	4.021088	5.80e-05	4.24
+alpha_midband	-0.606024	5.45e-01	0.26
+beta_slope	1.482029	1.38e-01	0.86
+beta_intercept	-2.854394	4.31e-03	2.37
+beta_midband	-4.599390	4.24e-06	5.37
+gamma_slope	5.780931	7.46e-09	8.13
+gamma_intercept	-6.400715	1.56e-10	9.81
+gamma_midband	-6.698207	2.13e-11	10.67
+
+=== patient_064 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-5.205762	1.94e-07	6.71
+delta_intercept	8.064541	7.42e-16	15.13
+delta_midband	10.186637	2.33e-24	23.63
+theta_slope	6.873756	6.29e-12	11.20
+theta_intercept	12.874540	6.65e-38	37.18
+theta_midband	26.087398	1.40e-149	148.85
+alpha_slope	-17.929890	8.65e-72	71.06
+alpha_intercept	17.495527	1.90e-68	67.72
+alpha_midband	10.884443	1.41e-27	26.85
+beta_slope	-6.299543	3.00e-10	9.52
+beta_intercept	4.747713	2.06e-06	5.69
+beta_midband	2.486263	1.29e-02	1.89
+gamma_slope	-0.614241	5.39e-01	0.27
+gamma_intercept	0.876896	3.81e-01	0.42
+gamma_midband	1.150729	2.50e-01	0.60
+
+=== patient_066 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	13.001438	1.24e-38	37.91
+delta_intercept	1.614936	1.06e-01	0.97
+delta_midband	17.383865	1.22e-67	66.91
+theta_slope	36.550711	1.53e-291	290.81
+theta_intercept	-2.969333	2.98e-03	2.53
+theta_midband	42.565647	0.00e+00	inf
+alpha_slope	1.046034	2.96e-01	0.53
+alpha_intercept	18.500219	2.37e-76	75.62
+alpha_midband	34.783393	2.59e-264	263.59
+beta_slope	-32.674706	1.44e-233	232.84
+beta_intercept	18.201219	5.78e-74	73.24
+beta_midband	2.977995	2.90e-03	2.54
+gamma_slope	11.118502	1.04e-28	27.98
+gamma_intercept	-11.279424	1.69e-29	28.77
+gamma_midband	-10.266829	1.01e-24	24.00
+
+=== patient_067 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-38.837356	0.00e+00	inf
+delta_intercept	40.926687	0.00e+00	inf
+delta_midband	40.051355	0.00e+00	inf
+theta_slope	-7.657201	1.92e-14	13.72
+theta_intercept	11.707827	1.23e-31	30.91
+theta_midband	14.954839	1.67e-50	49.78
+alpha_slope	-8.440580	3.20e-17	16.49
+alpha_intercept	9.558361	1.23e-21	20.91
+alpha_midband	8.167323	3.19e-16	15.50
+beta_slope	-6.785718	1.16e-11	10.93
+beta_intercept	5.878201	4.16e-09	8.38
+beta_midband	3.958526	7.55e-05	4.12
+gamma_slope	2.627447	8.60e-03	2.07
+gamma_intercept	-0.961051	3.37e-01	0.47
+gamma_midband	3.105897	1.90e-03	2.72
+
+=== patient_068 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	2.441231	1.46e-02	1.83
+delta_intercept	-2.571177	1.01e-02	1.99
+delta_midband	-2.550475	1.08e-02	1.97
+theta_slope	2.070764	3.84e-02	1.42
+theta_intercept	-1.690653	9.09e-02	1.04
+theta_midband	-0.764052	4.45e-01	0.35
+alpha_slope	-0.759813	4.47e-01	0.35
+alpha_intercept	0.488408	6.25e-01	0.20
+alpha_midband	-0.216727	8.28e-01	0.08
+beta_slope	0.461106	6.45e-01	0.19
+beta_intercept	-0.600683	5.48e-01	0.26
+beta_midband	-0.704586	4.81e-01	0.32
+gamma_slope	0.597568	5.50e-01	0.26
+gamma_intercept	-0.622292	5.34e-01	0.27
+gamma_midband	-0.691659	4.89e-01	0.31
+
+=== patient_069 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-72.612048	0.00e+00	inf
+delta_intercept	76.536490	0.00e+00	inf
+delta_midband	79.376664	0.00e+00	inf
+theta_slope	-56.138767	0.00e+00	inf
+theta_intercept	66.128050	0.00e+00	inf
+theta_midband	72.117899	0.00e+00	inf
+alpha_slope	-42.542375	0.00e+00	inf
+alpha_intercept	49.239690	0.00e+00	inf
+alpha_midband	56.836471	0.00e+00	inf
+beta_slope	-37.793934	1.65e-309	308.78
+beta_intercept	34.034849	7.11e-252	251.15
+beta_midband	21.429193	1.49e-101	100.83
+gamma_slope	-2.131718	3.30e-02	1.48
+gamma_intercept	2.379690	1.73e-02	1.76
+gamma_midband	3.160387	1.58e-03	2.80
+
+=== patient_071 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-12.708748	5.76e-37	36.24
+delta_intercept	14.631187	2.06e-48	47.69
+delta_midband	16.469334	7.75e-61	60.11
+theta_slope	-2.912629	3.59e-03	2.45
+theta_intercept	4.693644	2.69e-06	5.57
+theta_midband	6.884299	5.85e-12	11.23
+alpha_slope	-6.380796	1.77e-10	9.75
+alpha_intercept	10.687449	1.22e-26	25.91
+alpha_midband	14.599275	3.29e-48	47.48
+beta_slope	2.068063	3.86e-02	1.41
+beta_intercept	11.127016	9.75e-29	28.01
+beta_midband	18.494355	3.36e-76	75.47
+gamma_slope	-17.312761	5.05e-67	66.30
+gamma_intercept	17.540849	9.51e-69	68.02
+gamma_midband	17.825053	6.28e-71	70.20
+
+=== patient_073 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-27.341323	1.09e-163	162.96
+delta_intercept	27.943214	7.63e-171	170.12
+delta_midband	27.467818	3.51e-165	164.45
+theta_slope	-2.635153	8.41e-03	2.08
+theta_intercept	1.907020	5.65e-02	1.25
+theta_midband	-0.301589	7.63e-01	0.12
+alpha_slope	-2.479627	1.32e-02	1.88
+alpha_intercept	1.591224	1.12e-01	0.95
+alpha_midband	-2.544815	1.09e-02	1.96
+beta_slope	3.538488	4.03e-04	3.40
+beta_intercept	-5.737800	9.63e-09	8.02
+beta_midband	-5.791057	7.03e-09	8.15
+gamma_slope	3.249015	1.16e-03	2.94
+gamma_intercept	-2.482853	1.30e-02	1.88
+gamma_midband	-1.535640	1.25e-01	0.90
+
+=== patient_074 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	9.036023	1.66e-19	18.78
+delta_intercept	-9.175026	4.62e-20	19.34
+delta_midband	-8.617902	6.94e-18	17.16
+theta_slope	3.847621	1.19e-04	3.92
+theta_intercept	-4.428168	9.52e-06	5.02
+theta_midband	-4.526331	6.01e-06	5.22
+alpha_slope	2.283367	2.24e-02	1.65
+alpha_intercept	-3.186803	1.44e-03	2.84
+alpha_midband	-3.467452	5.26e-04	3.28
+beta_slope	3.724492	1.96e-04	3.71
+beta_intercept	-4.408857	1.04e-05	4.98
+beta_midband	-5.236962	1.64e-07	6.79
+gamma_slope	4.794947	1.63e-06	5.79
+gamma_intercept	-6.475335	9.52e-11	10.02
+gamma_midband	-7.896574	2.90e-15	14.54
+
+=== patient_075 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-24.335755	2.80e-130	129.55
+delta_intercept	26.037101	9.41e-149	148.03
+delta_midband	27.305955	2.52e-163	162.60
+theta_slope	-0.278502	7.81e-01	0.11
+theta_intercept	11.161894	6.62e-29	28.18
+theta_midband	27.902450	2.07e-170	169.68
+alpha_slope	-5.024948	5.05e-07	6.30
+alpha_intercept	17.989255	3.42e-72	71.47
+alpha_midband	42.096463	0.00e+00	inf
+beta_slope	-26.179358	2.36e-150	149.63
+beta_intercept	38.653938	0.00e+00	inf
+beta_midband	41.414472	0.00e+00	inf
+gamma_slope	-19.093005	4.61e-81	80.34
+gamma_intercept	30.677936	2.46e-205	204.61
+gamma_midband	36.394934	2.27e-287	286.64
+
+=== patient_076 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-7.282125	3.32e-13	12.48
+delta_intercept	5.119401	3.07e-07	6.51
+delta_midband	2.211045	2.70e-02	1.57
+theta_slope	8.060099	7.74e-16	15.11
+theta_intercept	-11.269885	1.96e-29	28.71
+theta_midband	-14.523918	1.01e-47	47.00
+alpha_slope	5.195041	2.05e-07	6.69
+alpha_intercept	-7.570466	3.77e-14	13.42
+alpha_midband	-10.986763	4.67e-28	27.33
+beta_slope	7.242767	4.44e-13	12.35
+beta_intercept	-7.580404	3.49e-14	13.46
+beta_midband	-7.674661	1.68e-14	13.77
+gamma_slope	2.651938	8.00e-03	2.10
+gamma_intercept	-3.539947	4.00e-04	3.40
+gamma_midband	-4.398772	1.09e-05	4.96
+
+=== patient_077 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	3.238997	1.20e-03	2.92
+delta_intercept	-3.595366	3.24e-04	3.49
+delta_midband	-3.767433	1.65e-04	3.78
+theta_slope	3.649600	2.63e-04	3.58
+theta_intercept	-4.622593	3.80e-06	5.42
+theta_midband	-4.949185	7.47e-07	6.13
+alpha_slope	1.815191	6.95e-02	1.16
+alpha_intercept	-3.543904	3.94e-04	3.40
+alpha_midband	-6.138264	8.38e-10	9.08
+beta_slope	2.574129	1.01e-02	2.00
+beta_intercept	-6.645249	3.05e-11	10.52
+beta_midband	-10.482605	1.08e-25	24.97
+gamma_slope	4.425803	9.62e-06	5.02
+gamma_intercept	-11.805707	3.89e-32	31.41
+gamma_midband	-13.910903	6.16e-44	43.21
+
+=== patient_078 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-40.156000	0.00e+00	inf
+delta_intercept	44.829502	0.00e+00	inf
+delta_midband	47.028824	0.00e+00	inf
+theta_slope	-11.787544	4.78e-32	31.32
+theta_intercept	22.693330	1.09e-113	112.96
+theta_midband	32.982520	3.87e-237	236.41
+alpha_slope	-21.264239	4.31e-100	99.37
+alpha_intercept	25.185769	1.76e-139	138.75
+alpha_midband	25.977919	3.13e-148	147.50
+beta_slope	-12.108110	1.02e-33	32.99
+beta_intercept	3.974103	7.07e-05	4.15
+beta_midband	-7.652416	1.99e-14	13.70
+gamma_slope	9.524736	1.69e-21	20.77
+gamma_intercept	-12.250557	1.78e-34	33.75
+gamma_midband	-16.355145	4.89e-60	59.31
+
+=== patient_079 ===
+Feature	T-Statistic	P-Value	-log10(P)
+delta_slope	-17.315348	5.27e-67	66.28
+delta_intercept	17.864341	3.44e-71	70.46
+delta_midband	17.430009	7.21e-68	67.14
+theta_slope	-3.627443	2.86e-04	3.54
+theta_intercept	4.418739	9.95e-06	5.00
+theta_midband	4.957391	7.16e-07	6.14
+alpha_slope	-2.972566	2.95e-03	2.53
+alpha_intercept	6.052362	1.44e-09	8.84
+alpha_midband	12.029513	2.72e-33	32.57
+beta_slope	-6.585801	4.56e-11	10.34
+beta_intercept	18.030653	1.75e-72	71.76
+beta_midband	29.692738	2.46e-192	191.61
+gamma_slope	-13.965034	2.99e-44	43.52
+gamma_intercept	26.757250	8.71e-157	156.06
+gamma_midband	30.346631	9.63e-201	200.02
+
