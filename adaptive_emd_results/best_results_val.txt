@@ -1,0 +1,51 @@
+Best Results Across All MA Windows and Thresholds (Validation Set)
+================================================================================
+
+
+Best PRECISION:
+  MA Window: 1
+  Threshold: 0.94
+  Precision: 1.0000
+  Precision: 1.0000
+  Recall: 0.0000
+  F1: 0.0001
+  AUROC: 0.6664
+  Confusion Matrix:
+[[127566      0]
+ [ 90302      4]]
+
+Best RECALL:
+  MA Window: 2
+  Threshold: 0.05
+  Recall: 1.0000
+  Precision: 0.4145
+  Recall: 1.0000
+  F1: 0.5861
+  AUROC: 0.6944
+  Confusion Matrix:
+[[     2 127564]
+ [     0  90306]]
+
+Best F1:
+  MA Window: 19
+  Threshold: 0.46
+  F1: 0.6639
+  Precision: 0.5400
+  Recall: 0.8615
+  F1: 0.6639
+  AUROC: 0.7638
+  Confusion Matrix:
+[[61292 66274]
+ [12507 77799]]
+
+Best AUROC:
+  MA Window: 20
+  Threshold: 0.05
+  Auroc: 0.7638
+  Precision: 0.4145
+  Recall: 1.0000
+  F1: 0.5861
+  AUROC: 0.7638
+  Confusion Matrix:
+[[     0 127566]
+ [     0  90306]]
