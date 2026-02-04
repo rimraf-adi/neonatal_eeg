@@ -1,0 +1,24 @@
+Adaptive Nearest Neighbor Class Balancing - Trial 10
+================================================================================
+
+Seed: 51
+Strategy: Adaptive selection with target ratio 2.0:1 (0s:1s)
+
+Training samples: 1237464
+Validation samples: 155358
+Test samples: 82944
+
+Class ratios (0s/1s):
+  Train: 1.051
+  Val:   2.000
+  Test:  0.607
+
+================================================================================
+
+BEST VALIDATION RESULTS:
+  Best F1: 0.5369 (MA=19, Thresh=0.55)
+  Best AUROC: 0.6762 (MA=18, Thresh=0.05)
+
+BEST TEST RESULTS:
+  Best F1: 0.7879 (MA=19, Thresh=0.44)
+  Best AUROC: 0.5566 (MA=13, Thresh=0.05)

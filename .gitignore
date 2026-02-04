@@ -13,3 +13,7 @@ wheels/
 /freq_features
 /stft_features
 /emd
+/emd_features_updated
+freq_features_updated
+
+

@@ -1,0 +1,13 @@
+MA Window: 18
+Threshold: 0.50
+
+Confusion Matrix:
+[[30574 74888]
+ [ 6985 66347]]
+
+Metrics:
+Precision: 0.4698
+Recall: 0.9047
+F1 Score: 0.6184
+Accuracy: 0.5421
+AUROC: 0.7327

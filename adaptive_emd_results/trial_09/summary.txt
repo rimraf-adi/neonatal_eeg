@@ -1,0 +1,41 @@
+Adaptive Nearest Neighbor Class Balancing - Trial 10
+================================================================================
+
+Seed: 51
+Strategy: Adaptive selection with target ratio 2.0:1 (0s:1s)
+Ensures 0s > 1s for each patient with controlled imbalance
+Using EMD (Empirical Mode Decomposition) features
+
+Training samples: 1237464
+Validation samples: 155358
+Test samples: 82944
+
+Class distribution (Train): Counter({np.int64(0): 634194, np.int64(1): 603270})
+Class distribution (Val): Counter({np.int64(0): 103572, np.int64(1): 51786})
+Class distribution (Test): Counter({np.int64(1): 51606, np.int64(0): 31338})
+
+Class ratios (0s/1s):
+  Train: 1.051
+  Val:   2.000
+  Test:  0.607
+
+Number of EMD features: 20
+MA windows tested: 20
+Thresholds tested: 91
+
+
+================================================================================
+VALIDATION SET BEST RESULTS
+================================================================================
+Best precision: 1.0000 (MA=3, thresh=0.89)
+Best recall: 1.0000 (MA=3, thresh=0.05)
+Best f1: 0.5161 (MA=18, thresh=0.35)
+Best auroc: 0.6675 (MA=20, thresh=0.05)
+
+================================================================================
+TEST SET BEST RESULTS
+================================================================================
+Best precision: 1.0000 (MA=6, thresh=0.71)
+Best recall: 1.0000 (MA=2, thresh=0.05)
+Best f1: 0.7831 (MA=20, thresh=0.36)
+Best auroc: 0.4843 (MA=1, thresh=0.05)
