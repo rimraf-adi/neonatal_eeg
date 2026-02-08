@@ -13,6 +13,7 @@ This script:
 
 import torch
 import torch.nn as nn
+import json
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
@@ -352,8 +353,8 @@ def save_best_results(best_results, output_file, dataset_name="Test"):
 # ============================================================================
 import shutil
 
-def run_trial(trial_num, base_results_dir):
-    """Run a single trial of the training pipeline."""
+def run_trial(trial_num, base_results_dir, split_info):
+    """Run a single trial of the training pipeline using pre-defined splits."""
     
     # Create trial-specific directories
     trial_dir = os.path.join(base_results_dir, f'trial_{trial_num:02d}')
@@ -377,13 +378,10 @@ def run_trial(trial_num, base_results_dir):
     print(f"This ensures 0s > 1s for each patient with controlled imbalance")
     print(f"Using EMD (Empirical Mode Decomposition) features\n")
     
-    # Split data into train/val/test
-    idx_copy = EEG_IDX.copy()
-    random.shuffle(idx_copy)
-    
-    train_idx = idx_copy[:28]  # 70%
-    val_idx = idx_copy[28:34]  # 15%
-    test_idx = idx_copy[34:]   # 15%
+    # Use provided splits
+    train_idx = split_info['train_idx']
+    val_idx = split_info['val_idx']
+    test_idx = split_info['test_idx']
     
     print(f"Train patients ({len(train_idx)}): {sorted(train_idx)}")
     print(f"Val patients ({len(val_idx)}): {sorted(val_idx)}")
@@ -458,9 +456,7 @@ def run_trial(trial_num, base_results_dir):
     val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
     test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
     
-    # Initialize model
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    # print(f"\nUsing device: {device}")
+    device = torch.device("cpu")
     
     model = NeuralNet(input_dim=len(feature_cols)).to(device)
     criterion = nn.CrossEntropyLoss(weight=class_weights.to(device))
@@ -597,14 +593,26 @@ def main():
         shutil.rmtree(RESULTS_DIR)
     os.makedirs(RESULTS_DIR, exist_ok=True)
     
-    # 2. Run 10 trials
-    num_trials = 10
+    # 2. Load patient splits
+    splits_file = os.path.join(os.path.dirname(RESULTS_DIR), 'adaptive_nn_results', 'patient_splits.json')
+    # Or use the absolute path provided by user if preferred/safer:
+    splits_file = '/Users/adityakinjawadekar/Documents/eeg/biomarker/adaptive_nn_results/patient_splits.json'
     
-    for i in range(num_trials):
-        run_trial(i, RESULTS_DIR)
+    if not os.path.exists(splits_file):
+        print(f"ERROR: Splits file not found at {splits_file}")
+        return
+
+    with open(splits_file, 'r') as f:
+        all_splits = json.load(f)
+    
+    print(f"Loaded {len(all_splits)} splits from {splits_file}")
+
+    # 3. Run trials based on loaded splits
+    for i, split_info in enumerate(all_splits):
+        run_trial(i, RESULTS_DIR, split_info)
     
     print(f"\n{'='*80}")
-    print(f"All {num_trials} trials completed!")
+    print(f"All {len(all_splits)} trials completed!")
     print(f"Results saved in: {RESULTS_DIR}")
     print(f"{'='*80}")
 

@@ -12,6 +12,7 @@ This script:
 
 import torch
 import torch.nn as nn
+import json
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
@@ -138,6 +139,7 @@ def apply_adaptive_filter(df):
 def load_patient_data(idx_list, mode, apply_filter=False):
     """Load patient data from CSV files with optional adaptive filtering."""
     frames = []
+    stats_list = []
     for i in idx_list:
         filename = os.path.join(FEATURE_DIR, f'patient_{i:03d}.csv')
         if os.path.exists(filename):
@@ -159,12 +161,27 @@ def load_patient_data(idx_list, mode, apply_filter=False):
                 print(f'  Adaptive filter: {original_size} -> {filtered_size} epochs')
                 print(f'    Before: 1s={original_1s}, 0s={original_0s} (ratio: {original_0s/max(original_1s,1):.2f})')
                 print(f'    After:  1s={filtered_1s}, 0s={filtered_0s} (ratio: {filtered_0s/max(filtered_1s,1):.2f})')
+
+                stats_list.append({
+                    'patient_id': int(i),
+                    'mode': mode,
+                    'original_size': int(original_size),
+                    'filtered_size': int(filtered_size),
+                    'original_1s': int(original_1s),
+                    'original_0s': int(original_0s),
+                    'filtered_1s': int(filtered_1s),
+                    'filtered_0s': int(filtered_0s),
+                    'original_ratio': float(original_0s/max(original_1s,1)),
+                    'filtered_ratio': float(filtered_0s/max(filtered_1s,1))
+                })
             
             frames.append(df)
         else:
             print(f'[{mode}] Warning: File {filename} not found.')
     
-    return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+
+    
+    return (pd.concat(frames, ignore_index=True), stats_list) if frames else (pd.DataFrame(), [])
 
 
 def get_feature_columns(df, bands, feature_types):
@@ -448,17 +465,17 @@ def run_trial(trial_num, base_results_dir):
     
     # Load data with adaptive filtering
     print(f"Loading training data (Seed {current_seed})...")
-    train_df = load_patient_data(train_idx, 'TRAIN', apply_filter=True)
+    train_df, train_stats = load_patient_data(train_idx, 'TRAIN', apply_filter=True)
     if train_df.empty:
         print("ERROR: No training data available")
         return
     
-    val_df = load_patient_data(val_idx, 'VAL', apply_filter=True)
+    val_df, val_stats = load_patient_data(val_idx, 'VAL', apply_filter=True)
     if val_df.empty:
         print("ERROR: No validation data available")
         return
     
-    test_df = load_patient_data(test_idx, 'TEST', apply_filter=True)
+    test_df, test_stats = load_patient_data(test_idx, 'TEST', apply_filter=True)
     if test_df.empty:
         print("ERROR: No test data available")
         return
@@ -570,6 +587,16 @@ def run_trial(trial_num, base_results_dir):
     
     print(f"Trial {trial_num+1} completed. Results saved in {trial_dir}")
 
+    return {
+        'trial': trial_num + 1,
+        'train_idx': train_idx,
+        'val_idx': val_idx,
+        'test_idx': test_idx,
+        'train_stats': train_stats,
+        'val_stats': val_stats,
+        'test_stats': test_stats
+    }
+
 def main():
     """Main execution function."""
     print("=" * 80)
@@ -585,8 +612,17 @@ def main():
     # 2. Run 10 trials
     num_trials = 10
     
+    all_splits = []
     for i in range(num_trials):
-        run_trial(i, RESULTS_DIR)
+        split_info = run_trial(i, RESULTS_DIR)
+        if split_info:
+            all_splits.append(split_info)
+            
+    # Save splits to JSON
+    splits_file = os.path.join(RESULTS_DIR, 'patient_splits.json')
+    with open(splits_file, 'w') as f:
+        json.dump(all_splits, f, indent=4)
+        print(f"Patient splits saved to {splits_file}")
     
     print(f"\n{'='*80}")
     print(f"All {num_trials} trials completed!")

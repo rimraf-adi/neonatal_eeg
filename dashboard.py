@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 import os
 import re
 import glob
+import json
+import numpy as np
 
 # ============================================================================
 # Configuration & Setup
@@ -19,6 +21,14 @@ RESULTS_DIRS = {
 # ============================================================================
 # Data Loading
 # ============================================================================
+@st.cache_data
+def load_ttest_data(filepath):
+    """Load pre-calculated t-test results."""
+    if not os.path.exists(filepath):
+        return None
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
 @st.cache_data
 def load_data(base_dir, dataset_name):
     """
@@ -112,6 +122,11 @@ df_all = pd.concat(all_data_frames, ignore_index=True)
 
 # 2. Sidebar Filters
 st.sidebar.header("Filters")
+
+# Reload button to clear cache and refresh data
+if st.sidebar.button("🔄 Reload Data"):
+    st.cache_data.clear()
+    st.rerun()
 
 # Dataset Selection
 dataset_options = df_all["Dataset"].unique()
@@ -287,3 +302,85 @@ if trial_mode == "Average across all trials":
             "AUROC": "{:.4f}"
         })
     )
+
+# ============================================================================
+# T-Test Significance Analysis
+# ============================================================================
+st.markdown("---")
+st.subheader("🔬 Feature Significance (Welch's T-Test)")
+st.markdown("Analysis of which features significantly differ between **Seizure (1)** and **Non-Seizure (0)** states using the training split for each trial.")
+
+ttest_path = "/Users/adityakinjawadekar/Documents/eeg/biomarker/ttest_results/trial_ttests.json"
+ttest_data = load_ttest_data(ttest_path)
+
+if ttest_data:
+    # Mapping dashboard dataset names to ttest keys
+    dataset_map = {
+        "Frequency Features": "freq",
+        "EMD Features": "emd"
+    }
+    
+    feat_key = dataset_map.get(selected_dataset)
+    
+    if feat_key and feat_key in ttest_data:
+        feat_results = ttest_data[feat_key]
+        
+        # Prepare plotting data
+        plot_data = []
+        
+        if trial_mode == "Specific Trial" and selected_trial is not None:
+            # Find exact trial results
+            trial_res = next((t for t in feat_results if t['trial'] == selected_trial), None)
+            if trial_res:
+                for feat, res in trial_res['results'].items():
+                    plot_data.append({
+                        "Feature": feat,
+                        "t_stat": res['t_stat'],
+                        "p_val": res['p_val'],
+                        "-log10(p)": res['-log10p']
+                    })
+                title_suffix = f" (Trial {selected_trial})"
+            else:
+                st.warning(f"No t-test results found for Trial {selected_trial}")
+        else:
+            # Average across all trials
+            all_feats = {}
+            for t in feat_results:
+                for f, r in t['results'].items():
+                    if f not in all_feats:
+                        all_feats[f] = []
+                    all_feats[f].append(r['-log10p'])
+            
+            for f, vals in all_feats.items():
+                plot_data.append({
+                    "Feature": f,
+                    "-log10(p)": sum(vals) / len(vals)
+                })
+            title_suffix = " (Averaged across all trials)"
+
+        if plot_data:
+            df_ttest = pd.DataFrame(plot_data).sort_values("-log10(p)", ascending=False)
+            
+            fig_ttest = px.bar(
+                df_ttest,
+                x="Feature",
+                y="-log10(p)",
+                title=f"Feature Significance: -log10(p-value) {title_suffix}",
+                color="-log10(p)",
+                color_continuous_scale="Reds",
+                labels={"-log10(p)": "-log10(p)"}
+            )
+            
+            # Threshold line for p=0.05
+            fig_ttest.add_hline(y=-np.log10(0.05), line_dash="dash", line_color="black", annotation_text="p=0.05")
+            # Threshold line for p=0.001
+            fig_ttest.add_hline(y=-np.log10(0.001), line_dash="dash", line_color="blue", annotation_text="p=0.001")
+
+            st.plotly_chart(fig_ttest, use_container_width=True)
+            
+            with st.expander("View Data Table"):
+                st.dataframe(df_ttest)
+    else:
+        st.info(f"T-test results not found for feature set: {selected_dataset}")
+else:
+    st.warning("T-test result file not found. Please run the `run_ttests.py` script.")

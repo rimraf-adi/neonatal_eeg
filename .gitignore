@@ -16,4 +16,5 @@ wheels/
 /emd_features_updated
 freq_features_updated
 
-
+/adaptive_nn_results/
+/adaptive_emd_results/
