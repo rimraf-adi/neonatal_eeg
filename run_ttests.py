@@ -5,12 +5,15 @@ import os
 from scipy import stats
 from glob import glob
 from tqdm import tqdm
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
+from sklearn.decomposition import PCA
 
 def run_ttests():
     results_dir = "/Users/adityakinjawadekar/Documents/eeg/biomarker/ttest_results"
     os.makedirs(results_dir, exist_ok=True)
     
-    splits_path = "/Users/adityakinjawadekar/Documents/eeg/biomarker/adaptive_nn_results/patient_splits.json"
+    splits_path = "patient_splits.json" # Assumes in current directory now
     with open(splits_path, 'r') as f:
         splits = json.load(f)
     
@@ -48,14 +51,18 @@ def run_ttests():
         patient_files = glob(os.path.join(feat_dir, "patient_*.csv"))
         for pfile in tqdm(patient_files, desc=f"Caching {feat_type} patients"):
             pid = int(os.path.basename(pfile).split('_')[1].split('.')[0])
-            df = pd.read_csv(pfile)
-            # Basic cleaning: drop channel column if it exists, drop NaNs
-            if 'channel' in df.columns:
-                df = df.drop(columns=['channel'])
-            df = df.replace([np.inf, -np.inf], np.nan).dropna()
-            patient_cache[pid] = df
+            try:
+                df = pd.read_csv(pfile)
+                # Basic cleaning
+                if 'channel' in df.columns:
+                    df = df.drop(columns=['channel'])
+                df = df.replace([np.inf, -np.inf], np.nan).dropna()
+                patient_cache[pid] = df
+            except Exception as e:
+                print(f"Error loading {pfile}: {e}")
             
         type_results = []
+        pca_type_results = []
         
         for trial_info in tqdm(splits, desc=f"Evaluating trials for {feat_type}"):
             trial_id = trial_info['trial']
@@ -68,6 +75,7 @@ def run_ttests():
             
             combined_df = pd.concat(trial_dfs, ignore_index=True)
             
+            # 1. Standard Feature T-Tests
             seizure = combined_df[combined_df['label'] == 1]
             non_seizure = combined_df[combined_df['label'] == 0]
             
@@ -95,7 +103,54 @@ def run_ttests():
                 "results": trial_ttest
             })
             
+            # 2. PCA Component T-Tests
+            # Prepare data
+            X = combined_df[feature_list].values
+            y = combined_df['label'].values
+            
+            # Impute & Scale (match training pipeline)
+            imputer = SimpleImputer(strategy='mean')
+            scaler = StandardScaler()
+            
+            X = imputer.fit_transform(X)
+            X = scaler.fit_transform(X)
+            
+            # Apply PCA
+            n_components = min(10, X.shape[1])
+            pca = PCA(n_components=n_components)
+            X_pca = pca.fit_transform(X)
+            
+            # Create DF for PCA components
+            pca_cols = [f"PC{i+1}" for i in range(n_components)]
+            df_pca = pd.DataFrame(X_pca, columns=pca_cols)
+            df_pca['label'] = y
+            
+            seizure_pca = df_pca[df_pca['label'] == 1]
+            non_seizure_pca = df_pca[df_pca['label'] == 0]
+            
+            trial_pca_ttest = {}
+            for col in pca_cols:
+                s_vals = seizure_pca[col].values
+                ns_vals = non_seizure_pca[col].values
+                
+                if len(s_vals) < 2 or len(ns_vals) < 2:
+                    t_stat, p_val = np.nan, np.nan
+                else:
+                    t_stat, p_val = stats.ttest_ind(s_vals, ns_vals, equal_var=False)
+                
+                trial_pca_ttest[col] = {
+                    "t_stat": t_stat if not np.isnan(t_stat) else 0.0,
+                    "p_val": p_val if not np.isnan(p_val) else 1.0,
+                    "-log10p": -np.log10(p_val) if (not np.isnan(p_val) and p_val > 0) else (100.0 if p_val == 0 else 0.0)
+                }
+            
+            pca_type_results.append({
+                "trial": trial_id,
+                "results": trial_pca_ttest
+            })
+            
         all_results[feat_type] = type_results
+        all_results[f"pca_{feat_type}"] = pca_type_results
 
     # Save to JSON
     output_path = os.path.join(results_dir, "trial_ttests.json")

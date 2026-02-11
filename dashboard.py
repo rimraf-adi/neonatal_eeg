@@ -15,7 +15,9 @@ st.set_page_config(layout="wide", page_title="EEG Analysis Dashboard")
 
 RESULTS_DIRS = {
     "Frequency Features": "./adaptive_nn_results",
-    "EMD Features": "./adaptive_emd_results"
+    "EMD Features": "./adaptive_emd_results",
+    "PCA Frequency Features": "./pca_adaptive_nn_results",
+    "PCA EMD Features": "./pca_adaptive_emd_results"
 }
 
 # ============================================================================
@@ -317,7 +319,9 @@ if ttest_data:
     # Mapping dashboard dataset names to ttest keys
     dataset_map = {
         "Frequency Features": "freq",
-        "EMD Features": "emd"
+        "EMD Features": "emd",
+        "PCA Frequency Features": "pca_freq",
+        "PCA EMD Features": "pca_emd"
     }
     
     feat_key = dataset_map.get(selected_dataset)

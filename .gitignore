@@ -18,3 +18,5 @@ freq_features_updated
 
 /adaptive_nn_results/
 /adaptive_emd_results/
+/pca_adaptive_emd_results/
+/pca_adaptive_nn_results/

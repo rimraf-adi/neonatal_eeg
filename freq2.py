@@ -20,6 +20,7 @@ import numpy as np
 import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
+from sklearn.decomposition import PCA
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import (
     confusion_matrix, classification_report, 
@@ -32,7 +33,7 @@ from collections import Counter
 # Configuration
 # ============================================================================
 FEATURE_DIR = './freq_features_updated'
-RESULTS_DIR = './adaptive_nn_results'
+RESULTS_DIR = './pca_adaptive_nn_results'
 MODELS_DIR = os.path.join(RESULTS_DIR, 'models')
 DETAILED_VAL_DIR = os.path.join(RESULTS_DIR, 'detailed', 'validation')
 DETAILED_TEST_DIR = os.path.join(RESULTS_DIR, 'detailed', 'test')
@@ -54,6 +55,10 @@ MA_WINDOW_SIZES = list(range(1, 21))  # 1 to 20 (1 = no smoothing)
 
 # Probability thresholds to test
 PROB_THRESHOLDS = np.arange(0.05, 0.96, 0.01)
+
+# PCA Configuration - max 10 components
+PCA_MAX_COMPONENTS = 10
+PCA_VARIANCE_THRESHOLD = 0.95  # Keep 95% variance or max 10 components, whichever is smaller
 
 # Target ratio for class balancing (0s:1s ratio)
 # This ensures 0s > 1s while avoiding severe imbalance
@@ -508,6 +513,16 @@ def run_trial(trial_num, base_results_dir):
     X_val = scaler.transform(X_val)
     X_test = scaler.transform(X_test)
     
+    # Apply PCA dimensionality reduction - always use max components
+    n_components = min(PCA_MAX_COMPONENTS, X_train.shape[1])
+    
+    print(f"  PCA: Reducing from {X_train.shape[1]} to {n_components} components")
+    
+    pca = PCA(n_components=n_components)
+    X_train = pca.fit_transform(X_train)
+    X_val = pca.transform(X_val)
+    X_test = pca.transform(X_test)
+    
     # Create datasets and dataloaders
     train_dataset = EEGDataset(X_train, y_train)
     val_dataset = EEGDataset(X_val, y_val)
@@ -524,7 +539,7 @@ def run_trial(trial_num, base_results_dir):
     # Initialize model
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    model = NeuralNet(input_dim=len(feature_cols)).to(device)
+    model = NeuralNet(input_dim=n_components).to(device)
     criterion = nn.CrossEntropyLoss(weight=class_weights.to(device))
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     
@@ -538,7 +553,9 @@ def run_trial(trial_num, base_results_dir):
         'model_state_dict': model.state_dict(),
         'scaler': scaler,
         'imputer': imputer,
-        'feature_cols': feature_cols
+        'pca': pca,
+        'feature_cols': feature_cols,
+        'n_pca_components': n_components
     }, model_path)
     
     # Get predictions on validation set
@@ -619,7 +636,7 @@ def main():
             all_splits.append(split_info)
             
     # Save splits to JSON
-    splits_file = os.path.join(RESULTS_DIR, 'patient_splits.json')
+    splits_file = 'patient_splits.json'
     with open(splits_file, 'w') as f:
         json.dump(all_splits, f, indent=4)
         print(f"Patient splits saved to {splits_file}")
