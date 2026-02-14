@@ -1,0 +1,53 @@
+Top 5 Metrics for MA=20, Threshold=0.49 (Validation Split)
+=========================================================
+
+Rank 3
+Rank N/A
+Rank N/A
+Rank N/A
+Rank N/A
+Rank 1:
+  Dataset:   Frequency Features
+  Trial:     0
+  Accuracy:  0.775500
+  F1 Score:  0.684100
+  Precision: 0.733400
+  Recall:    0.640900
+  AUROC:     0.804700
+----------------------------------------
+Rank 2:
+  Dataset:   PCA Frequency Features
+  Trial:     0
+  Accuracy:  0.761600
+  F1 Score:  0.688400
+  Precision: 0.682600
+  Recall:    0.694200
+  AUROC:     0.807000
+----------------------------------------
+Rank 3:
+  Dataset:   PCA Frequency Features
+  Trial:     2
+  Accuracy:  0.720600
+  F1 Score:  0.321800
+  Precision: 0.843200
+  Recall:    0.198900
+  AUROC:     0.698400
+----------------------------------------
+Rank 4:
+  Dataset:   Frequency Features
+  Trial:     2
+  Accuracy:  0.716200
+  F1 Score:  0.338700
+  Precision: 0.758700
+  Recall:    0.218000
+  AUROC:     0.705200
+----------------------------------------
+Rank 5:
+  Dataset:   PCA Frequency Features
+  Trial:     8
+  Accuracy:  0.684700
+  F1 Score:  0.553700
+  Precision: 0.891400
+  Recall:    0.401500
+  AUROC:     0.766700
+----------------------------------------

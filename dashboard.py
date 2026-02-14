@@ -13,6 +13,49 @@ import numpy as np
 # ============================================================================
 st.set_page_config(layout="wide", page_title="EEG Analysis Dashboard")
 
+# Force light theme
+st.markdown("""
+<style>
+    .stApp { background-color: #ffffff; color: #000000; font-family: sans-serif; }
+    .stSidebar { background-color: #f8f9fa; }
+    [data-testid="stHeader"] { background-color: #ffffff; }
+    
+    /* Force black text on sidebar */
+    .stSidebar [data-testid="stMarkdownContainer"] p, .stSidebar label, .stSidebar .stRadio div {
+        color: #000000 !important;
+    }
+    
+    /* Dropdown styling */
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        border-color: #d3d3d3 !important;
+        color: #000000 !important;
+    }
+    div[data-baseweb="select"] span {
+        color: #000000 !important;
+    }
+    .stMultiSelect div[data-baseweb="tag"] {
+        background-color: #e4e7eb !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+PLOTLY_TEMPLATE = "plotly_white"
+AXIS_CONFIG = dict(
+    xaxis=dict(
+        title_font=dict(color="black", size=16),
+        tickfont=dict(color="black", size=14),
+        color="black",
+        gridcolor="#e0e0e0",
+    ),
+    yaxis=dict(
+        title_font=dict(color="black", size=16),
+        tickfont=dict(color="black", size=14),
+        color="black",
+        gridcolor="#e0e0e0",
+    ),
+)
+
 RESULTS_DIRS = {
     "Frequency Features": "./adaptive_nn_results",
     "EMD Features": "./adaptive_emd_results",
@@ -147,9 +190,9 @@ df_filtered = df_all[
 # Threshold Filter
 st.sidebar.markdown("---")
 min_thresh, max_thresh = df_filtered["Threshold"].min(), df_filtered["Threshold"].max()
-# Default to 0.4-0.7 if within range, else full range
-default_min = 0.4 if min_thresh <= 0.4 <= max_thresh else min_thresh
-default_max = 0.7 if min_thresh <= 0.7 <= max_thresh else max_thresh
+# Default to 0.49-0.55 threshold sweep
+default_min = 0.49 if min_thresh <= 0.49 <= max_thresh else min_thresh
+default_max = 0.55 if min_thresh <= 0.55 <= max_thresh else max_thresh
 
 selected_threshold_range = st.sidebar.slider(
     "Filter Threshold Range", 
@@ -169,13 +212,31 @@ metric_options = ["F1", "AUROC", "Precision", "Recall", "Accuracy"]
 selected_metric = st.sidebar.selectbox("Select Metric to Visualize", metric_options)
 
 # Trial Aggregation
-trial_mode = st.sidebar.radio("Trial Mode", ["Average across all trials", "Specific Trial"])
+trial_mode = st.sidebar.radio("Trial Mode", ["Average across all trials", "Specific Trial", "Custom Selection"])
 selected_trial = None
+
 if trial_mode == "Specific Trial":
     trial_options = sorted(df_filtered["Trial"].unique())
     selected_trial = st.sidebar.selectbox("Select Trial", trial_options)
     df_viz = df_filtered[df_filtered["Trial"] == selected_trial]
     st.sidebar.markdown(f"**Viewing results for Trial {selected_trial}**")
+    
+elif trial_mode == "Custom Selection":
+    trial_options = sorted(df_filtered["Trial"].unique())
+    selected_trials = st.sidebar.multiselect("Select Trials to Average", trial_options, default=trial_options)
+    
+    if not selected_trials:
+        st.warning("Please select at least one trial.")
+        st.stop()
+        
+    df_custom = df_filtered[df_filtered["Trial"].isin(selected_trials)]
+    # Filter df_filtered itself to reflect only selected trials for distribution charts too?
+    # Yes, user likely wants to see distribution of selected range.
+    df_filtered = df_custom
+    
+    df_viz = df_filtered.groupby(["MA_Window", "Threshold"])[metric_options].mean().reset_index()
+    st.sidebar.markdown(f"**Viewing average across {len(selected_trials)} selected trials**")
+
 else:
     # Aggregate
     df_viz = df_filtered.groupby(["MA_Window", "Threshold"])[metric_options].mean().reset_index()
@@ -190,14 +251,10 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     st.subheader(f"🔥 Heatmap: {selected_metric} ")
-    st.markdown(f"Optimal **Moving Average Window** vs **Probability Threshold**")
+    st.markdown(f"**Moving Average Window** vs **Probability Threshold**")
     
     # Pivot for heatmap
     heatmap_data = df_viz.pivot(index="MA_Window", columns="Threshold", values=selected_metric)
-    
-    # Find best value coordinates
-    best_val = df_viz[selected_metric].max()
-    best_row = df_viz[df_viz[selected_metric] == best_val].iloc[0]
     
     fig_heat = px.imshow(
         heatmap_data,
@@ -205,55 +262,55 @@ with col1:
         x=heatmap_data.columns,
         y=heatmap_data.index,
         aspect="auto",
-        color_continuous_scale="Viridis",
-        origin="lower" # Make sure MA=1 is at bottom or top typically? Standard is Y upwards.
+        color_continuous_scale="YlOrRd",
+        origin="lower"
     )
-    
-    # Annotate best point
-    fig_heat.add_annotation(
-        x=best_row["Threshold"],
-        y=best_row["MA_Window"],
-        text="★ Best",
-        showarrow=True,
-        arrowhead=1,
-        ax=0,
-        ay=-40,
-        font=dict(color="red", size=14)
-    )
+    fig_heat.update_layout(template=PLOTLY_TEMPLATE, plot_bgcolor="white", paper_bgcolor="white", font_color="black", **AXIS_CONFIG)
     
     st.plotly_chart(fig_heat, use_container_width=True)
-    
-    st.info(
-        f"**Best {selected_metric}: {best_val:.4f}**\n\n"
-        f"MA Window: {int(best_row['MA_Window'])}, "
-        f"Threshold: {best_row['Threshold']:.2f}"
-    )
 
 with col2:
     st.subheader("Results Distribution")
     
-    if trial_mode == "Average across all trials":
-        st.markdown("Variance across trials for the **Best Configuration** found above.")
-        # Get data for best config across all trials
-        best_ma = best_row["MA_Window"]
-        best_thresh = best_row["Threshold"]
+    if trial_mode != "Specific Trial":
+        st.markdown("Distribution across trials for the **Top 5 Configurations**.")
         
-        df_best_config = df_filtered[
-            (df_filtered["MA_Window"] == best_ma) &
-            (df_filtered["Threshold"] == best_thresh)
-        ]
+        # 1. Identify Top 5 Configs
+        top5_configs = df_viz.sort_values(selected_metric, ascending=False).head(5)
         
-        if not df_best_config.empty:
+        # 2. Filter original data to only these configs
+        # Create a tuple identifier for filtering
+        top5_keys = set(zip(top5_configs["MA_Window"], top5_configs["Threshold"]))
+        
+        # Filter
+        df_top5_dist = df_filtered[
+            df_filtered.apply(lambda row: (row["MA_Window"], row["Threshold"]) in top5_keys, axis=1)
+        ].copy()
+        
+        # 3. Create readable label
+        df_top5_dist["Config"] = df_top5_dist.apply(
+            lambda x: f"MA:{x['MA_Window']} Th:{x['Threshold']:.2f}", axis=1
+        )
+        
+        if not df_top5_dist.empty:
             fig_box = px.box(
-                df_best_config, 
+                df_top5_dist, 
+                x="Config",
                 y=selected_metric, 
                 points="all",
-                title=f"{selected_metric} Stability (MA={best_ma}, Th={best_thresh:.2f})",
-                color="Dataset" # dummy color just for visuals
+                title=f"{selected_metric} Distribution (Top 5 Configs)",
+                color="Config",
+                color_discrete_sequence=["#FF0000", "#FF4500", "#FF8C00", "#FFA500", "#FFD700"]
+            )
+            fig_box.update_layout(
+                template=PLOTLY_TEMPLATE, 
+                plot_bgcolor="white", 
+                paper_bgcolor="white", 
+                font_color="black",
+                showlegend=False,
+                **AXIS_CONFIG
             )
             st.plotly_chart(fig_box, use_container_width=True)
-            
-            st.write(df_best_config[["Trial", selected_metric]].sort_values("Trial").set_index("Trial"))
     else:
         st.markdown("Detailed metrics for this trial.")
         st.dataframe(df_viz.sort_values(selected_metric, ascending=False).head(20))
@@ -267,7 +324,7 @@ st.subheader("📈 Detailed Performance Lines")
 
 # Dropdown to select specific MA windows to compare
 ma_options = sorted(df_viz["MA_Window"].unique())
-default_mas = [best_row["MA_Window"], 1, 10, 20]
+default_mas = [1, 5, 10, 20]
 selected_mas = st.multiselect(
     "Select MA Windows to compare", 
     ma_options, 
@@ -283,27 +340,36 @@ if selected_mas:
         y=selected_metric, 
         color="MA_Window",
         markers=True,
-        title=f"{selected_metric} vs Threshold (across selected MA Windows)"
+        title=f"{selected_metric} vs Threshold (across selected MA Windows)",
+        color_discrete_sequence=["#d62728", "#e45a33", "#f4a041", "#ffc857", "#cc5500", "#b22222", "#ff6347"]
     )
+    fig_line.update_layout(template=PLOTLY_TEMPLATE, plot_bgcolor="white", paper_bgcolor="white", font_color="black", **AXIS_CONFIG)
     st.plotly_chart(fig_line, use_container_width=True)
 
 # ============================================================================
-# Comparison Table (Manual entry for now or calculated)
+# Top 5 Configurations by Accuracy & F1
 # ============================================================================
 if trial_mode == "Average across all trials":
     st.markdown("---")
-    st.subheader(f"🏆 Top 5 Configurations ({selected_metric})")
-    st.dataframe(
-        df_viz.sort_values(selected_metric, ascending=False).head(5)
-        .style.format({
-            "Threshold": "{:.2f}",
-            "Precision": "{:.4f}",
-            "Recall": "{:.4f}",
-            "F1": "{:.4f}",
-            "Accuracy": "{:.4f}",
-            "AUROC": "{:.4f}"
-        })
-    )
+    st.subheader("🏆 Top 5 Configurations")
+    
+    t5_col1, t5_col2 = st.columns(2)
+    
+    with t5_col1:
+        st.markdown("**By Accuracy**")
+        st.dataframe(
+            df_viz.sort_values("Accuracy", ascending=False).head(5)
+            [["MA_Window", "Threshold", "Accuracy", "F1"]]
+            .style.format({"Threshold": "{:.2f}", "Accuracy": "{:.4f}", "F1": "{:.4f}"})
+        )
+    
+    with t5_col2:
+        st.markdown("**By F1 Score**")
+        st.dataframe(
+            df_viz.sort_values("F1", ascending=False).head(5)
+            [["MA_Window", "Threshold", "F1", "Accuracy"]]
+            .style.format({"Threshold": "{:.2f}", "F1": "{:.4f}", "Accuracy": "{:.4f}"})
+        )
 
 # ============================================================================
 # T-Test Significance Analysis
@@ -371,14 +437,15 @@ if ttest_data:
                 y="-log10(p)",
                 title=f"Feature Significance: -log10(p-value) {title_suffix}",
                 color="-log10(p)",
-                color_continuous_scale="Reds",
+                color_continuous_scale="OrRd",
                 labels={"-log10(p)": "-log10(p)"}
             )
+            fig_ttest.update_layout(template=PLOTLY_TEMPLATE, plot_bgcolor="white", paper_bgcolor="white", font_color="black", **AXIS_CONFIG)
             
             # Threshold line for p=0.05
-            fig_ttest.add_hline(y=-np.log10(0.05), line_dash="dash", line_color="black", annotation_text="p=0.05")
+            fig_ttest.add_hline(y=-np.log10(0.05), line_dash="dash", line_color="#8b4513", annotation_text="p=0.05")
             # Threshold line for p=0.001
-            fig_ttest.add_hline(y=-np.log10(0.001), line_dash="dash", line_color="blue", annotation_text="p=0.001")
+            fig_ttest.add_hline(y=-np.log10(0.001), line_dash="dash", line_color="#cc5500", annotation_text="p=0.001")
 
             st.plotly_chart(fig_ttest, use_container_width=True)
             

@@ -67,7 +67,6 @@ Extracted by `emd/v2.2.py` using the `pyemdcpp` library. For each epoch on each 
    - **Wiener entropy**: Ratio of geometric to arithmetic mean of the squared signal, quantifying spectral flatness
    - **Skewness**: Third standardised moment (asymmetry of the distribution)
    - **Kurtosis**: Fourth standardised moment (tailedness of the distribution)
-   - **PSD-RMS**: Root mean square of the FFT-based power spectral density
    - **Standard deviation**: Measure of signal spread
 
 This produces **24 features per channel** (6 features × 4 IMFs).

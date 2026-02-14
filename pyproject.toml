@@ -8,6 +8,7 @@ dependencies = [
     "antropy>=0.1.9",
     "cupy-cuda12x>=13.6.0 ; sys_platform == 'linux' or sys_platform == 'win32'",
     "emd-signal>=1.9.0",
+    "kaleido>=1.2.0",
     "mne>=1.11.0",
     "nolds>=0.6.3",
     "numpy>=2.3.5",
