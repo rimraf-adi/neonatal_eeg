@@ -21,3 +21,12 @@ study_results/logs/
 Thumbs.db
 .idea/
 .vscode/
+
+# LaTeX auxiliary build files
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
