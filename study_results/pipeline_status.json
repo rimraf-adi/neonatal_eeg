@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-09-14 10:00:55",
+  "overall_status": "COMPLETED",
+  "studies": {
+    "Study 1: Classifier Complexity Ladder": {
+      "status": "SUCCESS",
+      "folder": "01_classifier_ladder"
+    },
+    "Study 2: Feature Ablation": {
+      "status": "SUCCESS",
+      "folder": "02_feature_ablation"
+    },
+    "Study 3: UMAP & t-SNE Clustering": {
+      "status": "SUCCESS",
+      "folder": "03_umap_tsne"
+    },
+    "Study 4: Fisher Discriminant Ratio": {
+      "status": "SUCCESS",
+      "folder": "04_fisher_ratio"
+    },
+    "Study 5: Baseline Feature Comparison (w/ EMD & DWT)": {
+      "status": "SUCCESS",
+      "folder": "05_baseline_comparison"
+    },
+    "Study 6: Temporal Trajectory Analysis": {
+      "status": "SUCCESS",
+      "folder": "06_temporal_trajectory"
+    },
+    "Study 7: Cohen's d Effect Sizes": {
+      "status": "SUCCESS",
+      "folder": "07_cohens_d"
+    },
+    "Study 8: Class Imbalance Sampler Ablation": {
+      "status": "SUCCESS",
+      "folder": "08_sampler_ablation"
+    }
+  }
+}

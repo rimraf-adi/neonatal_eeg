@@ -1,0 +1,60 @@
+================================================================================
+STUDY 7: COHEN'S d EFFECT SIZE — SUMMARY
+================================================================================
+
+d = (mu_1 - mu_0) / sigma_pooled
+sigma_pooled = sqrt((sigma_1^2 + sigma_0^2) / 2)
+
+Unlike p-values, Cohen's d does NOT inflate with sample size.
+With thousands of epochs, p < 0.001 for nearly everything.
+Effect size tells you how MEANINGFULLY different distributions are.
+
+Total features analyzed: 12
+
+EFFECT SIZE DISTRIBUTION
+----------------------------------------
+  Large       :    0 features (  0.0%)
+  Medium      :    0 features (  0.0%)
+  Small       :    3 features ( 25.0%)
+  Negligible  :    9 features ( 75.0%)
+
+
+TOP 30 FEATURES BY |COHEN'S d|
+----------------------------------------------------------------------
+Rank   Feature                        Band     Type         d (mean±std)         Category    
+----------------------------------------------------------------------
+1      delta_midband                  delta    midband      +0.3060 ± 0.1292   Small       
+2      delta_intercept                delta    intercept    +0.2915 ± 0.1313   Small       
+3      delta_slope                    delta    slope        -0.2607 ± 0.1268   Small       
+4      theta_midband                  theta    midband      +0.1984 ± 0.0910   Negligible  
+5      theta_intercept                theta    intercept    +0.1753 ± 0.0783   Negligible  
+6      alpha_intercept                alpha    intercept    +0.1215 ± 0.0500   Negligible  
+7      theta_slope                    theta    slope        -0.1166 ± 0.0527   Negligible  
+8      alpha_slope                    alpha    slope        -0.1054 ± 0.0358   Negligible  
+9      alpha_midband                  alpha    midband      +0.1028 ± 0.0581   Negligible  
+10     beta_slope                     beta     slope        -0.0721 ± 0.0230   Negligible  
+11     beta_intercept                 beta     intercept    +0.0251 ± 0.0247   Negligible  
+12     beta_midband                   beta     midband      -0.0209 ± 0.0172   Negligible  
+
+
+EFFECT SIZE BY BAND (mean |d|)
+----------------------------------------
+  delta     : |d| = 0.2861
+  theta     : |d| = 0.1634
+  alpha     : |d| = 0.1099
+  beta      : |d| = 0.0408
+
+EFFECT SIZE BY TYPE (mean |d|)
+----------------------------------------
+  midband     : |d| = 0.1572
+  intercept   : |d| = 0.1542
+  slope       : |d| = 0.1387
+
+
+================================================================================
+INTERPRETATION
+================================================================================
+
+[WARN]  Only 0/12 features have medium-to-large effects.
+   -> Most features have weak individual effect sizes, but may
+     combine to produce strong classification performance.

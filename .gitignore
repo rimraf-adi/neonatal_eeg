@@ -1,22 +1,23 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
 # Virtual environments
-.venv
+.venv/
+legacy/.venv/
+venv/
+ENV/
 
-/data
-/freq_features
-/stft_features
-/emd
-/emd_features_updated
-freq_features_updated
+# Datasets (large raw EEG files)
+dataset/
 
-/adaptive_nn_results/
-/adaptive_emd_results/
-/pca_adaptive_emd_results/
-/pca_adaptive_nn_results/
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+study_results/logs/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

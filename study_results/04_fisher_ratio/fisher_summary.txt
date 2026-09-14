@@ -1,0 +1,48 @@
+================================================================================
+STUDY 4: FISHER'S DISCRIMINANT RATIO — SUMMARY
+================================================================================
+
+Fisher Ratio J = (mu_1 - mu_0)^2 / (sigma^2_1 + sigma^2_0)
+Higher J = better class separation for that feature.
+Unlike t-tests, Fisher ratio does NOT inflate with sample size.
+
+Total features analyzed: 12
+
+TOP 30 FEATURES BY FISHER RATIO
+------------------------------------------------------------
+Rank   Feature                        Band     Type         J (mean±std)      
+------------------------------------------------------------
+1      delta_midband                  delta    midband      0.0543 ± 0.0414
+2      delta_intercept                delta    intercept    0.0503 ± 0.0408
+3      delta_slope                    delta    slope        0.0412 ± 0.0358
+4      theta_midband                  theta    midband      0.0234 ± 0.0176
+5      theta_intercept                theta    intercept    0.0181 ± 0.0135
+6      alpha_intercept                alpha    intercept    0.0085 ± 0.0059
+7      theta_slope                    theta    slope        0.0081 ± 0.0060
+8      alpha_midband                  alpha    midband      0.0068 ± 0.0061
+9      alpha_slope                    alpha    slope        0.0061 ± 0.0037
+10     beta_slope                     beta     slope        0.0028 ± 0.0016
+11     beta_intercept                 beta     intercept    0.0006 ± 0.0006
+12     beta_midband                   beta     midband      0.0004 ± 0.0004
+
+
+FISHER RATIO BY BAND (mean of means)
+----------------------------------------
+  delta     : J = 0.0486
+  theta     : J = 0.0165
+  alpha     : J = 0.0071
+  beta      : J = 0.0013
+
+FISHER RATIO BY TYPE (mean of means)
+----------------------------------------
+  midband     : J = 0.0212
+  intercept   : J = 0.0194
+  slope       : J = 0.0146
+
+
+================================================================================
+INTERPRETATION
+================================================================================
+
+Most discriminative band: delta (J = 0.0486)
+Most discriminative type: midband (J = 0.0212)

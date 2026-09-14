@@ -1,0 +1,8 @@
+============================================================
+SELECTED PATIENTS (top by seizure duration)
+============================================================
+
+Patient  41:  7856s seizure (56 regions) / 8062s total (97.4%)
+Patient   5:  3136s seizure (7 regions) / 3628s total (86.4%)
+Patient  38:  2681s seizure (21 regions) / 4257s total (63.0%)
+Patient  69:  2250s seizure (14 regions) / 2757s total (81.6%)

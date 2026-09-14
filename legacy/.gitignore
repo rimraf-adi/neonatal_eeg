@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+/data
+/freq_features
+/stft_features
+/emd
+/emd_features_updated
+freq_features_updated
