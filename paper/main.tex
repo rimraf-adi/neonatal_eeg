@@ -97,13 +97,7 @@ The foundational hypothesis of this work is that neonatal electrographic seizure
 
 \subsubsection{Mathematical Formulation}
 
-For each 1-second epoch $x(t)$ ($N = 256$ samples at $f_s = 256$\,Hz) on a given bipolar derivation, we estimate the one-sided power spectral density $P(f)$ using Welch's modified periodogram with a Hann window:
-\begin{equation}
-    P(f) = \frac{1}{M U} \left| \sum_{n=0}^{N-1} x[n] w[n] e^{-j 2\pi f n / f_s} \right|^2
-\end{equation}
-where $w[n]$ is the window function and $U = \frac{1}{N}\sum w^2[n]$ is the window energy normalization factor.
-
-We partition the spectrum into four canonical neurophysiological frequency bands:
+For each 1-second epoch on a given bipolar derivation, we estimate the power spectral density (PSD) $P(f)$ using Welch's modified periodogram with a Hann window~\cite{welch1967}. We partition the spectrum into four canonical neurophysiological frequency bands:
 \begin{itemize}
     \item \textbf{Delta ($\delta$)}: 0.5 -- 4.0\,Hz
     \item \textbf{Theta ($\theta$)}: 4.0 -- 8.0\,Hz
@@ -129,12 +123,10 @@ where $\epsilon_k$ represents the residual fitting error. The closed-form analyt
 where $\bar{\xi} = \frac{1}{K_b} \sum \xi_k$ and $\bar{\eta} = \frac{1}{K_b} \sum \eta_k$.
 
 In addition to the slope and intercept, we extract the model-predicted power at the geometric center frequency of the band, denoted as the \textbf{midband power} ($P_{\text{mid}, b}$):
-\begin{equation}
-    f_{\text{mid}}^{(b)} = \sqrt{f_{\text{low}}^{(b)} \cdot f_{\text{high}}^{(b)}}
-\end{equation}
-\begin{equation}
-    P_{\text{mid}, b} = \alpha_b \ln(f_{\text{mid}}^{(b)}) + \beta_{0,b} \label{eq:midband}
-\end{equation}
+\begin{align}
+    f_{\text{mid}}^{(b)} &= \sqrt{f_{\text{low}}^{(b)} \cdot f_{\text{high}}^{(b)}} \\
+    P_{\text{mid}, b} &= \alpha_b \ln(f_{\text{mid}}^{(b)}) + \beta_{0,b} \label{eq:midband}
+\end{align}
 
 For each channel and each frequency band $b$, the extraction produces exactly three descriptors:
 \begin{equation}
@@ -144,73 +136,38 @@ Aggregating across the four bands yields 12 features per channel:
 \begin{equation}
     \bm{\theta}_{\text{channel}} = \left[ \bm{\theta}_\delta^T, \, \bm{\theta}_\theta^T, \, \bm{\theta}_\alpha^T, \, \bm{\theta}_\beta^T \right]^T \in \mathbb{R}^{12}
 \end{equation}
-For a multi-channel recording of $C = 18$ channels, the full epoch representation is $\mathbb{R}^{216}$ (or an average across channels $\mathbb{R}^{12}$).
+For an 18-channel bipolar recording, this parameterization provides an ultra-compact representation ($18 \times 12 = 216$ dimensions, or a spatial average of 12 features).
 
 \subsubsection{Electrophysiological Rationale}
 
 The three parameters capture distinct, complementary facets of the neural power spectrum:
 \begin{enumerate}
-    \item \textbf{Spectral Slope ($\alpha$)}: Normal background neonatal EEG exhibits steep pink-noise roll-off ($P(f) \propto 1/f^\chi$ with $\chi \approx 1$--$2$, yielding negative slopes $\alpha < 0$). During electrographic seizures, hyper-synchronous neuronal firing introduces narrowband rhythmic sinusoidal oscillations and sharp spike-wave discharges. In low frequencies, this induces flattening or pronounced steepening of local spectral decay, serving as a direct marker of altered excitation/inhibition balance~\cite{gao2017}.
-    \item \textbf{Power Intercept ($\beta_0$)}: Reflects the broadband amplitude baseline. Paroxysmal seizure bursts dramatically elevate overall field potential variance, shifting the intercept upward.
-    \item \textbf{Midband Power ($P_{\text{mid}}$)}: Provides a smoothed, robust measure of centralized resonant band power that is resilient to bin-level spectral noise or notch-filter edge effects.
+    \item \textbf{Spectral Slope ($\alpha$)}: Interictal background EEG exhibits a scale-free power-law decay ($P(f) \propto 1/f^\chi$) reflecting asynchronous background activity~\cite{voytek2015,donoghue2020}. During seizures, hypersynchronous rhythmic discharges induce localized flattening or steepening of spectral roll-off, reflecting altered excitation/inhibition balance~\cite{gao2017}.
+    \item \textbf{Power Intercept ($\beta_0$)}: Captures baseline voltage elevation and global amplitude shifts associated with paroxysmal seizure bursts.
+    \item \textbf{Midband Power ($P_{\text{mid}}$)}: Provides a robust estimate of centralized band power that is less sensitive to bin-level spectral noise or filter boundary artifacts.
 \end{enumerate}
 
-\subsection{Baseline Feature Extraction Paradigms}\label{subsec:baselines}
+\subsection{Baseline Feature Representations}\label{subsec:baselines}
 
-To benchmark the novel log-PSD feature set, we implemented six canonical feature extraction paradigms under identical preprocessing and evaluation conditions:
+To benchmark the proposed parameterization, we evaluate six established feature paradigms under identical evaluation protocols:
+\begin{enumerate}
+    \item \textbf{Empirical Mode Decomposition (EMD)}~\cite{huang1998}: Signals are decomposed into four Intrinsic Mode Functions (IMFs), from which energy, Wiener entropy, skewness, kurtosis, standard deviation, and PSD RMS are extracted~\cite{pan2024}.
+    \item \textbf{Discrete Wavelet Transform (DWT)}~\cite{daubechies1992}: Multi-resolution wavelet analysis via a Daubechies-4 (\texttt{db4}) wavelet at level 3, computing statistical moments across sub-bands~\cite{subasi2007}.
+    \item \textbf{Integrated Band Power}: Standard Simpson's rule integration of PSD over $\delta, \theta, \alpha, \beta$ bands.
+    \item \textbf{Hjorth Parameters}: Signal activity, mobility, and complexity~\cite{hjorth1970}.
+    \item \textbf{Time-Domain Statistics}: Amplitude variance, root-mean-square, skewness, and kurtosis~\cite{greene2008}.
+    \item \textbf{Spectral Entropy}: Normalized Shannon entropy over the PSD per frequency band~\cite{temko2011}.
+\end{enumerate}
 
-\subsubsection{1. Empirical Mode Decomposition (EMD)}
-Following Huang et al.~\cite{huang1998}, EMD decomposes non-linear and non-stationary time series into Intrinsic Mode Functions (IMFs). For each 1-second epoch, signals are adaptively decomposed using the sifting process until four IMFs ($c_1, c_2, c_3, c_4$) and a monotonic residual are extracted. From each IMF, six features are computed: Standard Deviation, Kurtosis, Skewness, Mode Energy, Wiener Entropy (spectral flatness), and PSD RMS, yielding 24 features per channel.
+\subsection{Class Imbalance Management}\label{subsec:sampler}
 
-\subsubsection{2. Discrete Wavelet Transform (DWT)}
-Following Subasi et al.~\cite{subasi2007}, multi-resolution wavelet analysis is performed using a Daubechies-4 (\texttt{db4}) mother wavelet at decomposition level 3, yielding approximation sub-band $A_3$ and detail sub-bands $D_3, D_2, D_1$. From each sub-band, six statistical features (Standard Deviation, Kurtosis, Skewness, Energy, Wiener Entropy, PSD RMS) are extracted, generating 24 features per channel.
+Neonatal EEG is severely imbalanced, with non-seizure background epochs outnumbering seizure epochs by over 10:1. Unweighted training leads to majority-class collapse ($<10\%$ recall). Rather than downsampling and discarding up to 90\% of continuous background recordings, we apply batch-level balanced sampling via PyTorch's \texttt{WeightedRandomSampler}~\cite{paszke2019} using inverse class frequencies, exposing the model to all available background data while maintaining target sampling ratios.
 
-\subsubsection{3. Band Power}
-Conventional integrated power spectral density calculated via Simpson's rule across the four bands ($\delta, \theta, \alpha, \beta$), normalized by total power.
+\subsection{Classification Architecture and Post-Processing}\label{subsec:nn}
 
-\subsubsection{4. Hjorth Parameters}
-Classical time-domain descriptors introduced by Hjorth: Activity (signal variance $\sigma_x^2$), Mobility ($\sigma_{x'} / \sigma_x$), and Complexity ($\text{Mobility}(x') / \text{Mobility}(x)$).
+Feature vectors undergo mean imputation, z-score standardization fit strictly on the training partition, and dimensionality reduction via Principal Component Analysis (PCA, $\le 10$ components, $\ge 95\%$ cumulative variance). A standard feedforward Multi-Layer Perceptron (MLP) with three hidden layers (128--64--32 units, batch normalization, ReLU activations, and 0.3 dropout) is trained using the Adam optimizer ($\text{lr} = 10^{-3}$, batch size 64) with weighted cross-entropy and validation early stopping.
 
-\subsubsection{5. Time-Domain Statistics}
-Basic morphological metrics: variance, root-mean-square amplitude, skewness, and kurtosis of the time-series epoch.
-
-\subsubsection{6. Spectral Entropy}
-Normalized Shannon entropy computed over the PSD distribution within each frequency band:
-\begin{equation}
-    H_b = -\frac{1}{\ln K_b} \sum_{k=1}^{K_b} p_k \ln(p_k), \quad p_k = \frac{P(f_k)}{\sum_{j=1}^{K_b} P(f_j)}
-\end{equation}
-
-\subsection{Class Imbalance and Sampler Optimization}\label{subsec:sampler}
-
-Neonatal EEG suffers from severe class imbalance: across the entire Helsinki corpus, non-seizure epochs outnumber seizure epochs by over 10:1. Naive training on raw natural distributions leads to \textit{classifier collapse}, where models predict the majority background class exclusively, yielding deceptively high accuracy ($>90\%$) with near-zero clinical recall ($<10\%$).
-
-To solve this, we employ PyTorch's \texttt{WeightedRandomSampler} at the mini-batch level during neural network training. For each epoch $i$ with ground truth $y_i \in \{0, 1\}$, sampling weights are assigned inversely proportional to class frequency:
-\begin{equation}
-    w_i = \frac{1}{\sum_{j=1}^N \mathbb{I}(y_j = y_i)}
-\end{equation}
-Mini-batches are sampled with replacement according to target ratios (e.g., 50:50 seizure-to-non-seizure balance). Unlike legacy downsampling methods that discard up to 90\% of continuous background data, \texttt{WeightedRandomSampler} retains the entire continuous dataset, exposing the model to the full diversity of background EEG patterns while guaranteeing balanced gradient updates.
-
-\subsection{Classifier Architecture and Post-Processing}\label{subsec:nn}
-
-\subsubsection{Dimensionality Reduction and Preprocessing}
-Feature vectors are preprocessed using mean imputation followed by standard z-score normalization ($\mu=0, \sigma=1$) fit strictly on the training partition. For deep neural network experiments, Principal Component Analysis (PCA) is applied to retain $\le 10$ components capturing $\ge 95\%$ of the total cumulative variance.
-
-\subsubsection{Deep Multilayer Perceptron (MLP)}
-The classification network consists of a three-hidden-layer feedforward architecture:
-\begin{align*}
-    \bm{h}_1 &= \text{Dropout}_{0.3}(\text{ReLU}(\text{BatchNorm}(\bm{W}_1 \bm{x} + \bm{b}_1))), \quad \bm{W}_1 \in \mathbb{R}^{128 \times D} \\
-    \bm{h}_2 &= \text{Dropout}_{0.3}(\text{ReLU}(\text{BatchNorm}(\bm{W}_2 \bm{h}_1 + \bm{b}_2))), \quad \bm{W}_2 \in \mathbb{R}^{64 \times 128} \\
-    \bm{h}_3 &= \text{Dropout}_{0.3}(\text{ReLU}(\text{BatchNorm}(\bm{W}_3 \bm{h}_2 + \bm{b}_3))), \quad \bm{W}_3 \in \mathbb{R}^{32 \times 64} \\
-    \hat{\bm{y}} &= \text{Softmax}(\bm{W}_4 \bm{h}_3 + \bm{b}_4), \quad \bm{W}_4 \in \mathbb{R}^{2 \times 32}
-\end{align*}
-Training minimizes weighted cross-entropy using the Adam optimizer ($\text{lr} = 10^{-3}$, batch size 64) with early stopping monitored on validation loss (patience = 15 epochs, max 50 epochs).
-
-\subsubsection{Temporal Moving-Average and Threshold Sweeps}
-Because neonatal electrographic seizures are sustained neurophysiological events typically lasting $>10$ seconds~\cite{shellhaas2011}, raw second-by-second model probabilities $\hat{p}_t$ exhibit spurious high-frequency noise. We apply a causal sliding moving-average (MA) filter of window length $W \in [1, 20]$\,seconds:
-\begin{equation}
-    \tilde{p}_t = \frac{1}{W} \sum_{k=0}^{W-1} \hat{p}_{t-k}
-\end{equation}
-A 2D grid search optimizes the window length $W$ and the classification decision threshold $\tau \in [0.05, 0.95]$ on the validation set, maximizing the F1-score before evaluating on the held-out test cohort.
+To regularize second-by-second predictions and reflect the clinical duration of electrographic events ($>10$\,s~\cite{shellhaas2011}), continuous posterior probabilities are smoothed with a causal sliding moving-average window ($W \in [1, 20]$\,seconds). A 2D grid search over the window length $W$ and decision threshold $\tau \in [0.05, 0.95]$ optimizes the F1-score on the validation cohort prior to test evaluation.
 
 \begin{figure*}[t!]
     \centering
