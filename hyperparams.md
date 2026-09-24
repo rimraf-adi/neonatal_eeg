@@ -29,7 +29,10 @@ Comprehensive reference guide for all hyperparameters, configuration options, da
   - **Alpha**: `8.0 – 12.0 Hz` *(in `v2.1.py`, `v1.3.py`) / `8.0 – 13.0 Hz` (in `v1.2.py` / `details.md`)*
   - **Beta**: `12.0 – 35.0 Hz` *(in `v2.1.py`, `v1.3.py`) / `13.0 – 30.0 Hz` (in `details.md`)*
   - *(Optional Gamma band in dictionary: `35.0 – 100.0 Hz`)*
-- **PSD Estimation**: Welch's periodogram with `nperseg = 256` ($1.0\text{ s}$) at $f_s = 256\text{ Hz}$.
+- **PSD Estimation**: Welch's periodogram (`scipy.signal.welch`) computed per 1.0-second epoch:
+  - **Window Type**: **Hann window** (`window='hann'`).
+  - **Segment Length (`nperseg`)**: `nperseg = 256` samples ($1.0\text{ s}$) matching the sampling frequency $f_s = 256\text{ Hz}$.
+  - **Segment Overlap (`noverlap`)**: **No overlap (0% / 0 samples)**. Because the epoch length is exactly 256 samples ($1.0\text{ s}$) and `nperseg = 256`, exactly one full windowed segment covers the entire epoch, leaving no overlapping segments. (Likewise, temporal epoching uses `overlap = 0.0 s`).
 - **Log Transformation**: $\log_{10}(\text{PSD} + 10^{-10})$.
 - **Spectral Slope Fit**: 1st-degree polynomial line fit (`np.polyfit(log_f, log_p, deg=1)` or `LinearRegression`).
 - **Features Extracted per Band**: 3 features:

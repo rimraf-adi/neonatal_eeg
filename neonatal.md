@@ -84,9 +84,11 @@ The system ingests raw European Data Format (`.edf`) recordings from 79 patients
 ## 3. Feature Extraction Paradigms
 
 ### A. Spectral Slope Frequency Features ([`v2.1.py`](file:///d:/neonatal/neonatal_eeg/v2.1.py))
-- **Core Concept**: Log-transformed Power Spectral Density (PSD) line fitting per frequency band.
 - **Frequency Bands**: Delta (0.5–4 Hz), Theta (4–8 Hz), Alpha (8–13 Hz), Beta (13–30 Hz).
-- **PSD Estimation**: Welch's periodogram with segment length = 256 samples.
+- **PSD Estimation**: Welch's periodogram (`scipy.signal.welch`) computed per 1.0-second epoch:
+  - **Window Type**: **Hann window** (`window='hann'`).
+  - **Segment Length (`nperseg`)**: 256 samples ($1.0\text{ s}$) at $f_s = 256\text{ Hz}$.
+  - **Segment Overlap (`noverlap`)**: **No overlap (0% / 0 samples)**; since the epoch length is 256 samples and `nperseg = 256`, exactly one windowed segment evaluates the epoch (no intra-epoch overlap; raw signal epoching also enforces non-overlapping 1-second windows with `overlap = 0.0`).
 - **Polynomial Fit**: Log-log linear regression (`np.polyfit`) per band:
   1. **Slope**: Spectral decay roll-off rate.
   2. **Intercept**: Power axis intercept.
