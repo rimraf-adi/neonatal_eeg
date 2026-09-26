@@ -1,0 +1,92 @@
+[2026-09-13 21:07:47] ======================================================================
+[2026-09-13 21:07:47] OVERNIGHT NEONATAL EEG PIPELINE MASTER RUNNER STARTED
+[2026-09-13 21:07:47] ======================================================================
+[2026-09-13 21:07:47] Checking status of Initial Caching (Task-337)...
+[2026-09-13 21:07:47] Waiting for Initial Caching (PID 28424 or patient_079 completion)...
+[2026-09-13 21:07:47] Still waiting for initial caching... Elapsed: 0.0m. Latest cached: patient_077.csv
+[2026-09-13 21:08:47] Still waiting for initial caching... Elapsed: 1.0m. Latest cached: patient_077.csv
+[2026-09-13 21:09:47] Still waiting for initial caching... Elapsed: 2.0m. Latest cached: patient_077.csv
+[2026-09-13 21:10:47] Still waiting for initial caching... Elapsed: 3.0m. Latest cached: patient_077.csv
+[2026-09-13 21:11:47] Still waiting for initial caching... Elapsed: 4.0m. Latest cached: patient_077.csv
+[2026-09-13 21:12:47] Still waiting for initial caching... Elapsed: 5.0m. Latest cached: patient_077.csv
+[2026-09-13 21:13:47] Still waiting for initial caching... Elapsed: 6.0m. Latest cached: patient_078.csv
+[2026-09-13 21:14:47] Still waiting for initial caching... Elapsed: 7.0m. Latest cached: patient_078.csv
+[2026-09-13 21:15:47] Still waiting for initial caching... Elapsed: 8.0m. Latest cached: patient_078.csv
+[2026-09-13 21:16:47] Still waiting for initial caching... Elapsed: 9.0m. Latest cached: patient_078.csv
+[2026-09-13 21:17:47] Still waiting for initial caching... Elapsed: 10.0m. Latest cached: patient_078.csv
+[2026-09-13 21:18:48] Still waiting for initial caching... Elapsed: 11.0m. Latest cached: patient_078.csv
+[2026-09-13 21:19:48] Still waiting for initial caching... Elapsed: 12.0m. Latest cached: patient_078.csv
+[2026-09-13 21:20:48] Still waiting for initial caching... Elapsed: 13.0m. Latest cached: patient_078.csv
+[2026-09-13 21:21:48] Still waiting for initial caching... Elapsed: 14.0m. Latest cached: patient_078.csv
+[2026-09-13 21:22:48] Still waiting for initial caching... Elapsed: 15.0m. Latest cached: patient_079.csv
+[2026-09-13 21:23:48] Still waiting for initial caching... Elapsed: 16.0m. Latest cached: patient_079.csv
+[2026-09-13 21:24:48] Still waiting for initial caching... Elapsed: 17.0m. Latest cached: patient_079.csv
+[2026-09-13 21:25:48] Still waiting for initial caching... Elapsed: 18.0m. Latest cached: patient_079.csv
+[2026-09-13 21:26:48] Still waiting for initial caching... Elapsed: 19.0m. Latest cached: patient_079.csv
+[2026-09-13 21:27:48] Still waiting for initial caching... Elapsed: 20.0m. Latest cached: patient_079.csv
+[2026-09-13 21:28:48] Still waiting for initial caching... Elapsed: 21.0m. Latest cached: patient_079.csv
+[2026-09-13 21:29:48] Initial caching completed successfully (patient_079.csv detected)!
+[2026-09-13 21:29:53] ======================================================================
+[2026-09-13 21:29:53] STEP 2: RUNNING CACHE_FEATURES FOR EMD & DWT BASELINES
+[2026-09-13 21:29:53] ======================================================================
+[2026-09-13 21:29:53] STARTING: Feature Caching (Pass 2 - EMD & DWT)
+[2026-09-13 21:29:53] Command: uv run python -m studies.cache_features
+[2026-09-14 03:22:32] SUCCESS: Feature Caching (Pass 2 - EMD & DWT) (Duration: 21159.3s / 352.7m)
+[2026-09-14 03:22:32] ======================================================================
+[2026-09-14 03:22:32] STEP 3: RUNNING ALL 8 VALIDATION STUDIES SEQUENTIALLY
+[2026-09-14 03:22:32] ======================================================================
+[2026-09-14 03:22:32] 
+>>> Running Study 01: Classifier Ladder...
+[2026-09-14 03:22:32] STARTING: Study 01: Classifier Ladder
+[2026-09-14 03:22:32] Command: uv run python -m studies.study_01_classifier_ladder
+[2026-09-14 08:02:01] FAILED: Study 01: Classifier Ladder with return code 4294967295 (Duration: 16768.8s)
+[2026-09-14 08:02:01] 
+>>> Running Study 02: Feature Ablation...
+[2026-09-14 08:02:01] STARTING: Study 02: Feature Ablation
+[2026-09-14 08:02:01] Command: uv run python -m studies.study_02_feature_ablation
+[2026-09-14 08:41:27] SUCCESS: Study 02: Feature Ablation (Duration: 2366.5s / 39.4m)
+[2026-09-14 08:41:27] 
+>>> Running Study 03: UMAP / t-SNE...
+[2026-09-14 08:41:27] STARTING: Study 03: UMAP / t-SNE
+[2026-09-14 08:41:27] Command: uv run python -m studies.study_03_umap_tsne
+[2026-09-14 08:46:48] FAILED: Study 03: UMAP / t-SNE with return code 1 (Duration: 320.2s)
+[2026-09-14 08:46:48] 
+>>> Running Study 04: Fisher Ratio...
+[2026-09-14 08:46:48] STARTING: Study 04: Fisher Ratio
+[2026-09-14 08:46:48] Command: uv run python -m studies.study_04_fisher_ratio
+[2026-09-14 08:48:54] SUCCESS: Study 04: Fisher Ratio (Duration: 126.7s / 2.1m)
+[2026-09-14 08:48:54] 
+>>> Running Study 05: Baseline Comparison...
+[2026-09-14 08:48:54] STARTING: Study 05: Baseline Comparison
+[2026-09-14 08:48:54] Command: uv run python -m studies.study_05_baseline_comparison
+[2026-09-14 08:52:16] FAILED: Study 05: Baseline Comparison with return code 1 (Duration: 201.5s)
+[2026-09-14 08:52:16] 
+>>> Running Study 06: Temporal Trajectory...
+[2026-09-14 08:52:16] STARTING: Study 06: Temporal Trajectory
+[2026-09-14 08:52:16] Command: uv run python -m studies.study_06_temporal_trajectory
+[2026-09-14 08:53:05] SUCCESS: Study 06: Temporal Trajectory (Duration: 49.1s / 0.8m)
+[2026-09-14 08:53:05] 
+>>> Running Study 07: Cohen's d Effect Size...
+[2026-09-14 08:53:05] STARTING: Study 07: Cohen's d Effect Size
+[2026-09-14 08:53:05] Command: uv run python -m studies.study_07_cohens_d
+[2026-09-14 08:55:11] SUCCESS: Study 07: Cohen's d Effect Size (Duration: 126.6s / 2.1m)
+[2026-09-14 08:55:11] 
+>>> Running Study 08: Sampler Ablation...
+[2026-09-14 08:55:11] STARTING: Study 08: Sampler Ablation
+[2026-09-14 08:55:11] Command: uv run python -m studies.study_08_sampler_ablation
+[2026-09-14 09:16:40] FAILED: Study 08: Sampler Ablation with return code 4294967295 (Duration: 1288.8s)
+[2026-09-14 09:16:40] ======================================================================
+[2026-09-14 09:16:40] STEP 4: COMPILING MASTER RESEARCH REPORT
+[2026-09-14 09:16:40] ======================================================================
+[2026-09-14 09:16:40] Report successfully compiled to: D:\neonatal\study_results\MASTER_RESEARCH_REPORT.md
+[2026-09-14 09:16:40] ======================================================================
+[2026-09-14 09:16:40] ALL TASKS COMPLETED SUCCESSFULLY! READY FOR PAPER WRITING.
+[2026-09-14 09:16:40] ======================================================================
+[2026-09-14 09:22:58] ======================================================================
+[2026-09-14 09:22:58] STEP 4: COMPILING MASTER RESEARCH REPORT
+[2026-09-14 09:22:58] ======================================================================
+[2026-09-14 09:22:58] Report successfully compiled to: D:\neonatal\study_results\MASTER_RESEARCH_REPORT.md
+[2026-09-14 09:23:20] ======================================================================
+[2026-09-14 09:23:20] STEP 4: COMPILING MASTER RESEARCH REPORT
+[2026-09-14 09:23:20] ======================================================================
+[2026-09-14 09:23:20] Report successfully compiled to: D:\neonatal\study_results\MASTER_RESEARCH_REPORT.md

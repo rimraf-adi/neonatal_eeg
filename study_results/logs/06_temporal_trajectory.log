@@ -1,0 +1,47 @@
+
+================================================================================
+  STUDY 6: TEMPORAL ONSET TRAJECTORY PLOTS
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+
+------------------------------------------------------------
+  Selecting patients with most seizure activity
+------------------------------------------------------------
+Selected 4 patients:
+  Patient 41: 7856s seizure (56 regions)
+  Patient 5: 3136s seizure (7 regions)
+  Patient 38: 2681s seizure (21 regions)
+  Patient 69: 2250s seizure (14 regions)
+
+------------------------------------------------------------
+  Patient 41
+------------------------------------------------------------
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_041_all_features.png
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_041_all_features.html
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_041_delta_slope.png
+
+------------------------------------------------------------
+  Patient 5
+------------------------------------------------------------
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_005_all_features.png
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_005_all_features.html
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_005_delta_slope.png
+
+------------------------------------------------------------
+  Patient 38
+------------------------------------------------------------
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_038_all_features.png
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_038_all_features.html
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_038_delta_slope.png
+
+------------------------------------------------------------
+  Patient 69
+------------------------------------------------------------
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_069_all_features.png
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_069_all_features.html
+  Saved: D:\neonatal\study_results\06_temporal_trajectory\patient_069_delta_slope.png
+
+================================================================================
+  STUDY 6 COMPLETE
+================================================================================
+  Results: D:\neonatal\study_results\06_temporal_trajectory

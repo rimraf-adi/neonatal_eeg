@@ -1,0 +1,13 @@
+
+================================================================================
+  STUDY 8: WEIGHTED RANDOM SAMPLER RATIO ABLATION
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+Device: cpu
+
+------------------------------------------------------------
+  Trial 1/10
+------------------------------------------------------------
+  Train: 2193392 total (seizure=552366, non-seizure=1641026, ratio=3.0:1)
+  Ratio 50:50... 

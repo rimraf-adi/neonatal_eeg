@@ -1,0 +1,93 @@
+
+================================================================================
+  STUDY 3: UMAP / t-SNE VISUALIZATION
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+
+------------------------------------------------------------
+  Trial 1/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0118
+  Davies-Bouldin:   8.4816
+
+------------------------------------------------------------
+  Trial 2/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0154
+  Davies-Bouldin:   5.8944
+
+------------------------------------------------------------
+  Trial 3/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0106
+  Davies-Bouldin:   8.7785
+
+------------------------------------------------------------
+  Trial 4/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0155
+  Davies-Bouldin:   5.3069
+
+------------------------------------------------------------
+  Trial 5/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0277
+  Davies-Bouldin:   4.0167
+
+------------------------------------------------------------
+  Trial 6/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0473
+  Davies-Bouldin:   3.6952
+
+------------------------------------------------------------
+  Trial 7/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0704
+  Davies-Bouldin:   2.8028
+
+------------------------------------------------------------
+  Trial 8/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0370
+  Davies-Bouldin:   3.7906
+
+------------------------------------------------------------
+  Trial 9/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0015
+  Davies-Bouldin:   9.2819
+
+------------------------------------------------------------
+  Trial 10/10 — Clustering Metrics
+------------------------------------------------------------
+  Samples: 10000 (seizure=5000, non-seizure=5000)
+  Silhouette Score: 0.0223
+  Davies-Bouldin:   4.3467
+
+------------------------------------------------------------
+  Generating UMAP & t-SNE Projections (Trial 1)
+------------------------------------------------------------
+  Visualization samples: 10000
+  Computing UMAP embedding...
+  Saved: D:\neonatal\study_results\03_umap_tsne\umap_scatter.png
+  Saved: D:\neonatal\study_results\03_umap_tsne\umap_scatter.html
+  Computing t-SNE embedding...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\neonatal\studies\study_03_umap_tsne.py", line 205, in <module>
+    main()
+    ~~~~^^
+  File "D:\neonatal\studies\study_03_umap_tsne.py", line 157, in main
+    tsne = TSNE(n_components=2, random_state=42, perplexity=30, n_iter=1000)
+TypeError: TSNE.__init__() got an unexpected keyword argument 'n_iter'

@@ -1,0 +1,115 @@
+
+================================================================================
+  STUDY 4: FISHER'S DISCRIMINANT RATIO
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+
+------------------------------------------------------------
+  Trial 1/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0126
+    2. delta_intercept: J = 0.0118
+    3. delta_slope: J = 0.0094
+    4. theta_midband: J = 0.0024
+    5. theta_intercept: J = 0.0016
+
+------------------------------------------------------------
+  Trial 2/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0288
+    2. delta_intercept: J = 0.0230
+    3. theta_midband: J = 0.0162
+    4. delta_slope: J = 0.0156
+    5. theta_intercept: J = 0.0116
+
+------------------------------------------------------------
+  Trial 3/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0159
+    2. delta_intercept: J = 0.0122
+    3. delta_slope: J = 0.0079
+    4. theta_midband: J = 0.0061
+    5. theta_intercept: J = 0.0050
+
+------------------------------------------------------------
+  Trial 4/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0410
+    2. delta_intercept: J = 0.0374
+    3. delta_slope: J = 0.0302
+    4. theta_midband: J = 0.0171
+    5. theta_intercept: J = 0.0129
+
+------------------------------------------------------------
+  Trial 5/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0738
+    2. delta_intercept: J = 0.0680
+    3. delta_slope: J = 0.0561
+    4. theta_midband: J = 0.0388
+    5. theta_intercept: J = 0.0277
+
+------------------------------------------------------------
+  Trial 6/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0964
+    2. delta_intercept: J = 0.0902
+    3. delta_slope: J = 0.0746
+    4. theta_midband: J = 0.0389
+    5. theta_intercept: J = 0.0310
+
+------------------------------------------------------------
+  Trial 7/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.1376
+    2. delta_intercept: J = 0.1352
+    3. delta_slope: J = 0.1178
+    4. theta_midband: J = 0.0527
+    5. theta_intercept: J = 0.0424
+
+------------------------------------------------------------
+  Trial 8/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0666
+    2. delta_intercept: J = 0.0624
+    3. delta_slope: J = 0.0517
+    4. theta_midband: J = 0.0218
+    5. theta_intercept: J = 0.0190
+
+------------------------------------------------------------
+  Trial 9/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0087
+    2. delta_intercept: J = 0.0069
+    3. delta_slope: J = 0.0046
+    4. theta_intercept: J = 0.0033
+    5. theta_midband: J = 0.0029
+
+------------------------------------------------------------
+  Trial 10/10
+------------------------------------------------------------
+  Top 5 features by Fisher ratio:
+    1. delta_midband: J = 0.0617
+    2. delta_intercept: J = 0.0554
+    3. delta_slope: J = 0.0443
+    4. theta_midband: J = 0.0373
+    5. theta_intercept: J = 0.0266
+Saved: top30_fisher.png
+Saved: fisher_by_band.png
+Saved: fisher_by_type.png
+Saved summary: D:\neonatal\study_results\04_fisher_ratio\fisher_summary.txt
+
+================================================================================
+  STUDY 4 COMPLETE
+================================================================================
+  Results: D:\neonatal\study_results\04_fisher_ratio

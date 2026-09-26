@@ -1,0 +1,45 @@
+
+================================================================================
+  STUDY 5: BASELINE FEATURE COMPARISON
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+
+------------------------------------------------------------
+  Feature Set: Spectral Slope
+------------------------------------------------------------
+  Trial 1... AUROC val=0.7090 test=0.7899 (12 feats)
+  Trial 2... AUROC val=0.6190 test=0.7807 (12 feats)
+  Trial 3... AUROC val=0.6201 test=0.6587 (12 feats)
+  Trial 4... AUROC val=0.6890 test=0.7332 (12 feats)
+  Trial 5... AUROC val=0.5916 test=0.5954 (12 feats)
+  Trial 6... AUROC val=0.7414 test=0.4042 (12 feats)
+  Trial 7... AUROC val=0.3930 test=0.6084 (12 feats)
+  Trial 8... AUROC val=0.6879 test=0.6476 (12 feats)
+  Trial 9... AUROC val=0.7406 test=0.6629 (12 feats)
+  Trial 10... AUROC val=0.6094 test=0.2724 (12 feats)
+
+------------------------------------------------------------
+  Feature Set: Band Power
+------------------------------------------------------------
+  Trial 1... Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\neonatal\studies\study_05_baseline_comparison.py", line 270, in <module>
+    main()
+    ~~~~^^
+  File "D:\neonatal\studies\study_05_baseline_comparison.py", line 147, in main
+    result = run_comparison_trial(split_info, feat_dir, col_fn)
+  File "D:\neonatal\studies\study_05_baseline_comparison.py", line 83, in run_comparison_trial
+    model.fit(X_train, y_train)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\neonatal\.venv\Lib\site-packages\sklearn\base.py", line 1403, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "D:\neonatal\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py", line 1447, in fit
+    check_classification_targets(y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\neonatal\.venv\Lib\site-packages\sklearn\utils\multiclass.py", line 230, in check_classification_targets
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Unknown label type: unknown. Maybe you are trying to fit a classifier, which expects discrete classes on a regression target with continuous values.

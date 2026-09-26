@@ -1,0 +1,138 @@
+
+================================================================================
+  STUDY 1: CLASSIFIER COMPLEXITY LADDER
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+
+------------------------------------------------------------
+  Trial 1/10
+------------------------------------------------------------
+  Train: 2193392 samples (seizure=552366, non-seizure=1641026)
+  Val:   778464 samples
+  Test:  383526 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.7090, Test AUROC=0.7899
+  Training Linear SVM... Val AUROC=0.7063, Test AUROC=0.7907
+  Training Random Forest... Val AUROC=0.6265, Test AUROC=0.7183
+  Training KNN (k=5)... Val AUROC=0.5791, Test AUROC=0.6187
+
+------------------------------------------------------------
+  Trial 2/10
+------------------------------------------------------------
+  Train: 2509884 samples (seizure=508068, non-seizure=2001816)
+  Val:   560936 samples
+  Test:  284562 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.6190, Test AUROC=0.7807
+  Training Linear SVM... Val AUROC=0.6206, Test AUROC=0.7837
+  Training Random Forest... Val AUROC=0.5888, Test AUROC=0.6590
+  Training KNN (k=5)... Val AUROC=0.5426, Test AUROC=0.5771
+
+------------------------------------------------------------
+  Trial 3/10
+------------------------------------------------------------
+  Train: 2605950 samples (seizure=546858, non-seizure=2059092)
+  Val:   327548 samples
+  Test:  421884 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.6201, Test AUROC=0.6587
+  Training Linear SVM... Val AUROC=0.6312, Test AUROC=0.6695
+  Training Random Forest... Val AUROC=0.5689, Test AUROC=0.6159
+  Training KNN (k=5)... Val AUROC=0.5564, Test AUROC=0.5814
+
+------------------------------------------------------------
+  Trial 4/10
+------------------------------------------------------------
+  Train: 2491794 samples (seizure=529794, non-seizure=1962000)
+  Val:   391160 samples
+  Test:  472428 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.6890, Test AUROC=0.7332
+  Training Linear SVM... Val AUROC=0.6846, Test AUROC=0.7343
+  Training Random Forest... Val AUROC=0.6712, Test AUROC=0.6150
+  Training KNN (k=5)... Val AUROC=0.5934, Test AUROC=0.5524
+
+------------------------------------------------------------
+  Trial 5/10
+------------------------------------------------------------
+  Train: 2574362 samples (seizure=487044, non-seizure=2087318)
+  Val:   371862 samples
+  Test:  409158 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.5916, Test AUROC=0.5954
+  Training Linear SVM... Val AUROC=0.5869, Test AUROC=0.5933
+  Training Random Forest... Val AUROC=0.6574, Test AUROC=0.5871
+  Training KNN (k=5)... Val AUROC=0.5755, Test AUROC=0.5656
+
+------------------------------------------------------------
+  Trial 6/10
+------------------------------------------------------------
+  Train: 2586818 samples (seizure=439074, non-seizure=2147744)
+  Val:   393192 samples
+  Test:  375372 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.7414, Test AUROC=0.4042
+  Training Linear SVM... Val AUROC=0.7386, Test AUROC=0.3965
+  Training Random Forest... Val AUROC=0.6647, Test AUROC=0.4688
+  Training KNN (k=5)... Val AUROC=0.5837, Test AUROC=0.4723
+
+------------------------------------------------------------
+  Trial 7/10
+------------------------------------------------------------
+  Train: 2501084 samples (seizure=374274, non-seizure=2126810)
+  Val:   486738 samples
+  Test:  367560 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.3930, Test AUROC=0.6084
+  Training Linear SVM... Val AUROC=0.3813, Test AUROC=0.6122
+  Training Random Forest... Val AUROC=0.4016, Test AUROC=0.6250
+  Training KNN (k=5)... Val AUROC=0.4451, Test AUROC=0.5755
+
+------------------------------------------------------------
+  Trial 8/10
+------------------------------------------------------------
+  Train: 2536454 samples (seizure=329958, non-seizure=2206496)
+  Val:   397926 samples
+  Test:  421002 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.6879, Test AUROC=0.6476
+  Training Linear SVM... Val AUROC=0.6861, Test AUROC=0.6430
+  Training Random Forest... Val AUROC=0.6492, Test AUROC=0.6350
+  Training KNN (k=5)... Val AUROC=0.5901, Test AUROC=0.5774
+
+------------------------------------------------------------
+  Trial 9/10
+------------------------------------------------------------
+  Train: 2302778 samples (seizure=499104, non-seizure=1803674)
+  Val:   493362 samples
+  Test:  559242 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.7406, Test AUROC=0.6629
+  Training Linear SVM... Val AUROC=0.7458, Test AUROC=0.6722
+  Training Random Forest... Val AUROC=0.7068, Test AUROC=0.5920
+  Training KNN (k=5)... Val AUROC=0.6274, Test AUROC=0.5634
+
+------------------------------------------------------------
+  Trial 10/10
+------------------------------------------------------------
+  Train: 2471690 samples (seizure=590184, non-seizure=1881506)
+  Val:   522180 samples
+  Test:  361512 samples
+  Features: 12 dimensions
+  Training Logistic Regression... Val AUROC=0.6094, Test AUROC=0.2724
+  Training Linear SVM... Val AUROC=0.6136, Test AUROC=0.2696
+  Training Random Forest... Val AUROC=0.5805, Test AUROC=0.4498
+  Training KNN (k=5)... Val AUROC=0.5723, Test AUROC=0.4542
+
+Saved per-trial results: D:\neonatal\study_results\01_classifier_ladder\per_trial_results.csv
+Saved summary: D:\neonatal\study_results\01_classifier_ladder\summary_table.txt
+  Saved: D:\neonatal\study_results\01_classifier_ladder\val_auroc_comparison.png
+  Saved: D:\neonatal\study_results\01_classifier_ladder\test_auroc_comparison.png
+  Saved: D:\neonatal\study_results\01_classifier_ladder\val_f1_comparison.png
+  Saved: D:\neonatal\study_results\01_classifier_ladder\test_f1_comparison.png
+
+================================================================================
+  STUDY 1 COMPLETE
+================================================================================
+  Results: D:\neonatal\study_results\01_classifier_ladder

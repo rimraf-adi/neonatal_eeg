@@ -1,0 +1,143 @@
+
+================================================================================
+  STUDY 2: FEATURE ABLATION STUDY
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+
+------------------------------------------------------------
+  Ablation: Full (baseline)
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'alpha', 'beta']
+  Types: ['slope', 'intercept', 'midband']
+  Trial 1... AUROC val=0.7090 test=0.7899 (12 feats)
+  Trial 2... AUROC val=0.6190 test=0.7807 (12 feats)
+  Trial 3... AUROC val=0.6201 test=0.6587 (12 feats)
+  Trial 4... AUROC val=0.6890 test=0.7332 (12 feats)
+  Trial 5... AUROC val=0.5916 test=0.5954 (12 feats)
+  Trial 6... AUROC val=0.7414 test=0.4042 (12 feats)
+  Trial 7... AUROC val=0.3930 test=0.6084 (12 feats)
+  Trial 8... AUROC val=0.6879 test=0.6476 (12 feats)
+  Trial 9... AUROC val=0.7406 test=0.6629 (12 feats)
+  Trial 10... AUROC val=0.6094 test=0.2724 (12 feats)
+
+------------------------------------------------------------
+  Ablation: Drop Delta
+------------------------------------------------------------
+  Bands: ['theta', 'alpha', 'beta']
+  Types: ['slope', 'intercept', 'midband']
+  Trial 1... AUROC val=0.6867 test=0.7657 (9 feats)
+  Trial 2... AUROC val=0.5929 test=0.7743 (9 feats)
+  Trial 3... AUROC val=0.5848 test=0.6471 (9 feats)
+  Trial 4... AUROC val=0.7107 test=0.6717 (9 feats)
+  Trial 5... AUROC val=0.6158 test=0.5967 (9 feats)
+  Trial 6... AUROC val=0.7270 test=0.4864 (9 feats)
+  Trial 7... AUROC val=0.4930 test=0.5595 (9 feats)
+  Trial 8... AUROC val=0.6731 test=0.6708 (9 feats)
+  Trial 9... AUROC val=0.7265 test=0.6206 (9 feats)
+  Trial 10... AUROC val=0.5468 test=0.2971 (9 feats)
+
+------------------------------------------------------------
+  Ablation: Drop Theta
+------------------------------------------------------------
+  Bands: ['delta', 'alpha', 'beta']
+  Types: ['slope', 'intercept', 'midband']
+  Trial 1... AUROC val=0.7149 test=0.7966 (9 feats)
+  Trial 2... AUROC val=0.6229 test=0.7749 (9 feats)
+  Trial 3... AUROC val=0.6196 test=0.6610 (9 feats)
+  Trial 4... AUROC val=0.6861 test=0.7304 (9 feats)
+  Trial 5... AUROC val=0.5894 test=0.5943 (9 feats)
+  Trial 6... AUROC val=0.7411 test=0.4080 (9 feats)
+  Trial 7... AUROC val=0.3954 test=0.6139 (9 feats)
+  Trial 8... AUROC val=0.6851 test=0.6469 (9 feats)
+  Trial 9... AUROC val=0.7422 test=0.6565 (9 feats)
+  Trial 10... AUROC val=0.6137 test=0.2777 (9 feats)
+
+------------------------------------------------------------
+  Ablation: Drop Alpha
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'beta']
+  Types: ['slope', 'intercept', 'midband']
+  Trial 1... AUROC val=0.7085 test=0.7930 (9 feats)
+  Trial 2... AUROC val=0.6178 test=0.7814 (9 feats)
+  Trial 3... AUROC val=0.6273 test=0.6622 (9 feats)
+  Trial 4... AUROC val=0.6875 test=0.7335 (9 feats)
+  Trial 5... AUROC val=0.5914 test=0.5948 (9 feats)
+  Trial 6... AUROC val=0.7396 test=0.3932 (9 feats)
+  Trial 7... AUROC val=0.3821 test=0.6109 (9 feats)
+  Trial 8... AUROC val=0.6868 test=0.6365 (9 feats)
+  Trial 9... AUROC val=0.7427 test=0.6703 (9 feats)
+  Trial 10... AUROC val=0.6050 test=0.2708 (9 feats)
+
+------------------------------------------------------------
+  Ablation: Drop Beta
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'alpha']
+  Types: ['slope', 'intercept', 'midband']
+  Trial 1... AUROC val=0.6868 test=0.7728 (9 feats)
+  Trial 2... AUROC val=0.6178 test=0.7668 (9 feats)
+  Trial 3... AUROC val=0.6415 test=0.6755 (9 feats)
+  Trial 4... AUROC val=0.6691 test=0.7193 (9 feats)
+  Trial 5... AUROC val=0.5373 test=0.5949 (9 feats)
+  Trial 6... AUROC val=0.7265 test=0.3692 (9 feats)
+  Trial 7... AUROC val=0.3295 test=0.6434 (9 feats)
+  Trial 8... AUROC val=0.6683 test=0.6015 (9 feats)
+  Trial 9... AUROC val=0.7191 test=0.6549 (9 feats)
+  Trial 10... AUROC val=0.6436 test=0.2277 (9 feats)
+
+------------------------------------------------------------
+  Ablation: Slope only
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'alpha', 'beta']
+  Types: ['slope']
+  Trial 1... AUROC val=0.6579 test=0.7481 (4 feats)
+  Trial 2... AUROC val=0.6052 test=0.7275 (4 feats)
+  Trial 3... AUROC val=0.6292 test=0.7053 (4 feats)
+  Trial 4... AUROC val=0.6385 test=0.6957 (4 feats)
+  Trial 5... AUROC val=0.5105 test=0.5776 (4 feats)
+  Trial 6... AUROC val=0.7062 test=0.4084 (4 feats)
+  Trial 7... AUROC val=0.3442 test=0.6371 (4 feats)
+  Trial 8... AUROC val=0.6337 test=0.6222 (4 feats)
+  Trial 9... AUROC val=0.7138 test=0.6323 (4 feats)
+  Trial 10... AUROC val=0.6319 test=0.2497 (4 feats)
+
+------------------------------------------------------------
+  Ablation: Intercept only
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'alpha', 'beta']
+  Types: ['intercept']
+  Trial 1... AUROC val=0.6720 test=0.7712 (4 feats)
+  Trial 2... AUROC val=0.6024 test=0.7469 (4 feats)
+  Trial 3... AUROC val=0.6304 test=0.6944 (4 feats)
+  Trial 4... AUROC val=0.6532 test=0.7085 (4 feats)
+  Trial 5... AUROC val=0.5478 test=0.5743 (4 feats)
+  Trial 6... AUROC val=0.7168 test=0.3917 (4 feats)
+  Trial 7... AUROC val=0.3383 test=0.6317 (4 feats)
+  Trial 8... AUROC val=0.6518 test=0.6279 (4 feats)
+  Trial 9... AUROC val=0.7327 test=0.6248 (4 feats)
+  Trial 10... AUROC val=0.6129 test=0.2562 (4 feats)
+
+------------------------------------------------------------
+  Ablation: Midband only
+------------------------------------------------------------
+  Bands: ['delta', 'theta', 'alpha', 'beta']
+  Types: ['midband']
+  Trial 1... AUROC val=0.7104 test=0.7957 (4 feats)
+  Trial 2... AUROC val=0.6145 test=0.7817 (4 feats)
+  Trial 3... AUROC val=0.6208 test=0.6729 (4 feats)
+  Trial 4... AUROC val=0.6841 test=0.7319 (4 feats)
+  Trial 5... AUROC val=0.5873 test=0.5952 (4 feats)
+  Trial 6... AUROC val=0.7398 test=0.4110 (4 feats)
+  Trial 7... AUROC val=0.3940 test=0.6096 (4 feats)
+  Trial 8... AUROC val=0.6804 test=0.6528 (4 feats)
+  Trial 9... AUROC val=0.7465 test=0.6707 (4 feats)
+  Trial 10... AUROC val=0.6082 test=0.2677 (4 feats)
+
+Saved per-trial results: D:\neonatal\study_results\02_feature_ablation\ablation_results.csv
+Saved summary: D:\neonatal\study_results\02_feature_ablation\ablation_summary.txt
+Saved chart: D:\neonatal\study_results\02_feature_ablation\ablation_chart.png
+
+================================================================================
+  STUDY 2 COMPLETE
+================================================================================
+  Results: D:\neonatal\study_results\02_feature_ablation

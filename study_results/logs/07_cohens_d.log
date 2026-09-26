@@ -1,0 +1,115 @@
+
+================================================================================
+  STUDY 7: COHEN'S d EFFECT SIZE
+================================================================================
+Feature cache: D:\neonatal\study_results\feature_cache\spectral_slope (39 patients)
+Loaded 10 trial splits
+
+------------------------------------------------------------
+  Trial 1/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.1586 (Negligible)
+    2. delta_intercept: d = +0.1539 (Negligible)
+    3. delta_slope: d = -0.1374 (Negligible)
+    4. theta_midband: d = +0.0689 (Negligible)
+    5. theta_intercept: d = +0.0573 (Negligible)
+
+------------------------------------------------------------
+  Trial 2/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.2401 (Small)
+    2. delta_intercept: d = +0.2145 (Small)
+    3. theta_midband: d = +0.1800 (Negligible)
+    4. delta_slope: d = -0.1764 (Negligible)
+    5. theta_intercept: d = +0.1526 (Negligible)
+
+------------------------------------------------------------
+  Trial 3/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.1782 (Negligible)
+    2. delta_intercept: d = +0.1565 (Negligible)
+    3. delta_slope: d = -0.1258 (Negligible)
+    4. theta_midband: d = +0.1107 (Negligible)
+    5. theta_intercept: d = +0.0998 (Negligible)
+
+------------------------------------------------------------
+  Trial 4/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.2864 (Small)
+    2. delta_intercept: d = +0.2736 (Small)
+    3. delta_slope: d = -0.2456 (Small)
+    4. theta_midband: d = +0.1847 (Negligible)
+    5. theta_intercept: d = +0.1609 (Negligible)
+
+------------------------------------------------------------
+  Trial 5/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.3841 (Small)
+    2. delta_intercept: d = +0.3688 (Small)
+    3. delta_slope: d = -0.3351 (Small)
+    4. theta_midband: d = +0.2784 (Small)
+    5. theta_intercept: d = +0.2354 (Small)
+
+------------------------------------------------------------
+  Trial 6/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.4391 (Small)
+    2. delta_intercept: d = +0.4248 (Small)
+    3. delta_slope: d = -0.3862 (Small)
+    4. theta_midband: d = +0.2789 (Small)
+    5. theta_intercept: d = +0.2492 (Small)
+
+------------------------------------------------------------
+  Trial 7/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.5247 (Medium)
+    2. delta_intercept: d = +0.5199 (Medium)
+    3. delta_slope: d = -0.4853 (Small)
+    4. theta_midband: d = +0.3246 (Small)
+    5. theta_intercept: d = +0.2911 (Small)
+
+------------------------------------------------------------
+  Trial 8/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.3651 (Small)
+    2. delta_intercept: d = +0.3533 (Small)
+    3. delta_slope: d = -0.3215 (Small)
+    4. theta_midband: d = +0.2087 (Small)
+    5. theta_intercept: d = +0.1951 (Negligible)
+
+------------------------------------------------------------
+  Trial 9/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.1321 (Negligible)
+    2. delta_intercept: d = +0.1173 (Negligible)
+    3. delta_slope: d = -0.0958 (Negligible)
+    4. theta_intercept: d = +0.0810 (Negligible)
+    5. theta_midband: d = +0.0761 (Negligible)
+
+------------------------------------------------------------
+  Trial 10/10
+------------------------------------------------------------
+  Top 5 by |d|:
+    1. delta_midband: d = +0.3514 (Small)
+    2. delta_intercept: d = +0.3328 (Small)
+    3. delta_slope: d = -0.2975 (Small)
+    4. theta_midband: d = +0.2732 (Small)
+    5. theta_intercept: d = +0.2305 (Small)
+Saved: cohens_d_distribution.png
+Saved: cohens_d_top30.png
+Saved: cohens_d_by_band.png
+Saved summary: D:\neonatal\study_results\07_cohens_d\effect_size_summary.txt
+
+================================================================================
+  STUDY 7 COMPLETE
+================================================================================
+  Results: D:\neonatal\study_results\07_cohens_d
