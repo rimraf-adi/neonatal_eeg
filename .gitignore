@@ -30,3 +30,8 @@ Thumbs.db
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Extracted raw feature caches (>2.5GB, files >100MB exceed GitHub limit)
+legacy2.0/features/
+pyemdcpp/
+

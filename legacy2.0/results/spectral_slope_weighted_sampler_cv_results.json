@@ -1,0 +1,1062 @@
+[
+  {
+    "trial": 1,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2267208,
+    "test_samples": 383526,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.56,
+        "test_metrics": {
+          "accuracy": 0.8995843828058593,
+          "precision": 0.822525750111957,
+          "recall": 0.5456625074272133,
+          "specificity": 0.9749340619722586,
+          "f1": 0.656081443114842,
+          "auroc": 0.8623354951619666,
+          "brier": 0.25233881641175315,
+          "ece": 0.3577477063781244,
+          "confusion_matrix": [
+            [
+              308280,
+              7926
+            ],
+            [
+              30586,
+              36734
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 20,
+        "best_threshold": 0.61,
+        "test_metrics": {
+          "accuracy": 0.9150070660137775,
+          "precision": 0.868773763249007,
+          "recall": 0.6075609031491385,
+          "specificity": 0.9804621038183968,
+          "f1": 0.7150586980655426,
+          "auroc": 0.8622689620993593,
+          "brier": 0.23706012752451786,
+          "ece": 0.39225389913403635,
+          "confusion_matrix": [
+            [
+              310028,
+              6178
+            ],
+            [
+              26419,
+              40901
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.6,
+        "test_metrics": {
+          "accuracy": 0.9081809316708646,
+          "precision": 0.8414481100972071,
+          "recall": 0.5876262626262626,
+          "specificity": 0.9764267597705293,
+          "f1": 0.6919961865778035,
+          "auroc": 0.8876036568916321,
+          "brier": 0.25893196468327107,
+          "ece": 0.41423484558373574,
+          "confusion_matrix": [
+            [
+              308752,
+              7454
+            ],
+            [
+              27761,
+              39559
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.6,
+        "test_metrics": {
+          "accuracy": 0.9088562444267142,
+          "precision": 0.8246920020867611,
+          "recall": 0.610531788472965,
+          "specificity": 0.9723692782553146,
+          "f1": 0.7016336912545451,
+          "auroc": 0.8859321277803403,
+          "brier": 0.2590734979021988,
+          "ece": 0.4133465140457688,
+          "confusion_matrix": [
+            [
+              307469,
+              8737
+            ],
+            [
+              26219,
+              41101
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 2,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2509884,
+    "test_samples": 284562,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.46,
+        "test_metrics": {
+          "accuracy": 0.7931663398486094,
+          "precision": 0.642403460234579,
+          "recall": 0.6122251931075461,
+          "specificity": 0.8648970938962989,
+          "f1": 0.626951379513605,
+          "auroc": 0.8437734373681357,
+          "brier": 0.17156246221741353,
+          "ece": 0.14864817367731312,
+          "confusion_matrix": [
+            [
+              176247,
+              27531
+            ],
+            [
+              31326,
+              49458
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 18,
+        "best_threshold": 0.49,
+        "test_metrics": {
+          "accuracy": 0.7682297706650923,
+          "precision": 0.5803734975017071,
+          "recall": 0.6628416518122401,
+          "specificity": 0.8100089312879702,
+          "f1": 0.6188723294827417,
+          "auroc": 0.8347285442601071,
+          "brier": 0.22788460970311647,
+          "ece": 0.23265907375624237,
+          "confusion_matrix": [
+            [
+              165062,
+              38716
+            ],
+            [
+              27237,
+              53547
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 18,
+        "best_threshold": 0.5,
+        "test_metrics": {
+          "accuracy": 0.6853339518277212,
+          "precision": 0.4599681866383881,
+          "recall": 0.6228337294513765,
+          "specificity": 0.7101110031504873,
+          "f1": 0.5291525566329428,
+          "auroc": 0.7634711242075304,
+          "brier": 0.21703229448785286,
+          "ece": 0.20078412020499242,
+          "confusion_matrix": [
+            [
+              144705,
+              59073
+            ],
+            [
+              30469,
+              50315
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 17,
+        "best_threshold": 0.51,
+        "test_metrics": {
+          "accuracy": 0.6953388013859897,
+          "precision": 0.46876156049507983,
+          "recall": 0.5489948504654387,
+          "specificity": 0.7533541402899233,
+          "f1": 0.5057156703440805,
+          "auroc": 0.7640179149943523,
+          "brier": 0.21626537416666677,
+          "ece": 0.20123243243737796,
+          "confusion_matrix": [
+            [
+              153517,
+              50261
+            ],
+            [
+              36434,
+              44350
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 3,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2605950,
+    "test_samples": 421884,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.53,
+        "test_metrics": {
+          "accuracy": 0.7982976363170919,
+          "precision": 0.7454484467882899,
+          "recall": 0.3589709075898706,
+          "specificity": 0.9559987888392828,
+          "f1": 0.484588221755168,
+          "auroc": 0.7191443659140846,
+          "brier": 0.1846817398596654,
+          "ece": 0.17968982647564172,
+          "confusion_matrix": [
+            [
+              296786,
+              13660
+            ],
+            [
+              71435,
+              40003
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 20,
+        "best_threshold": 0.53,
+        "test_metrics": {
+          "accuracy": 0.7935759592684245,
+          "precision": 0.7050817766848019,
+          "recall": 0.3756348821766363,
+          "specificity": 0.9436004973489753,
+          "f1": 0.49014384656366544,
+          "auroc": 0.6681683992333391,
+          "brier": 0.22952315678236718,
+          "ece": 0.2773362825349939,
+          "confusion_matrix": [
+            [
+              292937,
+              17509
+            ],
+            [
+              69578,
+              41860
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.57,
+        "test_metrics": {
+          "accuracy": 0.8071507807833432,
+          "precision": 0.8599224583572659,
+          "recall": 0.32243040973456094,
+          "specificity": 0.9811464795809899,
+          "f1": 0.46900575635352626,
+          "auroc": 0.6657695276244954,
+          "brier": 0.21851801390174264,
+          "ece": 0.2515274273763705,
+          "confusion_matrix": [
+            [
+              304593,
+              5853
+            ],
+            [
+              75507,
+              35931
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.57,
+        "test_metrics": {
+          "accuracy": 0.8064799802789392,
+          "precision": 0.838587240619105,
+          "recall": 0.3310989070155602,
+          "specificity": 0.9771232356029712,
+          "f1": 0.4747518287151708,
+          "auroc": 0.6645768446817449,
+          "brier": 0.21783050163059886,
+          "ece": 0.25005732451789914,
+          "confusion_matrix": [
+            [
+              303344,
+              7102
+            ],
+            [
+              74541,
+              36897
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 4,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2491794,
+    "test_samples": 472428,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 18,
+        "best_threshold": 0.4,
+        "test_metrics": {
+          "accuracy": 0.3090418010786829,
+          "precision": 0.10414329975902009,
+          "recall": 0.9092495636998255,
+          "specificity": 0.25161188574397225,
+          "f1": 0.1868816197204149,
+          "auroc": 0.8023226901519861,
+          "brier": 0.18888211192803345,
+          "ece": 0.3541057584032201,
+          "confusion_matrix": [
+            [
+              108488,
+              322684
+            ],
+            [
+              3744,
+              37512
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 20,
+        "best_threshold": 0.47,
+        "test_metrics": {
+          "accuracy": 0.5513390400230299,
+          "precision": 0.15173252378853908,
+          "recall": 0.9013476827612953,
+          "specificity": 0.5178490254469215,
+          "f1": 0.25974044116619865,
+          "auroc": 0.8561307922251838,
+          "brier": 0.2252277190907044,
+          "ece": 0.39991789802397637,
+          "confusion_matrix": [
+            [
+              223282,
+              207890
+            ],
+            [
+              4070,
+              37186
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.46,
+        "test_metrics": {
+          "accuracy": 0.4003700034714284,
+          "precision": 0.11700626016723319,
+          "recall": 0.8961120806670545,
+          "specificity": 0.35293571938808643,
+          "f1": 0.2069861318731769,
+          "auroc": 0.754424118374145,
+          "brier": 0.22419215742217638,
+          "ece": 0.3954442920416957,
+          "confusion_matrix": [
+            [
+              152176,
+              278996
+            ],
+            [
+              4286,
+              36970
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.46,
+        "test_metrics": {
+          "accuracy": 0.42881878296798664,
+          "precision": 0.12014517126087622,
+          "recall": 0.8762361838278069,
+          "specificity": 0.3860083678903083,
+          "f1": 0.21131576947583167,
+          "auroc": 0.7517053529195507,
+          "brier": 0.2232265493226093,
+          "ece": 0.394171202178257,
+          "confusion_matrix": [
+            [
+              166436,
+              264736
+            ],
+            [
+              5106,
+              36150
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 5,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2648178,
+    "test_samples": 409158,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 1,
+        "best_threshold": 0.23,
+        "test_metrics": {
+          "accuracy": 0.37143841743287437,
+          "precision": 0.286983028739136,
+          "recall": 0.9463988479305766,
+          "specificity": 0.167993514658196,
+          "f1": 0.4404157591608227,
+          "auroc": 0.6078564668229866,
+          "brier": 0.2248668074607849,
+          "ece": 0.18231965514479104,
+          "confusion_matrix": [
+            [
+              50771,
+              251449
+            ],
+            [
+              5732,
+              101206
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 18,
+        "best_threshold": 0.44,
+        "test_metrics": {
+          "accuracy": 0.32867009810391096,
+          "precision": 0.27858296901729707,
+          "recall": 0.9867867362396903,
+          "specificity": 0.09580107206670638,
+          "f1": 0.4345006485084306,
+          "auroc": 0.6224782145671068,
+          "brier": 0.23914890276443096,
+          "ece": 0.2264725263781864,
+          "confusion_matrix": [
+            [
+              28953,
+              273267
+            ],
+            [
+              1413,
+              105525
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.49,
+        "test_metrics": {
+          "accuracy": 0.4817332179744744,
+          "precision": 0.2921749514616854,
+          "recall": 0.6909517664441078,
+          "specificity": 0.40770299781616043,
+          "f1": 0.4106872392873321,
+          "auroc": 0.611310149767567,
+          "brier": 0.22847514345692793,
+          "ece": 0.20830373231379,
+          "confusion_matrix": [
+            [
+              123216,
+              179004
+            ],
+            [
+              33049,
+              73889
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.49,
+        "test_metrics": {
+          "accuracy": 0.47114317696342245,
+          "precision": 0.28824931511089785,
+          "recall": 0.6966092502197535,
+          "specificity": 0.3913639070875521,
+          "f1": 0.4077684783263177,
+          "auroc": 0.6049278008889684,
+          "brier": 0.2311570011901187,
+          "ece": 0.208290093100822,
+          "confusion_matrix": [
+            [
+              118278,
+              183942
+            ],
+            [
+              32444,
+              74494
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 6,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2660634,
+    "test_samples": 375372,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.44,
+        "test_metrics": {
+          "accuracy": 0.4310177637117313,
+          "precision": 0.34500073518600205,
+          "recall": 0.2737641032821123,
+          "specificity": 0.5631796742466586,
+          "f1": 0.30528178405771644,
+          "auroc": 0.3701102260740444,
+          "brier": 0.2738556994556652,
+          "ece": 0.1503268448347756,
+          "confusion_matrix": [
+            [
+              114865,
+              89093
+            ],
+            [
+              124487,
+              46927
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 20,
+        "best_threshold": 0.46,
+        "test_metrics": {
+          "accuracy": 0.41788945366196734,
+          "precision": 0.3128576424211597,
+          "recall": 0.2296486868050451,
+          "specificity": 0.57609409780445,
+          "f1": 0.26487192081766125,
+          "auroc": 0.3467303367419361,
+          "brier": 0.25897463951329597,
+          "ece": 0.08162197636064211,
+          "confusion_matrix": [
+            [
+              117499,
+              86459
+            ],
+            [
+              132049,
+              39365
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.47,
+        "test_metrics": {
+          "accuracy": 0.4119833125539465,
+          "precision": 0.35992864487759985,
+          "recall": 0.3696022495245429,
+          "specificity": 0.44760195726571156,
+          "f1": 0.36470131103659675,
+          "auroc": 0.3828655276196684,
+          "brier": 0.25767180285938635,
+          "ece": 0.07369978221061575,
+          "confusion_matrix": [
+            [
+              91292,
+              112666
+            ],
+            [
+              108059,
+              63355
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.47,
+        "test_metrics": {
+          "accuracy": 0.4202577709578765,
+          "precision": 0.38080373957145586,
+          "recall": 0.4305774324150886,
+          "specificity": 0.4115847380343012,
+          "f1": 0.40416391728020196,
+          "auroc": 0.39778947900363876,
+          "brier": 0.25758381377413325,
+          "ece": 0.07203987319383634,
+          "confusion_matrix": [
+            [
+              83946,
+              120012
+            ],
+            [
+              97607,
+              73807
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 7,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2574900,
+    "test_samples": 367560,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 1,
+        "best_threshold": 0.37,
+        "test_metrics": {
+          "accuracy": 0.2103520513657634,
+          "precision": 0.19416158841792694,
+          "recall": 0.9389216167566683,
+          "specificity": 0.02876680669412836,
+          "f1": 0.32178133375705986,
+          "auroc": 0.6190705002583123,
+          "brier": 0.23873019218444824,
+          "ece": 0.29138924723224724,
+          "confusion_matrix": [
+            [
+              8464,
+              285764
+            ],
+            [
+              4479,
+              68853
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 1,
+        "best_threshold": 0.4,
+        "test_metrics": {
+          "accuracy": 0.27434160409184893,
+          "precision": 0.19757044246846547,
+          "recall": 0.8614111165657558,
+          "specificity": 0.12802316570822628,
+          "f1": 0.3214208481635166,
+          "auroc": 0.6081245745276893,
+          "brier": 0.22300816620024258,
+          "ece": 0.2643027704702355,
+          "confusion_matrix": [
+            [
+              37668,
+              256560
+            ],
+            [
+              10163,
+              63169
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.2,
+        "test_metrics": {
+          "accuracy": 0.20082707585156165,
+          "precision": 0.1997733439396746,
+          "recall": 1.0,
+          "specificity": 0.0016449828024525197,
+          "f1": 0.3330184737788596,
+          "auroc": 0.7149200301986366,
+          "brier": 0.2232012127375604,
+          "ece": 0.2792603852115922,
+          "confusion_matrix": [
+            [
+              484,
+              293744
+            ],
+            [
+              0,
+              73332
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.2,
+        "test_metrics": {
+          "accuracy": 0.2008243552073131,
+          "precision": 0.19977279971232192,
+          "recall": 1.0,
+          "specificity": 0.0016415840776540641,
+          "f1": 0.3330177176215745,
+          "auroc": 0.7127559551920888,
+          "brier": 0.22326606235804886,
+          "ece": 0.2798018795223083,
+          "confusion_matrix": [
+            [
+              483,
+              293745
+            ],
+            [
+              0,
+              73332
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 8,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2610270,
+    "test_samples": 421002,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.45,
+        "test_metrics": {
+          "accuracy": 0.5884176322202744,
+          "precision": 0.6866175340750648,
+          "recall": 0.505103407853973,
+          "specificity": 0.6976754400412865,
+          "f1": 0.5820370258698667,
+          "auroc": 0.6473392227563951,
+          "brier": 0.24054066821097,
+          "ece": 0.11342140791760641,
+          "confusion_matrix": [
+            [
+              127076,
+              55066
+            ],
+            [
+              118211,
+              120649
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 9,
+        "best_threshold": 0.44,
+        "test_metrics": {
+          "accuracy": 0.6224673516990418,
+          "precision": 0.6037578092948135,
+          "recall": 0.9734488821904044,
+          "specificity": 0.1621921358061293,
+          "f1": 0.7452762757661328,
+          "auroc": 0.6663455282879867,
+          "brier": 0.23617459057579593,
+          "ece": 0.07466864726065818,
+          "confusion_matrix": [
+            [
+              29542,
+              152600
+            ],
+            [
+              6342,
+              232518
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.44,
+        "test_metrics": {
+          "accuracy": 0.6611631298663664,
+          "precision": 0.6560653791125545,
+          "recall": 0.8466088922381311,
+          "specificity": 0.4179705943714245,
+          "f1": 0.7392563969928331,
+          "auroc": 0.6783988392612639,
+          "brier": 0.23017321118707632,
+          "ece": 0.13299297622225126,
+          "confusion_matrix": [
+            [
+              76130,
+              106012
+            ],
+            [
+              36639,
+              202221
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 18,
+        "best_threshold": 0.44,
+        "test_metrics": {
+          "accuracy": 0.661593056565052,
+          "precision": 0.6574403167426727,
+          "recall": 0.8425563091350582,
+          "specificity": 0.424278859351495,
+          "f1": 0.7385756436980712,
+          "auroc": 0.6825550771151015,
+          "brier": 0.2289677543396888,
+          "ece": 0.1290915257478842,
+          "confusion_matrix": [
+            [
+              77279,
+              104863
+            ],
+            [
+              37607,
+              201253
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 9,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2376594,
+    "test_samples": 559242,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.48,
+        "test_metrics": {
+          "accuracy": 0.718368792043516,
+          "precision": 0.2484029538434286,
+          "recall": 0.6737687687687688,
+          "specificity": 0.7243982445670487,
+          "f1": 0.36298261650340147,
+          "auroc": 0.7724961536066862,
+          "brier": 0.19794186259128438,
+          "ece": 0.3202605477136269,
+          "confusion_matrix": [
+            [
+              356869,
+              135773
+            ],
+            [
+              21727,
+              44873
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 20,
+        "best_threshold": 0.51,
+        "test_metrics": {
+          "accuracy": 0.8249666512887086,
+          "precision": 0.36425249054115033,
+          "recall": 0.6302552552552553,
+          "specificity": 0.8512895774213324,
+          "f1": 0.4616797553839724,
+          "auroc": 0.8220732011805245,
+          "brier": 0.24350352447535753,
+          "ece": 0.3829322127911202,
+          "confusion_matrix": [
+            [
+              419381,
+              73261
+            ],
+            [
+              24625,
+              41975
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.5,
+        "test_metrics": {
+          "accuracy": 0.5268345367479552,
+          "precision": 0.16407787413650368,
+          "recall": 0.7261111111111112,
+          "specificity": 0.4998944466773032,
+          "f1": 0.26767072941228565,
+          "auroc": 0.7018894847567799,
+          "brier": 0.2363558027176719,
+          "ece": 0.3714769033898471,
+          "confusion_matrix": [
+            [
+              246269,
+              246373
+            ],
+            [
+              18241,
+              48359
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.51,
+        "test_metrics": {
+          "accuracy": 0.6001713032998237,
+          "precision": 0.1802983591468704,
+          "recall": 0.6647297297297298,
+          "specificity": 0.5914436852724697,
+          "f1": 0.2836584514148964,
+          "auroc": 0.7054404369658854,
+          "brier": 0.23636041369907,
+          "ece": 0.372438221448222,
+          "confusion_matrix": [
+            [
+              291370,
+              201272
+            ],
+            [
+              22329,
+              44271
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "trial": 10,
+    "paradigm": "spectral_slope",
+    "strategy": "weighted_sampler",
+    "pca_components": 10,
+    "train_samples": 2545506,
+    "test_samples": 361512,
+    "models": {
+      "AdaptiveNN": {
+        "best_ma_window": 20,
+        "best_threshold": 0.6,
+        "test_metrics": {
+          "accuracy": 0.834857487441634,
+          "precision": 0.029633933759442184,
+          "recall": 0.004941285896988722,
+          "specificity": 0.9730563461178551,
+          "f1": 0.008470213083987975,
+          "auroc": 0.20173387542254123,
+          "brier": 0.26239656298919967,
+          "ece": 0.38191097396460244,
+          "confusion_matrix": [
+            [
+              301556,
+              8350
+            ],
+            [
+              51351,
+              255
+            ]
+          ]
+        }
+      },
+      "LogisticRegression": {
+        "best_ma_window": 19,
+        "best_threshold": 0.56,
+        "test_metrics": {
+          "accuracy": 0.7939515147491646,
+          "precision": 0.03014249928134368,
+          "recall": 0.01422315234662636,
+          "specificity": 0.9237930211096268,
+          "f1": 0.019326724330871414,
+          "auroc": 0.22475864091045586,
+          "brier": 0.2537936732201771,
+          "ece": 0.3494992008675455,
+          "confusion_matrix": [
+            [
+              286289,
+              23617
+            ],
+            [
+              50872,
+              734
+            ]
+          ]
+        }
+      },
+      "RandomForest": {
+        "best_ma_window": 20,
+        "best_threshold": 0.6,
+        "test_metrics": {
+          "accuracy": 0.8370067936887295,
+          "precision": 0.03400407539480387,
+          "recall": 0.005173816998023485,
+          "specificity": 0.975524836563345,
+          "f1": 0.008981129536815903,
+          "auroc": 0.28209989557589843,
+          "brier": 0.26228033373638215,
+          "ece": 0.3646817636312561,
+          "confusion_matrix": [
+            [
+              302321,
+              7585
+            ],
+            [
+              51339,
+              267
+            ]
+          ]
+        }
+      },
+      "XGBoost": {
+        "best_ma_window": 20,
+        "best_threshold": 0.61,
+        "test_metrics": {
+          "accuracy": 0.8364812233065569,
+          "precision": 0.029338014042126378,
+          "recall": 0.004534356470177886,
+          "specificity": 0.9750182313346628,
+          "f1": 0.0078547212245309,
+          "auroc": 0.3045520966714972,
+          "brier": 0.2622262765463433,
+          "ece": 0.36021070201004834,
+          "confusion_matrix": [
+            [
+              302164,
+              7742
+            ],
+            [
+              51372,
+              234
+            ]
+          ]
+        }
+      }
+    }
+  }
+]

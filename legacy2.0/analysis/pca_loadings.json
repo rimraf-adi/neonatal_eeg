@@ -1,0 +1,548 @@
+{
+  "explained_variance_ratio": [
+    0.28558979964870784,
+    0.07885251496037508,
+    0.07168423469935423,
+    0.050104086519772786,
+    0.04173217733073414,
+    0.03957218017299001,
+    0.037661643367934525,
+    0.033712527538088476,
+    0.03259383958694023,
+    0.029675032697224164
+  ],
+  "cumulative_variance": [
+    0.28558979964870784,
+    0.36444231460908294,
+    0.4361265493084372,
+    0.48623063582820997,
+    0.5279628131589441,
+    0.5675349933319341,
+    0.6051966366998687,
+    0.6389091642379572,
+    0.6715030038248975,
+    0.7011780365221216
+  ],
+  "components": {
+    "PC1": [
+      {
+        "feature": "beta_midband",
+        "loading": 0.2722471929701049,
+        "abs_loading": 0.2722471929701049
+      },
+      {
+        "feature": "alpha_midband",
+        "loading": 0.2643196410191084,
+        "abs_loading": 0.2643196410191084
+      },
+      {
+        "feature": "d3_std",
+        "loading": 0.26104817597177843,
+        "abs_loading": 0.26104817597177843
+      },
+      {
+        "feature": "theta_midband",
+        "loading": 0.2471325475861731,
+        "abs_loading": 0.2471325475861731
+      },
+      {
+        "feature": "a3_std",
+        "loading": 0.24589726698113742,
+        "abs_loading": 0.24589726698113742
+      },
+      {
+        "feature": "d1_std",
+        "loading": 0.24465404572649624,
+        "abs_loading": 0.24465404572649624
+      },
+      {
+        "feature": "beta_intercept",
+        "loading": 0.2426047776366132,
+        "abs_loading": 0.2426047776366132
+      },
+      {
+        "feature": "d2_std",
+        "loading": 0.24080555325597824,
+        "abs_loading": 0.24080555325597824
+      },
+      {
+        "feature": "d1_power",
+        "loading": 0.23779613942307595,
+        "abs_loading": 0.23779613942307595
+      },
+      {
+        "feature": "d2_power",
+        "loading": 0.23686312928011266,
+        "abs_loading": 0.23686312928011266
+      }
+    ],
+    "PC2": [
+      {
+        "feature": "delta_intercept",
+        "loading": 0.3902249325402317,
+        "abs_loading": 0.3902249325402317
+      },
+      {
+        "feature": "delta_slope",
+        "loading": -0.3792423275288189,
+        "abs_loading": 0.3792423275288189
+      },
+      {
+        "feature": "delta_midband",
+        "loading": 0.372289787248205,
+        "abs_loading": 0.372289787248205
+      },
+      {
+        "feature": "theta_intercept",
+        "loading": 0.22450949171162107,
+        "abs_loading": 0.22450949171162107
+      },
+      {
+        "feature": "theta_slope",
+        "loading": -0.2235428368011334,
+        "abs_loading": 0.2235428368011334
+      },
+      {
+        "feature": "d2_kurtosis",
+        "loading": 0.21317360530456164,
+        "abs_loading": 0.21317360530456164
+      },
+      {
+        "feature": "d3_power",
+        "loading": -0.19480171234165589,
+        "abs_loading": 0.19480171234165589
+      },
+      {
+        "feature": "d1_power",
+        "loading": -0.18856175216487656,
+        "abs_loading": 0.18856175216487656
+      },
+      {
+        "feature": "imf2_power",
+        "loading": -0.16129820993219476,
+        "abs_loading": 0.16129820993219476
+      },
+      {
+        "feature": "theta_midband",
+        "loading": 0.15735056218858812,
+        "abs_loading": 0.15735056218858812
+      }
+    ],
+    "PC3": [
+      {
+        "feature": "imf3_power",
+        "loading": 0.45489356759666405,
+        "abs_loading": 0.45489356759666405
+      },
+      {
+        "feature": "imf3_std",
+        "loading": 0.436316462415867,
+        "abs_loading": 0.436316462415867
+      },
+      {
+        "feature": "imf3_skewness",
+        "loading": -0.4078127440852913,
+        "abs_loading": 0.4078127440852913
+      },
+      {
+        "feature": "imf2_power",
+        "loading": 0.3540405899126635,
+        "abs_loading": 0.3540405899126635
+      },
+      {
+        "feature": "imf2_std",
+        "loading": 0.23826328446558842,
+        "abs_loading": 0.23826328446558842
+      },
+      {
+        "feature": "d1_std",
+        "loading": -0.19472637328521977,
+        "abs_loading": 0.19472637328521977
+      },
+      {
+        "feature": "d2_power",
+        "loading": -0.1943104424190984,
+        "abs_loading": 0.1943104424190984
+      },
+      {
+        "feature": "beta_slope",
+        "loading": -0.19316735114829248,
+        "abs_loading": 0.19316735114829248
+      },
+      {
+        "feature": "d2_std",
+        "loading": -0.19180134089860154,
+        "abs_loading": 0.19180134089860154
+      },
+      {
+        "feature": "d1_power",
+        "loading": -0.19023693259115118,
+        "abs_loading": 0.19023693259115118
+      }
+    ],
+    "PC4": [
+      {
+        "feature": "beta_slope",
+        "loading": 0.4870478610628135,
+        "abs_loading": 0.4870478610628135
+      },
+      {
+        "feature": "beta_intercept",
+        "loading": -0.30727288908839245,
+        "abs_loading": 0.30727288908839245
+      },
+      {
+        "feature": "delta_slope",
+        "loading": -0.2738694662154947,
+        "abs_loading": 0.2738694662154947
+      },
+      {
+        "feature": "delta_intercept",
+        "loading": 0.223048555310936,
+        "abs_loading": 0.223048555310936
+      },
+      {
+        "feature": "alpha_intercept",
+        "loading": -0.21801826875456357,
+        "abs_loading": 0.21801826875456357
+      },
+      {
+        "feature": "alpha_midband",
+        "loading": -0.2174131214289352,
+        "abs_loading": 0.2174131214289352
+      },
+      {
+        "feature": "imf1_std",
+        "loading": 0.21371659854538144,
+        "abs_loading": 0.21371659854538144
+      },
+      {
+        "feature": "a3_power",
+        "loading": -0.1950892923270058,
+        "abs_loading": 0.1950892923270058
+      },
+      {
+        "feature": "d2_power",
+        "loading": 0.16681433402243984,
+        "abs_loading": 0.16681433402243984
+      },
+      {
+        "feature": "d2_std",
+        "loading": 0.16530173337499135,
+        "abs_loading": 0.16530173337499135
+      }
+    ],
+    "PC5": [
+      {
+        "feature": "d1_kurtosis",
+        "loading": 0.530585158202371,
+        "abs_loading": 0.530585158202371
+      },
+      {
+        "feature": "d2_kurtosis",
+        "loading": 0.511100821354869,
+        "abs_loading": 0.511100821354869
+      },
+      {
+        "feature": "d1_skewness",
+        "loading": 0.2723058774692526,
+        "abs_loading": 0.2723058774692526
+      },
+      {
+        "feature": "d3_kurtosis",
+        "loading": 0.25995332222268736,
+        "abs_loading": 0.25995332222268736
+      },
+      {
+        "feature": "d2_skewness",
+        "loading": 0.1931032277661581,
+        "abs_loading": 0.1931032277661581
+      },
+      {
+        "feature": "theta_slope",
+        "loading": 0.15562676202987527,
+        "abs_loading": 0.15562676202987527
+      },
+      {
+        "feature": "alpha_slope",
+        "loading": 0.14291579856720743,
+        "abs_loading": 0.14291579856720743
+      },
+      {
+        "feature": "imf4_std",
+        "loading": 0.14130494397918092,
+        "abs_loading": 0.14130494397918092
+      },
+      {
+        "feature": "imf3_skewness",
+        "loading": 0.13846474720665447,
+        "abs_loading": 0.13846474720665447
+      },
+      {
+        "feature": "beta_slope",
+        "loading": -0.13082497859050546,
+        "abs_loading": 0.13082497859050546
+      }
+    ],
+    "PC6": [
+      {
+        "feature": "imf1_skewness",
+        "loading": 0.522825307513224,
+        "abs_loading": 0.522825307513224
+      },
+      {
+        "feature": "imf1_power",
+        "loading": -0.35072840284097095,
+        "abs_loading": 0.35072840284097095
+      },
+      {
+        "feature": "imf1_std",
+        "loading": -0.25122677519308445,
+        "abs_loading": 0.25122677519308445
+      },
+      {
+        "feature": "imf3_power",
+        "loading": 0.2388813249914471,
+        "abs_loading": 0.2388813249914471
+      },
+      {
+        "feature": "imf4_std",
+        "loading": -0.2350274781716921,
+        "abs_loading": 0.2350274781716921
+      },
+      {
+        "feature": "imf3_skewness",
+        "loading": -0.2167417089219696,
+        "abs_loading": 0.2167417089219696
+      },
+      {
+        "feature": "imf3_std",
+        "loading": 0.19495939345430413,
+        "abs_loading": 0.19495939345430413
+      },
+      {
+        "feature": "imf4_power",
+        "loading": -0.19137358007630006,
+        "abs_loading": 0.19137358007630006
+      },
+      {
+        "feature": "d1_kurtosis",
+        "loading": 0.17818891498042025,
+        "abs_loading": 0.17818891498042025
+      },
+      {
+        "feature": "imf2_power",
+        "loading": -0.17270176002923793,
+        "abs_loading": 0.17270176002923793
+      }
+    ],
+    "PC7": [
+      {
+        "feature": "alpha_slope",
+        "loading": 0.431476736004489,
+        "abs_loading": 0.431476736004489
+      },
+      {
+        "feature": "alpha_intercept",
+        "loading": -0.3179459006185847,
+        "abs_loading": 0.3179459006185847
+      },
+      {
+        "feature": "imf2_skewness",
+        "loading": -0.3018332480912533,
+        "abs_loading": 0.3018332480912533
+      },
+      {
+        "feature": "delta_slope",
+        "loading": -0.2822173947512692,
+        "abs_loading": 0.2822173947512692
+      },
+      {
+        "feature": "delta_intercept",
+        "loading": 0.24263574728041776,
+        "abs_loading": 0.24263574728041776
+      },
+      {
+        "feature": "imf1_skewness",
+        "loading": 0.23357570936393726,
+        "abs_loading": 0.23357570936393726
+      },
+      {
+        "feature": "d3_power",
+        "loading": 0.22966909211143827,
+        "abs_loading": 0.22966909211143827
+      },
+      {
+        "feature": "imf1_std",
+        "loading": -0.22013863825112145,
+        "abs_loading": 0.22013863825112145
+      },
+      {
+        "feature": "a3_kurtosis",
+        "loading": -0.1888934283894898,
+        "abs_loading": 0.1888934283894898
+      },
+      {
+        "feature": "delta_midband",
+        "loading": 0.18448243502221645,
+        "abs_loading": 0.18448243502221645
+      }
+    ],
+    "PC8": [
+      {
+        "feature": "theta_slope",
+        "loading": 0.565723601003651,
+        "abs_loading": 0.565723601003651
+      },
+      {
+        "feature": "theta_intercept",
+        "loading": -0.43196735917119083,
+        "abs_loading": 0.43196735917119083
+      },
+      {
+        "feature": "imf2_skewness",
+        "loading": 0.32262103363631844,
+        "abs_loading": 0.32262103363631844
+      },
+      {
+        "feature": "a3_kurtosis",
+        "loading": -0.2603162473349152,
+        "abs_loading": 0.2603162473349152
+      },
+      {
+        "feature": "delta_slope",
+        "loading": -0.2072866121126556,
+        "abs_loading": 0.2072866121126556
+      },
+      {
+        "feature": "alpha_slope",
+        "loading": -0.19052990766976208,
+        "abs_loading": 0.19052990766976208
+      },
+      {
+        "feature": "imf2_std",
+        "loading": -0.18840748510409588,
+        "abs_loading": 0.18840748510409588
+      },
+      {
+        "feature": "alpha_intercept",
+        "loading": 0.15879183305891612,
+        "abs_loading": 0.15879183305891612
+      },
+      {
+        "feature": "imf2_power",
+        "loading": -0.15473561701428662,
+        "abs_loading": 0.15473561701428662
+      },
+      {
+        "feature": "delta_intercept",
+        "loading": 0.15118700116841702,
+        "abs_loading": 0.15118700116841702
+      }
+    ],
+    "PC9": [
+      {
+        "feature": "imf2_skewness",
+        "loading": 0.5777030556061928,
+        "abs_loading": 0.5777030556061928
+      },
+      {
+        "feature": "alpha_slope",
+        "loading": 0.4437639182976277,
+        "abs_loading": 0.4437639182976277
+      },
+      {
+        "feature": "imf2_std",
+        "loading": -0.3431814758644571,
+        "abs_loading": 0.3431814758644571
+      },
+      {
+        "feature": "alpha_intercept",
+        "loading": -0.3163899782857174,
+        "abs_loading": 0.3163899782857174
+      },
+      {
+        "feature": "imf2_power",
+        "loading": -0.25445768458240986,
+        "abs_loading": 0.25445768458240986
+      },
+      {
+        "feature": "theta_slope",
+        "loading": -0.22960834029711058,
+        "abs_loading": 0.22960834029711058
+      },
+      {
+        "feature": "theta_intercept",
+        "loading": 0.16280940357938872,
+        "abs_loading": 0.16280940357938872
+      },
+      {
+        "feature": "imf4_power",
+        "loading": 0.13606623212455374,
+        "abs_loading": 0.13606623212455374
+      },
+      {
+        "feature": "imf1_skewness",
+        "loading": -0.11276802282385776,
+        "abs_loading": 0.11276802282385776
+      },
+      {
+        "feature": "imf3_std",
+        "loading": 0.10473186547665017,
+        "abs_loading": 0.10473186547665017
+      }
+    ],
+    "PC10": [
+      {
+        "feature": "imf4_skewness",
+        "loading": 0.6180695675649268,
+        "abs_loading": 0.6180695675649268
+      },
+      {
+        "feature": "imf4_std",
+        "loading": 0.3959656684448818,
+        "abs_loading": 0.3959656684448818
+      },
+      {
+        "feature": "imf4_power",
+        "loading": 0.3025678704399648,
+        "abs_loading": 0.3025678704399648
+      },
+      {
+        "feature": "imf1_power",
+        "loading": -0.2758580002421457,
+        "abs_loading": 0.2758580002421457
+      },
+      {
+        "feature": "imf1_skewness",
+        "loading": 0.2708046437923206,
+        "abs_loading": 0.2708046437923206
+      },
+      {
+        "feature": "imf1_std",
+        "loading": -0.2143078465951212,
+        "abs_loading": 0.2143078465951212
+      },
+      {
+        "feature": "imf2_skewness",
+        "loading": 0.20435997741413173,
+        "abs_loading": 0.20435997741413173
+      },
+      {
+        "feature": "beta_slope",
+        "loading": 0.16105646883600253,
+        "abs_loading": 0.16105646883600253
+      },
+      {
+        "feature": "imf2_power",
+        "loading": 0.15513446611837173,
+        "abs_loading": 0.15513446611837173
+      },
+      {
+        "feature": "alpha_slope",
+        "loading": -0.12020619707778296,
+        "abs_loading": 0.12020619707778296
+      }
+    ]
+  }
+}
