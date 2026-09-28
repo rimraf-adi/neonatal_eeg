@@ -42,9 +42,7 @@ def generate_figure(df, title, filename):
         data=df_t,
         x='t_stat',
         y='Feature',
-        hue='t_stat',
-        palette="vlag",
-        legend=False,
+        color="steelblue",
         ax=axes[0]
     )
     axes[0].set_title("T-Statistic", fontsize=16)
@@ -59,9 +57,7 @@ def generate_figure(df, title, filename):
         data=df_p,
         x='-log10p',
         y='Feature',
-        hue='-log10p',
-        palette="Reds",
-        legend=False,
+        color="indianred",
         ax=axes[1]
     )
     axes[1].set_title("-log10(p-value)", fontsize=16)
