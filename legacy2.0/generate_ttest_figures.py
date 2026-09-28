@@ -9,14 +9,16 @@ from pathlib import Path
 
 # Setup paths
 BASE_DIR = Path(__file__).resolve().parent
-FEATURES_DIR = BASE_DIR / "features"
 FIGURES_DIR = BASE_DIR / "figures"
 FIGURES_DIR.mkdir(exist_ok=True)
 
+# Point to legacy feature caches
+LEGACY_CACHE_DIR = BASE_DIR.parent / "study_results" / "feature_cache"
+
 PARADIGMS = {
-    'spectral_slope': 'Frequency Features',
-    'wavelet': 'Wavelet Features',
-    'emd': 'EMD Features'
+    'spectral_slope': ('Frequency Features', LEGACY_CACHE_DIR / "spectral_slope"),
+    'wavelet': ('Wavelet Features', LEGACY_CACHE_DIR / "legacy_wavelets"),
+    'emd': ('EMD Features', LEGACY_CACHE_DIR / "baselines" / "emd")
 }
 
 def compute_ttests(df):
@@ -51,13 +53,13 @@ def compute_ttests(df):
         
     return pd.DataFrame(results)
 
-def plot_paradigm(paradigm_key, paradigm_name):
+def plot_paradigm(paradigm_key, paradigm_name, paradigm_path):
     print(f"Processing {paradigm_name}...")
     
     # Load all CSVs for this paradigm
-    csv_files = glob.glob(str(FEATURES_DIR / paradigm_key / "patient_*.csv"))
+    csv_files = glob.glob(str(paradigm_path / "patient_*.csv"))
     if not csv_files:
-        print(f"No CSV files found for {paradigm_key}. Skipping.")
+        print(f"No CSV files found for {paradigm_key} at {paradigm_path}. Skipping.")
         return
         
     dfs = []
@@ -113,5 +115,5 @@ def plot_paradigm(paradigm_key, paradigm_name):
     print(f"Saved {out_path.name}")
 
 if __name__ == "__main__":
-    for key, name in PARADIGMS.items():
-        plot_paradigm(key, name)
+    for key, (name, path) in PARADIGMS.items():
+        plot_paradigm(key, name, path)
