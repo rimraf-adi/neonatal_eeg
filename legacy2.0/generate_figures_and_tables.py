@@ -105,13 +105,15 @@ def generate_pca_loadings_plot():
     with open(pca_file, 'r') as f:
         pca_data = json.load(f)
 
-    # Plot PC1 and PC2 top loadings
-    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-    for i, pc in enumerate(['PC1', 'PC2']):
+    # Plot PC1, PC2, PC3, PC4 top loadings
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    axes = axes.flatten()
+    colors = ['#4575b4', '#d73027', '#1b7837', '#762a83']
+    for i, pc in enumerate(['PC1', 'PC2', 'PC3', 'PC4']):
         items = pca_data['components'][pc][:8]
         feats = [it['feature'] for it in items][::-1]
         loadings = [it['loading'] for it in items][::-1]
-        axes[i].barh(feats, loadings, color='#4575b4' if i==0 else '#d73027', height=0.6)
+        axes[i].barh(feats, loadings, color=colors[i], height=0.6)
         axes[i].set_title(f"Top Feature Loadings on {pc} (Var Exp: {pca_data['explained_variance_ratio'][i]:.1%})", fontsize=11, fontweight='bold')
         axes[i].set_xlabel("Loading Coefficient", fontsize=10)
 
