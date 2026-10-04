@@ -138,18 +138,17 @@ def make_spectral_slope_diagram(t, sig, fs):
 
     # 2x3 Grid Layout Parameters
     pw = 0.23
-    ph = 0.31
+    ph = 0.28
     xs_top = [0.06, 0.385, 0.71]
     xs_bot = [0.2225, 0.5475] # Centered bottom row
     
     y_ax_top = 0.58
-    y_hdr_top = y_ax_top + ph + 0.04
+    y_hdr_top = y_ax_top + ph + 0.07
     y_center_top = y_ax_top + ph / 2.0
     
     y_ax_bot = 0.10
-    y_hdr_bot = y_ax_bot + ph + 0.04
+    y_hdr_bot = y_ax_bot + ph + 0.07
     y_center_bot = y_ax_bot + ph / 2.0
-
     xs = [xs_top[0], xs_top[1], xs_top[2], xs_bot[0], xs_bot[1]]
     y_axs = [y_ax_top, y_ax_top, y_ax_top, y_ax_bot, y_ax_bot]
     y_axs = [y_ax_top, y_ax_top, y_ax_top, y_ax_bot, y_ax_bot]
@@ -170,7 +169,7 @@ def make_spectral_slope_diagram(t, sig, fs):
     y_start = y_ax_top - 0.01
     x_end = xs[3] + pw/2
     y_end = y_hdr_bot + 0.02
-    y_mid = 0.51  # Set exactly in the gutter between the rows to avoid overlapping x-labels
+    y_mid = 0.49  # Dropped slightly lower to clear top x-labels
 
     # Draw the orthogonal lines
     ax_bg.plot([x_start, x_start, x_end, x_end], 
@@ -182,8 +181,8 @@ def make_spectral_slope_diagram(t, sig, fs):
     arrow_cd = FancyArrowPatch((x_end, y_mid), (x_end, y_end),
                                arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
     ax_bg.add_patch(arrow_cd)
-    ax_bg.text((x_start + x_end)/2, y_mid + 0.015, "OLS Fit", 
-               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='bottom', zorder=5)
+    ax_bg.text((x_start + x_end)/2, y_mid - 0.015, "OLS Fit", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='top', zorder=5)
 
     draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.01, y_center_bot, xs[4] - 0.01, y_center_bot, "Concatenate")
 
