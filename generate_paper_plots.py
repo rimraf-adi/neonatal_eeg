@@ -115,7 +115,7 @@ def save_fig(fig, base_name, formats=('png', 'pdf')):
     for fmt in formats:
         out_path = OUTPUT_DIR / f"{base_name}.{fmt}"
         fig.savefig(out_path, format=fmt, dpi=300)
-        print(f"  [✓] Saved: {out_path.relative_to(REPO_ROOT)}")
+        print(f"  [*] Saved: {out_path.relative_to(REPO_ROOT)}")
     plt.close(fig)
 
 
@@ -1105,7 +1105,7 @@ def main():
         except Exception as e:
             print(f"  [X] Error generating Figure {num:02d}: {e}")
 
-    print(f"\n[✓] Figure generation complete! All assets saved to {OUTPUT_DIR.resolve()}\n")
+    print(f"\n[*] Figure generation complete! All assets saved to {OUTPUT_DIR.resolve()}\n")
 
 if __name__ == '__main__':
     main()
