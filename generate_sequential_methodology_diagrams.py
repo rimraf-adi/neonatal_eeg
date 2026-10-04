@@ -165,14 +165,25 @@ def make_spectral_slope_diagram(t, sig, fs):
     draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.01, y_center_top, xs[1] - 0.02, y_center_top, "Welch")
     draw_center_pipeline_arrow(ax_bg, xs[1] + pw + 0.01, y_center_top, xs[2] - 0.02, y_center_top, r"$10\log_{10}$")
     
-    # Curved arrow from (c) to (d)
+    # Orthogonal connector from (c) to (d)
+    x_start = xs[2] + pw/2
+    y_start = y_ax_top - 0.01
+    x_end = xs[3] + pw/2
+    y_end = y_hdr_bot + 0.02
+    y_mid = y_start - 0.04
+
+    # Draw the orthogonal lines
+    ax_bg.plot([x_start, x_start, x_end, x_end], 
+               [y_start, y_mid, y_mid, y_end + 0.02], 
+               color=THEME['arrow'], lw=1.1, zorder=4)
+
+    # Draw the arrowhead at the final segment
     from matplotlib.patches import FancyArrowPatch
-    arrow_cd = FancyArrowPatch((xs[2] + pw/2, y_ax_top - 0.01), (xs[3] + pw/2, y_hdr_bot + 0.02),
-                               connectionstyle="arc3,rad=0.3",
+    arrow_cd = FancyArrowPatch((x_end, y_mid), (x_end, y_end),
                                arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
     ax_bg.add_patch(arrow_cd)
-    ax_bg.text((xs[2]+pw/2 + xs[3]+pw/2)/2, (y_ax_top+y_hdr_bot)/2, "OLS Fit", 
-               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='center', zorder=5)
+    ax_bg.text((x_start + x_end)/2, y_mid + 0.015, "OLS Fit", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='bottom', zorder=5)
 
     draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.01, y_center_bot, xs[4] - 0.01, y_center_bot, "Concatenate")
 
@@ -346,14 +357,22 @@ def make_dwt_diagram(t, sig, fs):
 
     # Pipeline Connectors
     draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.015, y_center_top, xs[1] - 0.015, y_center_top, "db4 DWT")
-    
+    x_start = xs[1] + pw/2
+    y_start = y_ax_top - 0.01
+    x_end = xs[2] + pw/2
+    y_end = y_hdr_bot + 0.02
+    y_mid = y_start - 0.04
+
+    ax_bg.plot([x_start, x_start, x_end, x_end], 
+               [y_start, y_mid, y_mid, y_end + 0.02], 
+               color=THEME['arrow'], lw=1.1, zorder=4)
+
     from matplotlib.patches import FancyArrowPatch
-    arrow_bc = FancyArrowPatch((xs[1] + pw/2, y_ax_top - 0.01), (xs[2] + pw/2, y_hdr_bot + 0.02),
-                               connectionstyle="arc3,rad=0.3",
+    arrow_bc = FancyArrowPatch((x_end, y_mid), (x_end, y_end),
                                arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
     ax_bg.add_patch(arrow_bc)
-    ax_bg.text((xs[1]+pw/2 + xs[2]+pw/2)/2, (y_ax_top+y_hdr_bot)/2, "Extract", 
-               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='center', zorder=5)
+    ax_bg.text((x_start + x_end)/2, y_mid + 0.015, "Extract", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='bottom', zorder=5)
 
     draw_center_pipeline_arrow(ax_bg, xs[2] + pw + 0.015, y_center_bot, xs[3] - 0.012, y_center_bot, "Concatenate")
 
