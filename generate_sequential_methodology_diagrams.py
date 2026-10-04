@@ -181,8 +181,8 @@ def make_spectral_slope_diagram(t, sig, fs):
     arrow_cd = FancyArrowPatch((x_end, y_mid), (x_end, y_end),
                                arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
     ax_bg.add_patch(arrow_cd)
-    ax_bg.text((x_start + x_end)/2, y_mid - 0.015, "OLS Fit", 
-               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='top', zorder=5)
+    ax_bg.text(x_end + 0.08, y_mid + 0.01, "OLS Fit", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='bottom', zorder=5)
 
     draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.01, y_center_bot, xs[4] - 0.01, y_center_bot, "Concatenate")
 
