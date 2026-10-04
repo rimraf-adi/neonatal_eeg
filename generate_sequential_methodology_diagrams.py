@@ -170,7 +170,7 @@ def make_spectral_slope_diagram(t, sig, fs):
     y_start = y_ax_top - 0.01
     x_end = xs[3] + pw/2
     y_end = y_hdr_bot + 0.02
-    y_mid = y_start - 0.04
+    y_mid = 0.51  # Set exactly in the gutter between the rows to avoid overlapping x-labels
 
     # Draw the orthogonal lines
     ax_bg.plot([x_start, x_start, x_end, x_end], 
@@ -361,7 +361,7 @@ def make_dwt_diagram(t, sig, fs):
     y_start = y_ax_top - 0.01
     x_end = xs[2] + pw/2
     y_end = y_hdr_bot + 0.02
-    y_mid = y_start - 0.04
+    y_mid = 0.51
 
     ax_bg.plot([x_start, x_start, x_end, x_end], 
                [y_start, y_mid, y_mid, y_end + 0.02], 
