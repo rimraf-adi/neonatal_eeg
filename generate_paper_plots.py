@@ -124,7 +124,7 @@ def save_fig(fig, base_name, formats=('png', 'pdf')):
 # ==============================================================================
 def generate_fig01_concept():
     """
-    Illustrates the log-log linear fitting methodology across canonical bands
+    Illustrates the linear-log fitting methodology across canonical bands
     (Delta, Theta, Alpha, Beta) contrasting Background vs Seizure spectra.
     """
     print("Generating Fig 01: Spectral Slope Biomarker Formulation Concept...")
@@ -150,43 +150,42 @@ def generate_fig01_concept():
     ]
 
     for ax, psd, title, state_color in [
-        (axes[0], psd_bg, 'Normal Interictal Background EEG', COLORS['primary']),
-        (axes[1], psd_sz, 'Ictal Neonatal Seizure EEG', COLORS['seizure']),
+        (axes[0], psd_bg, 'Non-Seizure EEG', COLORS['primary']),
+        (axes[1], psd_sz, 'Seizure EEG', COLORS['seizure']),
     ]:
-        log_f = np.log(freqs)
-        log_p = np.log(psd)
+        # Using linear frequency and log power
+        lin_f = freqs
+        log_p = np.log10(psd)
 
-        # Plot underlying raw spectrum in log-log
+        # Plot underlying raw spectrum in linear-log
         ax.plot(freqs, log_p, color='#7F8C8D', lw=1.2, alpha=0.6, label='Raw Log-PSD')
 
         # Fit lines per band
         for band_name, f_low, f_high, b_col in bands:
             mask = (freqs >= f_low) & (freqs <= f_high)
-            bf = log_f[mask]
+            bf = lin_f[mask]
             bp = log_p[mask]
             
             slope, intercept = np.polyfit(bf, bp, 1)
-            f_mid = np.sqrt(f_low * f_high)
-            p_mid = slope * np.log(f_mid) + intercept
+            f_mid = (f_low + f_high) / 2.0
+            p_mid = slope * f_mid + intercept
 
             # Shaded frequency band region
             ax.axvspan(f_low, f_high, color=b_col, alpha=0.12)
             
             # Regression line
             fit_line = slope * bf + intercept
-            ax.plot(np.exp(bf), fit_line, color=b_col, lw=2.4, label=f'{band_name} Fit')
+            ax.plot(bf, fit_line, color=b_col, lw=2.4, label=f'{band_name} Fit')
 
             # Midband marker
             ax.scatter([f_mid], [p_mid], color=b_col, s=45, zorder=5, edgecolors='black', linewidth=0.8)
 
-        ax.set_xscale('log')
-        ax.set_xlabel('Frequency (Hz, log scale)')
+        ax.set_xlabel('Frequency (Hz)')
         ax.set_title(title, color=state_color, pad=10)
-        ax.set_xlim(0.45, 32)
-        ax.xaxis.set_major_formatter(mpl.ticker.ScalarFormatter())
-        ax.set_xticks([0.5, 1.0, 2.0, 4.0, 8.0, 13.0, 30.0])
+        ax.set_xlim(0, 32)
+        ax.set_xticks([0.5, 4.0, 8.0, 13.0, 30.0])
 
-    axes[0].set_ylabel(r'Log Power Spectral Density: $\ln P(f)$')
+    axes[0].set_ylabel(r'Log Power Spectral Density: $\log_{10} P(f)$')
     
     # Custom Legend
     legend_elements = [
@@ -199,7 +198,6 @@ def generate_fig01_concept():
     ]
     axes[1].legend(handles=legend_elements, loc='upper right', framealpha=0.95, fontsize=8.5)
 
-    plt.suptitle(r'Log-PSD Linear Parameterization: $\ln P(f) = \alpha \ln f + \beta_0$', fontsize=13, y=1.02)
     plt.tight_layout()
     save_fig(fig, 'fig01_concept_spectral_slope')
 
