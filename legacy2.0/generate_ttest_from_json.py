@@ -31,26 +31,10 @@ def aggregate_trials(trial_list):
     return pd.DataFrame(avg_data)
 
 def generate_figure(df, title, filename):
-    df_t = df.sort_values(by='t_stat', ascending=False)
     df_p = df.sort_values(by='-log10p', ascending=False)
     
-    fig, axes = plt.subplots(1, 2, figsize=(20, max(8, len(df)*0.3)))
+    fig, ax = plt.subplots(figsize=(10, max(8, len(df)*0.3)))
     fig.suptitle(title, fontsize=20, y=0.98)
-    
-    # Plot T-Statistic
-    sns.barplot(
-        data=df_t,
-        x='t_stat',
-        y='Feature',
-        color="steelblue",
-        ax=axes[0]
-    )
-    axes[0].set_title("T-Statistic", fontsize=16)
-    axes[0].set_xlabel("T-Statistic", fontsize=14)
-    axes[0].set_ylabel("Feature", fontsize=14)
-    axes[0].tick_params(axis='y', labelsize=10)
-    axes[0].grid(axis='x', linestyle='--', alpha=0.7)
-    axes[0].axvline(0, color='black', linewidth=0.8)
     
     # Plot -log10(p-value)
     sns.barplot(
@@ -58,13 +42,13 @@ def generate_figure(df, title, filename):
         x='-log10p',
         y='Feature',
         color="indianred",
-        ax=axes[1]
+        ax=ax
     )
-    axes[1].set_title("-log10(p-value)", fontsize=16)
-    axes[1].set_xlabel("-log10(p-value)", fontsize=14)
-    axes[1].set_ylabel("")
-    axes[1].tick_params(axis='y', labelsize=10)
-    axes[1].grid(axis='x', linestyle='--', alpha=0.7)
+    ax.set_title("-log10(p-value)", fontsize=16)
+    ax.set_xlabel("-log10(p-value)", fontsize=14)
+    ax.set_ylabel("Feature", fontsize=14)
+    ax.tick_params(axis='y', labelsize=10)
+    ax.grid(axis='x', linestyle='--', alpha=0.7)
     
     plt.tight_layout(pad=3.0)
     out_path = FIGURES_DIR / filename
