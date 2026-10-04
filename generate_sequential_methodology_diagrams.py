@@ -35,7 +35,7 @@ import mne
 plt.rcParams.update({
     'font.family': 'sans-serif',
     'font.sans-serif': ['Arial', 'Helvetica', 'DejaVu Sans'],
-    'font.size': 7.0,
+    'font.size': 8.0,
     'mathtext.fontset': 'dejavusans',
     'figure.dpi': 300,
     'savefig.dpi': 300,
@@ -128,7 +128,7 @@ def draw_panel_header(ax_bg, x, y, letter, title):
 # ==============================================================================
 def make_spectral_slope_diagram(t, sig, fs):
     print("Generating Classic Journal Multi-Panel: Spectral Slope (Center Arrows, Reduced Box Sizes)...")
-    fig = plt.figure(figsize=(14.4, 3.6), facecolor=THEME['bg'])
+    fig = plt.figure(figsize=(6.5, 4.2), facecolor=THEME['bg'])
     ax_bg = fig.add_axes([0, 0, 1, 1])
     ax_bg.axis('off')
     ax_bg.set_xlim(0, 1)
@@ -136,29 +136,48 @@ def make_spectral_slope_diagram(t, sig, fs):
 
     draw_outer_enclosure_box(ax_bg)
 
-    # Significantly reduced box dimensions to provide ample breathing room
-    pw = 0.115
-    ph = 0.54
-    y_ax = 0.16
-    y_hdr = 0.81
-    y_center = y_ax + ph / 2.0  # Exactly at the vertical center of the boxes (0.43)
-    xs = [0.040, 0.243, 0.446, 0.649, 0.852]
+    # 2x3 Grid Layout Parameters
+    pw = 0.23
+    ph = 0.31
+    xs_top = [0.06, 0.385, 0.71]
+    xs_bot = [0.2225, 0.5475] # Centered bottom row
+    
+    y_ax_top = 0.58
+    y_hdr_top = y_ax_top + ph + 0.04
+    y_center_top = y_ax_top + ph / 2.0
+    
+    y_ax_bot = 0.10
+    y_hdr_bot = y_ax_bot + ph + 0.04
+    y_center_bot = y_ax_bot + ph / 2.0
+
+    xs = [xs_top[0], xs_top[1], xs_top[2], xs_bot[0], xs_bot[1]]
+    y_axs = [y_ax_top, y_ax_top, y_ax_top, y_ax_bot, y_ax_bot]
+    y_axs = [y_ax_top, y_ax_top, y_ax_top, y_ax_bot, y_ax_bot]
 
     # Panel Headers
-    draw_panel_header(ax_bg, xs[0], y_hdr, "a", r"Raw EEG Epoch $x(t)$")
-    draw_panel_header(ax_bg, xs[1], y_hdr, "b", r"Welch PSD $P(f)$")
-    draw_panel_header(ax_bg, xs[2], y_hdr, "c", r"Log-PSD Dynamics $y(f)$")
-    draw_panel_header(ax_bg, xs[3], y_hdr, "d", r"Sub-Band OLS Fit $\hat{y}_b(f)$")
-    draw_panel_header(ax_bg, xs[4], y_hdr, "e", r"Biomarker Vector $\mathbf{x}_{\mathrm{slope}}$")
+    draw_panel_header(ax_bg, xs[0], y_hdr_top, "a", r"Raw EEG Epoch $x(t)$")
+    draw_panel_header(ax_bg, xs[1], y_hdr_top, "b", r"Welch PSD $P(f)$")
+    draw_panel_header(ax_bg, xs[2], y_hdr_top, "c", r"Log-PSD Dynamics $y(f)$")
+    draw_panel_header(ax_bg, xs[3], y_hdr_bot, "d", r"Sub-Band OLS Fit $\hat{y}_b(f)$")
+    draw_panel_header(ax_bg, xs[4], y_hdr_bot, "e", r"Biomarker Vector $\mathbf{x}_{\mathrm{slope}}$")
 
     # Pipeline connectors AT VERTICAL CENTER with zero overlap
-    draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.012, y_center, xs[1] - 0.024, y_center, "Welch")
-    draw_center_pipeline_arrow(ax_bg, xs[1] + pw + 0.012, y_center, xs[2] - 0.024, y_center, r"$10\log_{10}$")
-    draw_center_pipeline_arrow(ax_bg, xs[2] + pw + 0.012, y_center, xs[3] - 0.024, y_center, "OLS Fit")
-    draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.012, y_center, xs[4] - 0.012, y_center, "Concatenate")
+    draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.01, y_center_top, xs[1] - 0.02, y_center_top, "Welch")
+    draw_center_pipeline_arrow(ax_bg, xs[1] + pw + 0.01, y_center_top, xs[2] - 0.02, y_center_top, r"$10\log_{10}$")
+    
+    # Curved arrow from (c) to (d)
+    from matplotlib.patches import FancyArrowPatch
+    arrow_cd = FancyArrowPatch((xs[2] + pw/2, y_ax_top - 0.01), (xs[3] + pw/2, y_hdr_bot + 0.02),
+                               connectionstyle="arc3,rad=0.3",
+                               arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
+    ax_bg.add_patch(arrow_cd)
+    ax_bg.text((xs[2]+pw/2 + xs[3]+pw/2)/2, (y_ax_top+y_hdr_bot)/2, "OLS Fit", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='center', zorder=5)
+
+    draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.01, y_center_bot, xs[4] - 0.01, y_center_bot, "Concatenate")
 
     # (a) Raw EEG
-    ax1 = fig.add_axes([xs[0], y_ax, pw, ph])
+    ax1 = fig.add_axes([xs[0], y_axs[0], pw, ph])
     setup_boxed_spines(ax1)
     ax1.plot(t, sig, color='#1E293B', lw=1.1)
     ax1.set_xlim(0, 1.0)
@@ -173,7 +192,7 @@ def make_spectral_slope_diagram(t, sig, fs):
     mask = (freqs >= 0.5) & (freqs <= 30.0)
     f_val, p_val = freqs[mask], psd[mask]
 
-    ax2 = fig.add_axes([xs[1], y_ax, pw, ph])
+    ax2 = fig.add_axes([xs[1], y_axs[1], pw, ph])
     setup_boxed_spines(ax2)
     ax2.plot(f_val, p_val, color='#1E293B', lw=1.2)
     ax2.set_xlim(0, 30)
@@ -195,7 +214,7 @@ def make_spectral_slope_diagram(t, sig, fs):
 
     # (c) Semi-Log PSD
     db_p = 10 * np.log10(p_val + 1e-10)
-    ax3 = fig.add_axes([xs[2], y_ax, pw, ph])
+    ax3 = fig.add_axes([xs[2], y_axs[2], pw, ph])
     setup_boxed_spines(ax3)
     ax3.plot(f_val, db_p, color='#1E293B', lw=1.2)
     ax3.set_xlim(0, 30)
@@ -210,7 +229,7 @@ def make_spectral_slope_diagram(t, sig, fs):
     ax3.axvspan(13, 30, color='#FAF5FF', alpha=0.7, zorder=0)
 
     # (d) OLS Fit on EXACT empirical spectrum
-    ax4 = fig.add_axes([xs[3], y_ax, pw, ph])
+    ax4 = fig.add_axes([xs[3], y_axs[3], pw, ph])
     setup_boxed_spines(ax4)
 
     th_mask = (f_val >= 4.0) & (f_val <= 8.0)
@@ -263,7 +282,7 @@ def make_spectral_slope_diagram(t, sig, fs):
     ax4.legend(loc='lower left', fontsize=5.2, framealpha=0.95, edgecolor='#CBD5E1', handlelength=1.0, borderpad=0.2)
 
     # (e) Feature Vector Assembly
-    ax5 = fig.add_axes([xs[4], y_ax, pw, ph])
+    ax5 = fig.add_axes([xs[4], y_axs[4], pw, ph])
     ax5.axis('off')
     
     panel_card = FancyBboxPatch((0.005, 0.005), 0.990, 0.990, boxstyle="round,pad=0.005,rounding_size=0.015",
@@ -295,7 +314,7 @@ def make_spectral_slope_diagram(t, sig, fs):
 # ==============================================================================
 def make_dwt_diagram(t, sig, fs):
     print("Generating Classic Journal Multi-Panel: DWT (Center Arrows, Reduced Box Sizes)...")
-    fig = plt.figure(figsize=(13.4, 3.6), facecolor=THEME['bg'])
+    fig = plt.figure(figsize=(6.5, 4.2), facecolor=THEME['bg'])
     ax_bg = fig.add_axes([0, 0, 1, 1])
     ax_bg.axis('off')
     ax_bg.set_xlim(0, 1)
@@ -303,26 +322,43 @@ def make_dwt_diagram(t, sig, fs):
 
     draw_outer_enclosure_box(ax_bg)
 
-    pw = 0.150
-    ph = 0.54
-    y_ax = 0.16
-    y_hdr = 0.81
-    y_center = y_ax + ph / 2.0  # Exactly at vertical center (0.43)
-    xs = [0.050, 0.301, 0.552, 0.803]
+    pw = 0.35
+    ph = 0.31
+    xs_top = [0.08, 0.55]
+    xs_bot = [0.08, 0.55]
+    
+    y_ax_top = 0.58
+    y_hdr_top = y_ax_top + ph + 0.04
+    y_center_top = y_ax_top + ph / 2.0
+    
+    y_ax_bot = 0.10
+    y_hdr_bot = y_ax_bot + ph + 0.04
+    y_center_bot = y_ax_bot + ph / 2.0
 
-    # 4 Panel Headers
-    draw_panel_header(ax_bg, xs[0], y_hdr, "a", r"Raw EEG Sequence $x[n]$")
-    draw_panel_header(ax_bg, xs[1], y_hdr, "b", r"Wavelet Sub-Bands ($A_3, D_3, D_2, D_1$)")
-    draw_panel_header(ax_bg, xs[2], y_hdr, "c", r"6 Non-Linear Descriptors")
-    draw_panel_header(ax_bg, xs[3], y_hdr, "d", r"Wavelet Tensor $\mathbf{x}_{\mathrm{DWT}}$")
+    xs = [xs_top[0], xs_top[1], xs_bot[0], xs_bot[1]]
+    y_axs = [y_ax_top, y_ax_top, y_ax_bot, y_ax_bot]
 
-    # 3 Pipeline Connectors at VERTICAL CENTER
-    draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.015, y_center, xs[1] - 0.015, y_center, "db4 DWT")
-    draw_center_pipeline_arrow(ax_bg, xs[1] + pw + 0.015, y_center, xs[2] - 0.012, y_center, "Extract")
-    draw_center_pipeline_arrow(ax_bg, xs[2] + pw + 0.015, y_center, xs[3] - 0.012, y_center, "Concatenate")
+    # Panel Headers
+    draw_panel_header(ax_bg, xs[0], y_hdr_top, "a", r"Raw EEG Sequence $x[n]$")
+    draw_panel_header(ax_bg, xs[1], y_hdr_top, "b", r"Wavelet Sub-Bands ($A_3, D_3, D_2, D_1$)")
+    draw_panel_header(ax_bg, xs[2], y_hdr_bot, "c", r"6 Non-Linear Descriptors")
+    draw_panel_header(ax_bg, xs[3], y_hdr_bot, "d", r"Wavelet Tensor $\mathbf{x}_{\mathrm{DWT}}$")
+
+    # Pipeline Connectors
+    draw_center_pipeline_arrow(ax_bg, xs[0] + pw + 0.015, y_center_top, xs[1] - 0.015, y_center_top, "db4 DWT")
+    
+    from matplotlib.patches import FancyArrowPatch
+    arrow_bc = FancyArrowPatch((xs[1] + pw/2, y_ax_top - 0.01), (xs[2] + pw/2, y_hdr_bot + 0.02),
+                               connectionstyle="arc3,rad=0.3",
+                               arrowstyle='-|>', mutation_scale=9, linewidth=1.1, color=THEME['arrow'], zorder=4)
+    ax_bg.add_patch(arrow_bc)
+    ax_bg.text((xs[1]+pw/2 + xs[2]+pw/2)/2, (y_ax_top+y_hdr_bot)/2, "Extract", 
+               fontsize=6.2, color=THEME['text_muted'], fontweight='bold', ha='center', va='center', zorder=5)
+
+    draw_center_pipeline_arrow(ax_bg, xs[2] + pw + 0.015, y_center_bot, xs[3] - 0.012, y_center_bot, "Concatenate")
 
     # (a) Raw EEG Sequence
-    ax1 = fig.add_axes([xs[0], y_ax, pw, ph])
+    ax1 = fig.add_axes([xs[0], y_axs[0], pw, ph])
     setup_boxed_spines(ax1)
     ax1.plot(t, sig, color='#1E293B', lw=1.1)
     ax1.set_xlim(0, 1.0)
@@ -334,7 +370,7 @@ def make_dwt_diagram(t, sig, fs):
 
     # (b) Decomposed Sub-Bands
     coeffs = pywt.wavedec(sig, 'db4', level=3)  # A3, D3, D2, D1
-    ax2 = fig.add_axes([xs[1], y_ax, pw, ph])
+    ax2 = fig.add_axes([xs[1], y_axs[1], pw, ph])
     setup_boxed_spines(ax2)
 
     traces_dwt = [
@@ -359,7 +395,7 @@ def make_dwt_diagram(t, sig, fs):
     ax2.set_xticks([])
 
     # (c) 6 Non-Linear Descriptors
-    ax3 = fig.add_axes([xs[2], y_ax, pw, ph])
+    ax3 = fig.add_axes([xs[2], y_axs[2], pw, ph])
     ax3.axis('off')
     card_c = FancyBboxPatch((0.005, 0.005), 0.990, 0.990, boxstyle="round,pad=0.005,rounding_size=0.015",
                             facecolor='#FFFFFF', edgecolor=THEME['box_spine'], lw=0.8, zorder=1)
@@ -380,7 +416,7 @@ def make_dwt_diagram(t, sig, fs):
         y_d -= 0.150
 
     # (d) Wavelet Vector Assembly
-    ax4 = fig.add_axes([xs[3], y_ax, pw, ph])
+    ax4 = fig.add_axes([xs[3], y_axs[3], pw, ph])
     ax4.axis('off')
     card_d = FancyBboxPatch((0.005, 0.005), 0.990, 0.990, boxstyle="round,pad=0.005,rounding_size=0.015",
                             facecolor='#FFFFFF', edgecolor=THEME['box_spine'], lw=0.8, zorder=1)
@@ -440,7 +476,7 @@ def make_emd_diagram(t, sig, fs):
     draw_center_pipeline_arrow(ax_bg, xs[3] + pw + 0.012, y_center, xs[4] - 0.012, y_center, "Concatenate")
 
     # (a) Raw Signal
-    ax1 = fig.add_axes([xs[0], y_ax, pw, ph])
+    ax1 = fig.add_axes([xs[0], y_axs[0], pw, ph])
     setup_boxed_spines(ax1)
     ax1.plot(t, sig, color='#1E293B', lw=1.1)
     ax1.set_xlim(0, 1.0)
@@ -451,7 +487,7 @@ def make_emd_diagram(t, sig, fs):
     ax1.grid(True, ls='--', lw=0.4, color=THEME['grid'], alpha=0.8)
 
     # (b) Sifting Loop
-    ax2 = fig.add_axes([xs[1], y_ax, pw, ph])
+    ax2 = fig.add_axes([xs[1], y_axs[1], pw, ph])
     setup_boxed_spines(ax2)
 
     sub_n = 70
@@ -490,7 +526,7 @@ def make_emd_diagram(t, sig, fs):
     if imfs.shape[0] < 4:
         imfs = np.pad(imfs, ((0, 4 - imfs.shape[0]), (0, 0)), mode='edge')
 
-    ax3 = fig.add_axes([xs[2], y_ax, pw, ph])
+    ax3 = fig.add_axes([xs[2], y_axs[2], pw, ph])
     setup_boxed_spines(ax3)
 
     traces_emd = [
@@ -515,7 +551,7 @@ def make_emd_diagram(t, sig, fs):
     ax3.set_xticks([])
 
     # (d) 6 Non-Linear Descriptors
-    ax4 = fig.add_axes([xs[3], y_ax, pw, ph])
+    ax4 = fig.add_axes([xs[3], y_axs[3], pw, ph])
     ax4.axis('off')
     card_d = FancyBboxPatch((0.005, 0.005), 0.990, 0.990, boxstyle="round,pad=0.005,rounding_size=0.015",
                             facecolor='#FFFFFF', edgecolor=THEME['box_spine'], lw=0.8, zorder=1)
@@ -536,7 +572,7 @@ def make_emd_diagram(t, sig, fs):
         y_d -= 0.150
 
     # (e) EMD Vector Assembly
-    ax5 = fig.add_axes([xs[4], y_ax, pw, ph])
+    ax5 = fig.add_axes([xs[4], y_axs[4], pw, ph])
     ax5.axis('off')
     card_e = FancyBboxPatch((0.005, 0.005), 0.990, 0.990, boxstyle="round,pad=0.005,rounding_size=0.015",
                             facecolor='#FFFFFF', edgecolor=THEME['box_spine'], lw=0.8, zorder=1)
